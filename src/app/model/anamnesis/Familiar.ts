@@ -13,6 +13,15 @@ export class Familiar {
     public RF8: any;
     public RF9: any;
 
+    public Padre = 'Padre';
+    public Madre = 'Madre';
+    public Hijo = 'Hijo(a)';
+    public Abuelo = 'Abuelo(a)';
+    public Hermano = 'Hermano(a)';
+    public Nieto = 'Nieto(a)';
+    public Tio = 'Tio(a)';
+    public Sobrino = 'Sobrino(a)';
+
     public PF1 = '¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...) ';
     public PF2 = '¿Algun miembro de su familia padece de arritmias? ';
     public PF3 = '¿Algun miembro de su familia padece de sindrome de QT largo? ';

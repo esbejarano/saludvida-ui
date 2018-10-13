@@ -113,5 +113,11 @@ export class Personal {
         this.Anno20 = '';
     }
 
+    public limpiar(variable1, variable2?, variable3?) {
+        console.log(variable1.value);
+        console.log(variable2.value);
+        console.log(variable3.value);
+    }
+
 }
 

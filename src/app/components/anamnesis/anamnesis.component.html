@@ -32,23 +32,23 @@
                         <label><b>{{personal.PP1}}</b></label>
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
-                        <input type="radio" id="PNo1" name="RP1" [(ngModel)]="personal.RP1" value="No" class="custom-control-input">
+                        <input type="radio" id="PNo1" name="RP1" [(ngModel)]="personal.RP1" #RP1 value="No" class="custom-control-input">
                         <label class="custom-control-label" for="PNo1">No</label>
                         </div>
                         <div class="custom-control custom-radio">
-                        <input type="radio" id="PSi1" name="RP1" [(ngModel)]="personal.RP1" value="Si" class="custom-control-input">
+                        <input type="radio" id="PSi1" name="RP1" [(ngModel)]="personal.RP1" #RP1 value="Si" class="custom-control-input">
                         <label class="custom-control-label" for="PSi1">Si</label>
                         </div>
                         <div id='PBloque1' name='PBloque1' *ngIf="personal.RP1=='Si'">
-                        <div>
-                            <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales1" id="Cuales1" [(ngModel)]="personal.Cuales1" placeholder="digitelas por favor...">
-                        </div>
-                        <div>
-                            <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" name="Anno1" id="Anno1" [(ngModel)]="personal.Anno1" >
-                            </div>
-                        </div>
+                          <div>
+                              <label>¿Cuales?: </label> 
+                              <input type="text" name="Cuales1" id="Cuales1" #Cuales1 [(ngModel)]="personal.Cuales1" placeholder="digitelas por favor...">
+                          </div>
+                          <div>
+                              <label>¿Desde que año?: </label> 
+                              <input type="number" min='1900' max="2100" name="Anno1" #Anno1 id="Anno1" [(ngModel)]="personal.Anno1" >
+                              </div>
+                          </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -534,37 +534,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa1" name="Pa1" value="Pa1" [(ngModel)]="familiar.RF1F.Pa1">
-                          <label class="custom-control-label" for="Pa1">Padre </label>
+                          <label class="custom-control-label" for="Pa1">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma1" name="Ma1" value="Ma1" [(ngModel)]="familiar.RF1F.Ma1">
-                          <label class="custom-control-label" for="Ma1">Madre</label>
+                          <label class="custom-control-label" for="Ma1">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi1" name="Hi1" value="Hi1" [(ngModel)]="familiar.RF1F.Hi1">
-                          <label class="custom-control-label" for="Hi1">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi1">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab1" name="Ab1" value="Ab1" [(ngModel)]="familiar.RF1F.Ab1">
-                          <label class="custom-control-label" for="Ab1">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab1">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He1" name="He1" value="He1" [(ngModel)]="familiar.RF1F.He1">
-                          <label class="custom-control-label" for="He1">Hermano(a)</label>
+                          <label class="custom-control-label" for="He1">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni1" name="Ni1" value="Ni1" [(ngModel)]="familiar.RF1F.Ni1">
-                          <label class="custom-control-label" for="Ni1">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni1">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti1" name="Ti1" value="Ti1" [(ngModel)]="familiar.RF1F.Ti1">
-                          <label class="custom-control-label" for="Ti1">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti1">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So1" name="So1" value="So1" [(ngModel)]="familiar.RF1F.So1">
-                          <label class="custom-control-label" for="So1">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So1">{{familiar.Sobrino}}</label>
                         </div>
                          </div>
                     </div>
@@ -585,37 +585,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa2" name="Pa2" value="Pa2" [(ngModel)]="familiar.RF2F.Pa2">
-                          <label class="custom-control-label" for="Pa2">Padre </label>
+                          <label class="custom-control-label" for="Pa2">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma2" name="Ma2" value="Ma2" [(ngModel)]="familiar.RF2F.Ma2">
-                          <label class="custom-control-label" for="Ma2">Madre</label>
+                          <label class="custom-control-label" for="Ma2">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi2" name="Hi2" value="Hi2" [(ngModel)]="familiar.RF2F.Hi2">
-                          <label class="custom-control-label" for="Hi2">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi2">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab2" name="Ab2" value="Ab2" [(ngModel)]="familiar.RF2F.Ab2">
-                          <label class="custom-control-label" for="Ab2">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab2">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He2" name="He2" value="He2" [(ngModel)]="familiar.RF2F.He2">
-                          <label class="custom-control-label" for="He2">Hermano(a)</label>
+                          <label class="custom-control-label" for="He2">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni2" name="Ni2" value="Ni2" [(ngModel)]="familiar.RF2F.Ni2">
-                          <label class="custom-control-label" for="Ni2">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni2">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti2" name="Ti2" value="Ti2" [(ngModel)]="familiar.RF2F.Ti2">
-                          <label class="custom-control-label" for="Ti2">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti2">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So2" name="So2" value="So2" [(ngModel)]="familiar.RF2F.So2">
-                          <label class="custom-control-label" for="So2">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So2">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -636,37 +636,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa3" name="Pa3" value="Pa3" [(ngModel)]="familiar.RF3F.Pa3">
-                          <label class="custom-control-label" for="Pa3">Padre </label>
+                          <label class="custom-control-label" for="Pa3">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma3" name="Ma3" value="Ma3" [(ngModel)]="familiar.RF3F.Ma3">
-                          <label class="custom-control-label" for="Ma3">Madre</label>
+                          <label class="custom-control-label" for="Ma3">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi3" name="Hi3" value="Hi3" [(ngModel)]="familiar.RF3F.Hi3">
-                          <label class="custom-control-label" for="Hi3">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi3">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab3" name="Ab3" value="Ab3" [(ngModel)]="familiar.RF3F.Ab3">
-                          <label class="custom-control-label" for="Ab3">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab3">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He3" name="He3" value="He3" [(ngModel)]="familiar.RF3F.He3">
-                          <label class="custom-control-label" for="He3">Hermano(a)</label>
+                          <label class="custom-control-label" for="He3">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni3" name="Ni3" value="Ni3" [(ngModel)]="familiar.RF3F.Ni3">
-                          <label class="custom-control-label" for="Ni3">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni3">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti3" name="Ti3" value="Ti3" [(ngModel)]="familiar.RF3F.Ti3">
-                          <label class="custom-control-label" for="Ti3">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti3">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So3" name="So3" value="So3" [(ngModel)]="familiar.RF3F.So3">
-                          <label class="custom-control-label" for="So3">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So3">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -687,37 +687,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa4" name="Pa4" value="Pa4" [(ngModel)]="familiar.RF4F.Pa4">
-                          <label class="custom-control-label" for="Pa4">Padre </label>
+                          <label class="custom-control-label" for="Pa4">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma4" name="Ma4" value="Ma4" [(ngModel)]="familiar.RF4F.Ma4">
-                          <label class="custom-control-label" for="Ma4">Madre</label>
+                          <label class="custom-control-label" for="Ma4">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi4" name="Hi4" value="Hi4" [(ngModel)]="familiar.RF4F.Hi4">
-                          <label class="custom-control-label" for="Hi4">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi4">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab4" name="Ab4" value="Ab4" [(ngModel)]="familiar.RF4F.Ab4">
-                          <label class="custom-control-label" for="Ab4">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab4">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He4" name="He4" value="He4" [(ngModel)]="familiar.RF4F.He4">
-                          <label class="custom-control-label" for="He4">Hermano(a)</label>
+                          <label class="custom-control-label" for="He4">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni4" name="Ni4" value="Ni4" [(ngModel)]="familiar.RF4F.Ni4">
-                          <label class="custom-control-label" for="Ni4">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni4">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti4" name="Ti4" value="Ti4" [(ngModel)]="familiar.RF4F.Ti4">
-                          <label class="custom-control-label" for="Ti4">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti4">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So4" name="So4" value="So4" [(ngModel)]="familiar.RF4F.So4">
-                          <label class="custom-control-label" for="So4">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So4">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -738,37 +738,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa5" name="Pa5" value="Pa5" [(ngModel)]="familiar.RF5F.Pa5">
-                          <label class="custom-control-label" for="Pa5">Padre </label>
+                          <label class="custom-control-label" for="Pa5">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma5" name="Ma5" value="Ma5" [(ngModel)]="familiar.RF5F.Ma5">
-                          <label class="custom-control-label" for="Ma5">Madre</label>
+                          <label class="custom-control-label" for="Ma5">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi5" name="Hi5" value="Hi5" [(ngModel)]="familiar.RF5F.Hi5">
-                          <label class="custom-control-label" for="Hi5">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi5">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab5" name="Ab5" value="Ab5" [(ngModel)]="familiar.RF5F.Ab5">
-                          <label class="custom-control-label" for="Ab5">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab5">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He5" name="He5" value="He5" [(ngModel)]="familiar.RF5F.He5">
-                          <label class="custom-control-label" for="He5">Hermano(a)</label>
+                          <label class="custom-control-label" for="He5">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni5" name="Ni5" value="Ni5" [(ngModel)]="familiar.RF5F.Ni5">
-                          <label class="custom-control-label" for="Ni5">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni5">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti5" name="Ti5" value="Ti5" [(ngModel)]="familiar.RF5F.Ti5">
-                          <label class="custom-control-label" for="Ti5">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti5">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So5" name="So5" value="So5" [(ngModel)]="familiar.RF5F.So5">
-                          <label class="custom-control-label" for="So5">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So5">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -789,37 +789,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa6" name="Pa6" value="Pa6" [(ngModel)]="familiar.RF6F.Pa6">
-                          <label class="custom-control-label" for="Pa6">Padre </label>
+                          <label class="custom-control-label" for="Pa6">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma6" name="Ma6" value="Ma6" [(ngModel)]="familiar.RF6F.Ma6">
-                          <label class="custom-control-label" for="Ma6">Madre</label>
+                          <label class="custom-control-label" for="Ma6">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi6" name="Hi6" value="Hi6" [(ngModel)]="familiar.RF6F.Hi6">
-                          <label class="custom-control-label" for="Hi6">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi6">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab6" name="Ab6" value="Ab6" [(ngModel)]="familiar.RF6F.Ab6">
-                          <label class="custom-control-label" for="Ab6">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab6">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He6" name="He6" value="He6" [(ngModel)]="familiar.RF6F.He6">
-                          <label class="custom-control-label" for="He6">Hermano(a)</label>
+                          <label class="custom-control-label" for="He6">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni6" name="Ni6" value="Ni6" [(ngModel)]="familiar.RF6F.Ni6">
-                          <label class="custom-control-label" for="Ni6">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni6">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti6" name="Ti6" value="Ti6" [(ngModel)]="familiar.RF6F.Ti6">
-                          <label class="custom-control-label" for="Ti6">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti6">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So6" name="So6" value="So6" [(ngModel)]="familiar.RF6F.So6">
-                          <label class="custom-control-label" for="So6">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So6">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -840,37 +840,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa7" name="Pa7" value="Pa7" [(ngModel)]="familiar.RF7F.Pa7">
-                          <label class="custom-control-label" for="Pa7">Padre </label>
+                          <label class="custom-control-label" for="Pa7">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma7" name="Ma7" value="Ma7" [(ngModel)]="familiar.RF7F.Ma7">
-                          <label class="custom-control-label" for="Ma7">Madre</label>
+                          <label class="custom-control-label" for="Ma7">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi7" name="Hi7" value="Hi7" [(ngModel)]="familiar.RF7F.Hi7">
-                          <label class="custom-control-label" for="Hi7">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi7">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab7" name="Ab7" value="Ab7" [(ngModel)]="familiar.RF7F.Ab7">
-                          <label class="custom-control-label" for="Ab7">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab7">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He7" name="He7" value="He7" [(ngModel)]="familiar.RF7F.He7">
-                          <label class="custom-control-label" for="He7">Hermano(a)</label>
+                          <label class="custom-control-label" for="He7">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni7" name="Ni7" value="Ni7" [(ngModel)]="familiar.RF7F.Ni7">
-                          <label class="custom-control-label" for="Ni7">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni7">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti7" name="Ti7" value="Ti7" [(ngModel)]="familiar.RF7F.Ti7">
-                          <label class="custom-control-label" for="Ti7">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti7">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So7" name="So7" value="So7" [(ngModel)]="familiar.RF7F.So7">
-                          <label class="custom-control-label" for="So7">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So7">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -891,37 +891,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa8" name="Pa8" value="Pa8" [(ngModel)]="familiar.RF8F.Pa8">
-                          <label class="custom-control-label" for="Pa8">Padre </label>
+                          <label class="custom-control-label" for="Pa8">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma8" name="Ma8" value="Ma8" [(ngModel)]="familiar.RF8F.Ma8">
-                          <label class="custom-control-label" for="Ma8">Madre</label>
+                          <label class="custom-control-label" for="Ma8">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi8" name="Hi8" value="Hi8" [(ngModel)]="familiar.RF8F.Hi8">
-                          <label class="custom-control-label" for="Hi8">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi8">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab8" name="Ab8" value="Ab8" [(ngModel)]="familiar.RF8F.Ab8">
-                          <label class="custom-control-label" for="Ab8">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab8">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He8" name="He8" value="He8" [(ngModel)]="familiar.RF8F.He8">
-                          <label class="custom-control-label" for="He8">Hermano(a)</label>
+                          <label class="custom-control-label" for="He8">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni8" name="Ni8" value="Ni8" [(ngModel)]="familiar.RF8F.Ni8">
-                          <label class="custom-control-label" for="Ni8">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni8">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti8" name="Ti8" value="Ti8" [(ngModel)]="familiar.RF8F.Ti8">
-                          <label class="custom-control-label" for="Ti8">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti8">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So8" name="So8" value="So8" [(ngModel)]="familiar.RF8F.So8">
-                          <label class="custom-control-label" for="So8">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So8">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
@@ -942,37 +942,37 @@
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa9" name="Pa9" value="Pa9" [(ngModel)]="familiar.RF9F.Pa9">
-                          <label class="custom-control-label" for="Pa9">Padre </label>
+                          <label class="custom-control-label" for="Pa9">{{familiar.Padre}} </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ma9" name="Ma9" value="Ma9" [(ngModel)]="familiar.RF9F.Ma9">
-                          <label class="custom-control-label" for="Ma9">Madre</label>
+                          <label class="custom-control-label" for="Ma9">{{familiar.Madre}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Hi9" name="Hi9" value="Hi9" [(ngModel)]="familiar.RF9F.Hi9">
-                          <label class="custom-control-label" for="Hi9">Hijo(a) </label>
+                          <label class="custom-control-label" for="Hi9">{{familiar.Hijo}} </label>
                         </div>  
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab9" name="Ab9" value="Ab9" [(ngModel)]="familiar.RF9F.Ab9">
-                          <label class="custom-control-label" for="Ab9">Abuelo(a)  </label>
+                          <label class="custom-control-label" for="Ab9">{{familiar.Abuelo}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="He9" name="He9" value="He9" [(ngModel)]="familiar.RF9F.He9">
-                          <label class="custom-control-label" for="He9">Hermano(a)</label>
+                          <label class="custom-control-label" for="He9">{{familiar.Hermano}}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ni9" name="Ni9" value="Ni9" [(ngModel)]="familiar.RF9F.Ni9">
-                          <label class="custom-control-label" for="Ni9">Nieto(a) </label>
+                          <label class="custom-control-label" for="Ni9">{{familiar.Nieto}} </label>
                         </div>
                         <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti9" name="Ti9" value="Ti9" [(ngModel)]="familiar.RF9F.Ti9">
-                          <label class="custom-control-label" for="Ti9">Tio(a)  </label>
+                          <label class="custom-control-label" for="Ti9">{{familiar.Tio}}  </label>
                         </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="So9" name="So9" value="So9" [(ngModel)]="familiar.RF9F.So9">
-                          <label class="custom-control-label" for="So9">Sobrino(a)</label>
+                          <label class="custom-control-label" for="So9">{{familiar.Sobrino}}</label>
                         </div>
                       </div>
                     </div>
