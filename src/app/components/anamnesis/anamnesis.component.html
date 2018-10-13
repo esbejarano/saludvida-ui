@@ -29,8 +29,7 @@
                 <form id="formPreguntasAntecedentes" name="formPreguntasAntecedentes" >
                     <legend>Por favor diligencie sus antecedentes personales</legend>
                     <div class="form-group">
-                        <label for="PP1"><b>¿Tiene problemas cardiacos?</b></label>
-                        <input type="hidden" id="PP1" name="PP1" [(ngModel)]="personal.PP1" value="¿Tiene problemas cardiacos?" >
+                        <label><b>{{personal.PP1}}</b></label>
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo1" name="RP1" [(ngModel)]="personal.RP1" value="No" class="custom-control-input">
@@ -40,7 +39,7 @@
                         <input type="radio" id="PSi1" name="RP1" [(ngModel)]="personal.RP1" value="Si" class="custom-control-input">
                         <label class="custom-control-label" for="PSi1">Si</label>
                         </div>
-                        <div id='PBloque1' *ngIf="personal.RP1=='Si'">
+                        <div id='PBloque1' name='PBloque1' *ngIf="personal.RP1=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales1" id="Cuales1" [(ngModel)]="personal.Cuales1" placeholder="digitelas por favor...">
@@ -53,8 +52,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP2"><b>¿Tiene o ha tenido presion alta alguna vez?</b></label>
-                        <input type="hidden" id="PP2"  name="PP2" [(ngModel)]="personal.PP2" value="¿Tiene o ha tenido presion alta alguna vez?" >
+                        <label><b>{{personal.PP2}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo2" name="RP2" [(ngModel)]="personal.RP2" value="No" class="custom-control-input" >
@@ -64,7 +63,7 @@
                         <input type="radio" id="PSi2" name="RP2" [(ngModel)]="personal.RP2" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi2">Si</label>
                         </div>
-                        <div id='PBloque2' *ngIf="personal.RP2=='Si'" >
+                        <div id='PBloque2' name='PBloque2' *ngIf="personal.RP2=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno2" id="Anno2" [(ngModel)]="personal.Anno2">
@@ -73,8 +72,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP3"><b>¿Tiene diabetes?</b></label>
-                        <input type="hidden" id="PP3"  name="PP3" [(ngModel)]="personal.PP3" value="¿Tiene diabetes?" >
+                        <label><b>{{personal.PP3}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo3" name="RP3" [(ngModel)]="personal.RP3" value="No" class="custom-control-input" >
@@ -84,7 +83,7 @@
                         <input type="radio" id="PSi3" name="RP3" [(ngModel)]="personal.RP3" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi3">Si</label>
                         </div>
-                        <div id='PBloque3' *ngIf="personal.RP3=='Si'" >
+                        <div id='PBloque3' name='PBloque3' *ngIf="personal.RP3=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno3" id="Anno3" [(ngModel)]="personal.Anno3">
@@ -93,8 +92,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP4"><b>¿Ha tenido dolor en el pecho u opresion?</b></label>
-                        <input type="hidden" id="PP4"  name="PP4" [(ngModel)]="personal.PP4" value="¿Ha tenido dolor en el pecho u opresion?" >
+                        <label><b>{{personal.PP4}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo4" name="RP4" [(ngModel)]="personal.RP4" value="No" class="custom-control-input" >
@@ -104,7 +103,7 @@
                         <input type="radio" id="PSi4" name="RP4" [(ngModel)]="personal.RP4" value="Si" class="custom-control-input">
                         <label class="custom-control-label" for="PSi4">Si</label>
                         </div>
-                        <div id='PBloque4' *ngIf="personal.RP4=='Si'" >
+                        <div id='PBloque4' name='PBloque4' *ngIf="personal.RP4=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno4" id="Anno4" [(ngModel)]="personal.Anno4">
@@ -113,8 +112,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP5"><b>¿Suele sentirse cansado o fatigado con facilidad?</b></label>
-                        <input type="hidden" id="PP5"  name="PP5" [(ngModel)]="personal.PP5" value="¿Suele sentirse cansado o fatigado con facilidad?" >
+                        <label><b>{{personal.PP5}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="PNo5" name="RP5" [(ngModel)]="personal.RP5" value="No" class="custom-control-input" >
@@ -124,7 +123,7 @@
                                 <input type="radio" id="PSi5" name="RP5" [(ngModel)]="personal.RP5" value="Si" class="custom-control-input" >
                                 <label class="custom-control-label" for="PSi5">Si</label>
                             </div>
-                        <div id='PBloque5' *ngIf="personal.RP5=='Si'" >
+                        <div id='PBloque5' name='PBloque5' *ngIf="personal.RP5=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno5" id="Anno5" [(ngModel)]="personal.Anno5">
@@ -133,8 +132,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP6"><b>Ha tenido o tiene con el ejercicio</b></label>
-                        <input type="hidden" id="PP6"  name="PP6" [(ngModel)]="personal.PP6" value="Ha tenido o tiene con el ejercicio" >
+                        <label><b>{{personal.PP6}}</b></label>
+                        
                         <div class="form-group">
                         <div class="col-lg-10">
                             <div class="custom-control custom-checkbox">
@@ -157,8 +156,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP7"><b>¿Tiene otro factor de riesgo cardiovascular?</b></label>
-                        <input type="hidden" id="PP7"  name="PP7" [(ngModel)]="personal.PP7" value="¿Tiene otro factor de riesgo cardiovascular?" >
+                        <label><b>{{personal.PP7}}</b></label>
+                        
                         <div class="form-group">
                         <div class="col-lg-10">
                             <div class="custom-control custom-checkbox">
@@ -185,8 +184,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP8"><b>¿Tiene asma?</b></label>
-                        <input type="hidden" id="PP8"  name="PP8" [(ngModel)]="personal.PP8" value="¿Tiene asma?" >
+                        <label><b>{{personal.PP8}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo8" name="RP8" [(ngModel)]="personal.RP8" value="No" class="custom-control-input" >
@@ -196,7 +195,7 @@
                         <input type="radio" id="PSi8" name="RP8" [(ngModel)]="personal.RP8" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi8">Si</label>
                         </div>
-                        <div id='PBloque8' *ngIf="personal.RP8=='Si'">
+                        <div id='PBloque8' name='PBloque8' *ngIf="personal.RP8=='Si'">
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno8" id="Anno8" [(ngModel)]="personal.Anno8">
@@ -205,8 +204,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP9"><b>¿Tiene alguna alergia?</b></label>
-                        <input type="hidden" id="PP9"  name="PP9" [(ngModel)]="personal.PP9" value="¿Tiene alguna alergia?" >
+                        <label><b>{{personal.PP9}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo9" name="RP9" [(ngModel)]="personal.RP9" value="No" class="custom-control-input" >
@@ -216,7 +215,7 @@
                         <input type="radio" id="PSi9" name="RP9" [(ngModel)]="personal.RP9" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi9">Si</label>
                         </div>
-                        <div id='PBloque9' *ngIf="personal.RP9=='Si'">
+                        <div id='PBloque9' name='PBloque9' *ngIf="personal.RP9=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales9" id="Cuales9" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales9">
@@ -229,8 +228,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP10"><b>¿Tiene algun problema de piel?</b></label>
-                        <input type="hidden" id="PP10"  name="PP10" [(ngModel)]="personal.PP10" value="¿Tiene algun problema de piel?" >
+                        <label><b>{{personal.PP10}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo10" name="RP10" [(ngModel)]="personal.RP10" value="No" class="custom-control-input" >
@@ -240,7 +239,7 @@
                         <input type="radio" id="PSi10" name="RP10" [(ngModel)]="personal.RP10" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi10">Si</label>
                         </div>
-                        <div id='PBloque10' *ngIf="personal.RP10=='Si'">
+                        <div id='PBloque10' name='PBloque10' *ngIf="personal.RP10=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales10" id="Cuales10" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales10">
@@ -253,8 +252,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP11"><b>¿Tiene alguna enfermedad neurologica?</b></label>
-                        <input type="hidden" id="PP11"  name="PP11" [(ngModel)]="personal.PP11" value="¿Tiene alguna enfermedad neurologica?" >
+                        <label><b>{{personal.PP11}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo11" name="RP11" [(ngModel)]="personal.RP11" value="No" class="custom-control-input" >
@@ -264,7 +263,7 @@
                         <input type="radio" id="PSi11" name="RP11" [(ngModel)]="personal.RP11" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi11">Si</label>
                         </div>
-                        <div id='PBloque11' *ngIf="personal.RP11=='Si'">
+                        <div id='PBloque11' name='PBloque11' *ngIf="personal.RP11=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales11" id="Cuales11" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales11">
@@ -277,8 +276,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP12"><b>¿Ha tenido dolor de cabeza intenso?</b></label>
-                        <input type="hidden" id="PP12"  name="PP12" [(ngModel)]="personal.PP12" value="¿Ha tenido dolor de cabeza intenso?" >
+                        <label><b>{{personal.PP12}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo12" name="RP12" [(ngModel)]="personal.RP12" value="No" class="custom-control-input" >
@@ -288,7 +287,7 @@
                         <input type="radio" id="PSi12" name="RP12" [(ngModel)]="personal.RP12" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi12">Si</label>
                         </div>
-                        <div id='PBloque12' *ngIf="personal.RP12=='Si'">
+                        <div id='PBloque12' name='PBloque12' *ngIf="personal.RP12=='Si'">
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno12" id="Anno12" [(ngModel)]="personal.Anno12">
@@ -297,8 +296,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP13"><b>¿Ha tenido convulsiones?</b></label>
-                        <input type="hidden" id="PP13"  name="PP13" [(ngModel)]="personal.PP13" value="¿Ha tenido convulsiones?" >
+                        <label><b>{{personal.PP13}}</b></label>
+                        
                             <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo13" name="RP13" [(ngModel)]="personal.RP13" value="No" class="custom-control-input" >
@@ -308,7 +307,7 @@
                         <input type="radio" id="PSi13" name="RP13" [(ngModel)]="personal.RP13" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi13">Si</label>
                         </div>
-                        <div id='PBloque13' *ngIf="personal.RP13=='Si'" >
+                        <div id='PBloque13' name='PBloque13' *ngIf="personal.RP13=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno13" id="Anno13" [(ngModel)]="personal.Anno13">
@@ -317,8 +316,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP14"><b>¿Tiene problemas articulares u oseos?</b></label>
-                        <input type="hidden" id="PP14"  name="PP14" [(ngModel)]="personal.PP14" value="¿Tiene problemas articulares u oseos?" >
+                        <label><b>{{personal.PP14}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo14" name="RP14" [(ngModel)]="personal.RP14" value="No" class="custom-control-input" >
@@ -328,7 +327,7 @@
                         <input type="radio" id="PSi14" name="RP14" [(ngModel)]="personal.RP14" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi14">Si</label>
                         </div>
-                        <div id='PBloque14'  *ngIf="personal.RP14=='Si'" >
+                        <div id='PBloque14' name='PBloque14'  *ngIf="personal.RP14=='Si'" >
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales14" id="Cuales14" placeholder="digitelas por favor...">
@@ -341,8 +340,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP15"><b>¿Tiene o ha tenido traumas o lesiones previas en huesos, articulaciones o musculos?</b></label>
-                        <input type="hidden" id="PP15"  name="PP15" [(ngModel)]="personal.PP15" value="¿Tiene o ha tenido traumas o lesiones previas en huesos, articulaciones o musculos?" >
+                        <label><b>{{personal.PP15}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo15" name="RP15" [(ngModel)]="personal.RP15" value="No" class="custom-control-input" >
@@ -352,7 +351,7 @@
                         <input type="radio" id="PSi15" name="RP15" [(ngModel)]="personal.RP15" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi15">Si</label>
                         </div>
-                        <div id='PBloque15'  *ngIf="personal.RP15=='Si'" >
+                        <div id='PBloque15' name='PBloque15'  *ngIf="personal.RP15=='Si'" >
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales15" id="Cuales15" placeholder="digitelas por favor...">
@@ -365,8 +364,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP16"><b>¿Sufre de ansiedad?</b></label>
-                        <input type="hidden" id="PP16"  name="PP16" [(ngModel)]="personal.PP16" value="¿Sufre de ansiedad?" >
+                        <label><b>{{personal.PP16}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo16" name="RP16" [(ngModel)]="personal.RP16" value="No" class="custom-control-input" >
@@ -376,7 +375,7 @@
                         <input type="radio" id="PSi16" name="RP16" [(ngModel)]="personal.RP16" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi16">Si</label>
                         </div>
-                        <div id='PBloque16'  *ngIf="personal.RP16=='Si'" >
+                        <div id='PBloque16' name='PBloque16'  *ngIf="personal.RP16=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno16" id="Anno16" [(ngModel)]="personal.Anno16">
@@ -385,8 +384,7 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP20"><b>¿Sufre de depresion?</b></label>
-                        <input type="hidden" id="PP20"  name="PP20" value="¿Sufre de depresion?" >
+                        <label><b>{{personal.PP20}}</b></label>
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo16" name="RP20" [(ngModel)]="personal.RP20" value="No" class="custom-control-input"  >
@@ -396,7 +394,7 @@
                         <input type="radio" id="PSi61" name="RP20" [(ngModel)]="personal.RP20" value="Si" class="custom-control-input"  >
                         <label class="custom-control-label" for="PSi61">Si</label>
                         </div>
-                        <div id='PBloque61'  *ngIf="personal.RP20=='Si'" >
+                        <div id='PBloque61' name='PBloque61'  *ngIf="personal.RP20=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
                             <input type="number" min='1900' max="2100" value="2015" name="Anno20" id="Anno20" [(ngModel)]="personal.Anno20">
@@ -405,8 +403,8 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP17"><b>¿Existe algun otro problema o enfermedad no mencionada aqui que debiera confiarnos?</b></label>
-                        <input type="hidden" id="PP17"  name="PP17" [(ngModel)]="personal.PP17" value="¿Existe algun otro problema o enfermedad no mencionada aqui que debiera confiarnos?" >
+                        <label><b>{{personal.PP17}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo17" name="RP17" [(ngModel)]="personal.RP17" value="No" class="custom-control-input" >
@@ -416,45 +414,45 @@
                         <input type="radio" id="PSi17" name="RP17" [(ngModel)]="personal.RP17" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi17">Si</label>
                         </div>
-                        <div id='PBloque17'  *ngIf="personal.RP17=='Si'" >
-                        <div>
-                            <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales17" id="Cuales17" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales17">
-                        </div>
-                        <div>
-                            <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno17" id="Anno17" [(ngModel)]="personal.Anno17">
-                        </div>
+                        <div id='PBloque17' name='PBloque17'  *ngIf="personal.RP17=='Si'" >
+                          <div>
+                              <label>¿Cuales?: </label> 
+                              <input type="text" name="Cuales17" id="Cuales17" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales17">
+                          </div>
+                          <div>
+                              <label>¿Desde que año?: </label> 
+                              <input type="number" min='1900' max="2100" value="2015" name="Anno17" id="Anno17" [(ngModel)]="personal.Anno17">
+                          </div>
                         </div>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP18"><b>Para perder o ganar peso, o mejorar el rendimiento deportivo ha tomado o toma:</b></label>
-                        <input type="hidden" id="PP18"  name="PP18" [(ngModel)]="personal.PP18" value="Para perder o ganar peso, o mejorar el rendimiento deportivo ha tomado o toma:" >
+                        <label><b>{{personal.PP18}}</b></label>
+                        
                         <div class="form-group">
                           <div class="col-lg-10">
                               <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Medicamentos">
+                              <input type="checkbox" class="custom-control-input" id="Medicamentos" name="Medicamentos" [(ngModel)]="personal.RP18.Medicamentos">
                               <label class="custom-control-label" for="Medicamentos">Medicamentos</label>
                               </div>
                               <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Esteroides">
+                              <input type="checkbox" class="custom-control-input" id="Esteroides" name="Esteroides" [(ngModel)]="personal.RP18.Esteroides">
                               <label class="custom-control-label" for="Esteroides">Esteroides</label>
                               </div>
                               <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Anabolicos">
+                              <input type="checkbox" class="custom-control-input" id="Anabolicos" name="Anabolicos" [(ngModel)]="personal.RP18.Anabolicos">
                               <label class="custom-control-label" for="Anabolicos">Anabolicos</label>
                               </div>
                               <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Suplementos">
+                              <input type="checkbox" class="custom-control-input" id="Suplementos" name="Suplementos" [(ngModel)]="personal.RP18.Suplementos">
                               <label class="custom-control-label" for="Suplementos">Suplementos</label>
                               </div>
                           </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="PP19"><b>¿Tiene alguna cirugia?</b></label>
-                        <input type="hidden" id="PP19"  name="PP19" [(ngModel)]="personal.PP19" value="¿Tiene alguna cirugia?" >
+                        <label><b>{{personal.PP19}}</b></label>
+                        
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
                         <input type="radio" id="PNo19" name="RP19" [(ngModel)]="personal.RP19" value="No" class="custom-control-input" >
@@ -464,7 +462,7 @@
                         <input type="radio" id="PSi19" name="RP19" [(ngModel)]="personal.RP19" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="PSi19">Si</label>
                         </div>
-                        <div id='PBloque19' *ngIf="personal.RP19=='Si'">
+                        <div id='PBloque19' name='PBloque19' *ngIf="personal.RP19=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
                             <input type="text" name="Cuales19" id="Cuales19" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales19" value="RP19!='Si'?'':'Erick'">
@@ -519,10 +517,9 @@
         <ngb-tab id="antecedentesFamiliares">
             <ng-template ngbTabTitle><b>Antecedentes familiares</b></ng-template>
             <ng-template ngbTabContent>
-                    <legend>por favor diligencie sus antecedentes familiares</legend>
+                    <legend>Por favor diligencie sus antecedentes familiares</legend>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...) </label>
-                    <input type="hidden" id="PF1"  [(ngModel)]="familiar.PF1" name="PF1" value="¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...)" >
+                    <label><b>{{familiar.PF1}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo1" name="RF1" [(ngModel)]="familiar.RF1" value="No" class="custom-control-input" >
@@ -532,9 +529,9 @@
                         <input type="radio" id="FSi1" name="RF1" [(ngModel)]="familiar.RF1" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi1">Si</label>
                       </div>
-                      <div id='FBloque1'  class="col-lg-3">
+                      <div *ngIf="familiar.RF1 == 'Si'" id='FBloque1'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa1" name="Pa1" value="Pa1" [(ngModel)]="familiar.RF1F.Pa1">
                           <label class="custom-control-label" for="Pa1">Padre </label>
@@ -547,7 +544,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi1" name="Hi1" value="Hi1" [(ngModel)]="familiar.RF1F.Hi1">
                           <label class="custom-control-label" for="Hi1">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab1" name="Ab1" value="Ab1" [(ngModel)]="familiar.RF1F.Ab1">
                           <label class="custom-control-label" for="Ab1">Abuelo(a)  </label>
@@ -560,7 +557,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni1" name="Ni1" value="Ni1" [(ngModel)]="familiar.RF1F.Ni1">
                           <label class="custom-control-label" for="Ni1">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti1" name="Ti1" value="Ti1" [(ngModel)]="familiar.RF1F.Ti1">
                           <label class="custom-control-label" for="Ti1">Tio(a)  </label>
@@ -573,8 +570,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de su familia padece de arritmias? </label>
-                    <input type="hidden" id="PF2"  [(ngModel)]="familiar.PF2" name="PF2" value="¿Algun miembro de su familia padece de arritmias?" >
+                    <label><b>{{familiar.PF2}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo2" name="RF2" [(ngModel)]="familiar.RF2" value="No" class="custom-control-input">
@@ -584,9 +580,9 @@
                         <input type="radio" id="FSi2" name="RF2" [(ngModel)]="familiar.RF2" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi2">Si</label>
                       </div>
-                      <div id='FBloque2'  class="col-lg-3">
+                      <div *ngIf="familiar.RF2 == 'Si'" id='FBloque2'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa2" name="Pa2" value="Pa2" [(ngModel)]="familiar.RF2F.Pa2">
                           <label class="custom-control-label" for="Pa2">Padre </label>
@@ -599,7 +595,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi2" name="Hi2" value="Hi2" [(ngModel)]="familiar.RF2F.Hi2">
                           <label class="custom-control-label" for="Hi2">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab2" name="Ab2" value="Ab2" [(ngModel)]="familiar.RF2F.Ab2">
                           <label class="custom-control-label" for="Ab2">Abuelo(a)  </label>
@@ -612,7 +608,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni2" name="Ni2" value="Ni2" [(ngModel)]="familiar.RF2F.Ni2">
                           <label class="custom-control-label" for="Ni2">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti2" name="Ti2" value="Ti2" [(ngModel)]="familiar.RF2F.Ti2">
                           <label class="custom-control-label" for="Ti2">Tio(a)  </label>
@@ -625,8 +621,7 @@
                     </div>
                   </div>
                   <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de su familia padece de sindrome de QT largo? </label>
-                    <input type="hidden" id="PF3"  [(ngModel)]="familiar.PF3" name="PF3" value="¿Algun miembro de su familia padece de sindrome de QT largo?" >
+                    <label><b>{{familiar.PF3}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo3" name="RF3" [(ngModel)]="familiar.RF3" value="No" class="custom-control-input" >
@@ -636,9 +631,9 @@
                         <input type="radio" id="FSi3" name="RF3" [(ngModel)]="familiar.RF3" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi3">Si</label>
                       </div>
-                      <div id='FBloque3'  class="col-lg-3">
+                      <div *ngIf="familiar.RF3 == 'Si'" id='FBloque3'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa3" name="Pa3" value="Pa3" [(ngModel)]="familiar.RF3F.Pa3">
                           <label class="custom-control-label" for="Pa3">Padre </label>
@@ -651,7 +646,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi3" name="Hi3" value="Hi3" [(ngModel)]="familiar.RF3F.Hi3">
                           <label class="custom-control-label" for="Hi3">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab3" name="Ab3" value="Ab3" [(ngModel)]="familiar.RF3F.Ab3">
                           <label class="custom-control-label" for="Ab3">Abuelo(a)  </label>
@@ -664,7 +659,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni3" name="Ni3" value="Ni3" [(ngModel)]="familiar.RF3F.Ni3">
                           <label class="custom-control-label" for="Ni3">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti3" name="Ti3" value="Ti3" [(ngModel)]="familiar.RF3F.Ti3">
                           <label class="custom-control-label" for="Ti3">Tio(a)  </label>
@@ -677,8 +672,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de su familia padece de hipertrofia cardiaca? </label>
-                    <input type="hidden" id="PF4"  [(ngModel)]="familiar.PF4" name="PF4" value="¿Algun miembro de su familia padece de hipertrofia cardiaca?" >
+                    <label><b>{{familiar.PF4}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo4" name="RF4" [(ngModel)]="familiar.RF4" value="No" class="custom-control-input" >
@@ -688,9 +682,9 @@
                         <input type="radio" id="FSi4" name="RF4" [(ngModel)]="familiar.RF4" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi4">Si</label>
                       </div>
-                      <div id='FBloque4'  class="col-lg-3">
+                      <div *ngIf="familiar.RF4 == 'Si'" id='FBloque4'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa4" name="Pa4" value="Pa4" [(ngModel)]="familiar.RF4F.Pa4">
                           <label class="custom-control-label" for="Pa4">Padre </label>
@@ -703,7 +697,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi4" name="Hi4" value="Hi4" [(ngModel)]="familiar.RF4F.Hi4">
                           <label class="custom-control-label" for="Hi4">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab4" name="Ab4" value="Ab4" [(ngModel)]="familiar.RF4F.Ab4">
                           <label class="custom-control-label" for="Ab4">Abuelo(a)  </label>
@@ -716,7 +710,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni4" name="Ni4" value="Ni4" [(ngModel)]="familiar.RF4F.Ni4">
                           <label class="custom-control-label" for="Ni4">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti4" name="Ti4" value="Ti4" [(ngModel)]="familiar.RF4F.Ti4">
                           <label class="custom-control-label" for="Ti4">Tio(a)  </label>
@@ -729,8 +723,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de su familia padece de sindrome de Marfan? </label>
-                    <input type="hidden" id="PF5"  [(ngModel)]="familiar.PF5" name="PF5" value="¿Algun miembro de su familia padece de sindrome de Marfan?" >
+                    <label><b>{{familiar.PF5}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo5" name="RF5" [(ngModel)]="familiar.RF5" value="No" class="custom-control-input" >
@@ -740,9 +733,9 @@
                         <input type="radio" id="FSi5" name="RF5" [(ngModel)]="familiar.RF5" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi5">Si</label>
                       </div>
-                      <div id='FBloque5'  class="col-lg-3">
+                      <div *ngIf="familiar.RF5 == 'Si'" id='FBloque5'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa5" name="Pa5" value="Pa5" [(ngModel)]="familiar.RF5F.Pa5">
                           <label class="custom-control-label" for="Pa5">Padre </label>
@@ -755,7 +748,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi5" name="Hi5" value="Hi5" [(ngModel)]="familiar.RF5F.Hi5">
                           <label class="custom-control-label" for="Hi5">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab5" name="Ab5" value="Ab5" [(ngModel)]="familiar.RF5F.Ab5">
                           <label class="custom-control-label" for="Ab5">Abuelo(a)  </label>
@@ -768,7 +761,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni5" name="Ni5" value="Ni5" [(ngModel)]="familiar.RF5F.Ni5">
                           <label class="custom-control-label" for="Ni5">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti5" name="Ti5" value="Ti5" [(ngModel)]="familiar.RF5F.Ti5">
                           <label class="custom-control-label" for="Ti5">Tio(a)  </label>
@@ -781,8 +774,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de su familia sufrio un accidente cerebrovascular (ACV)? </label>
-                    <input type="hidden" id="PF6"  [(ngModel)]="familiar.PF6" name="PF6" value="¿Algun miembro de su familia sufrio un accidente cerebrovascular (ACV)?" >
+                    <label><b>{{familiar.PF6}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo6" name="RF6" [(ngModel)]="familiar.RF6" value="No" class="custom-control-input" >
@@ -792,9 +784,9 @@
                         <input type="radio" id="FSi6" name="RF6" [(ngModel)]="familiar.RF6" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi6">Si</label>
                       </div>
-                      <div id='FBloque6'  class="col-lg-3">
+                      <div *ngIf="familiar.RF6 == 'Si'" id='FBloque6'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa6" name="Pa6" value="Pa6" [(ngModel)]="familiar.RF6F.Pa6">
                           <label class="custom-control-label" for="Pa6">Padre </label>
@@ -807,7 +799,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi6" name="Hi6" value="Hi6" [(ngModel)]="familiar.RF6F.Hi6">
                           <label class="custom-control-label" for="Hi6">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab6" name="Ab6" value="Ab6" [(ngModel)]="familiar.RF6F.Ab6">
                           <label class="custom-control-label" for="Ab6">Abuelo(a)  </label>
@@ -820,7 +812,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni6" name="Ni6" value="Ni6" [(ngModel)]="familiar.RF6F.Ni6">
                           <label class="custom-control-label" for="Ni6">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti6" name="Ti6" value="Ti6" [(ngModel)]="familiar.RF6F.Ti6">
                           <label class="custom-control-label" for="Ti6">Tio(a)  </label>
@@ -833,8 +825,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de tu familia sufre de presion arterial alta (HTA)? </label>
-                    <input type="hidden" id="PF7"  [(ngModel)]="familiar.PF7" name="PF7" value="¿Algun miembro de tu familia sufre de presion arterial alta (HTA)?" >
+                    <label><b>{{familiar.PF7}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo7" name="RF7" [(ngModel)]="familiar.RF7" value="No" class="custom-control-input" >
@@ -844,9 +835,9 @@
                         <input type="radio" id="FSi7" name="RF7" [(ngModel)]="familiar.RF7" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi7">Si</label>
                       </div>
-                      <div id='FBloque7'  class="col-lg-3">
+                      <div *ngIf="familiar.RF7 == 'Si'" id='FBloque7'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa7" name="Pa7" value="Pa7" [(ngModel)]="familiar.RF7F.Pa7">
                           <label class="custom-control-label" for="Pa7">Padre </label>
@@ -859,7 +850,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi7" name="Hi7" value="Hi7" [(ngModel)]="familiar.RF7F.Hi7">
                           <label class="custom-control-label" for="Hi7">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab7" name="Ab7" value="Ab7" [(ngModel)]="familiar.RF7F.Ab7">
                           <label class="custom-control-label" for="Ab7">Abuelo(a)  </label>
@@ -872,7 +863,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni7" name="Ni7" value="Ni7" [(ngModel)]="familiar.RF7F.Ni7">
                           <label class="custom-control-label" for="Ni7">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti7" name="Ti7" value="Ti7" [(ngModel)]="familiar.RF7F.Ti7">
                           <label class="custom-control-label" for="Ti7">Tio(a)  </label>
@@ -885,8 +876,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de tu familia sufre de Diabetes? </label>
-                    <input type="hidden" id="PF8"  [(ngModel)]="familiar.PF8" name="PF8" value="¿Algun miembro de tu familia sufre de Diabetes?" >
+                    <label><b>{{familiar.PF8}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo8" name="RF8" [(ngModel)]="familiar.RF8" value="No" class="custom-control-input" >
@@ -896,9 +886,9 @@
                         <input type="radio" id="FSi8" name="RF8" [(ngModel)]="familiar.RF8" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi8">Si</label>
                       </div>
-                      <div id='FBloque8'  class="col-lg-3">
+                      <div *ngIf="familiar.RF8 == 'Si'" id='FBloque8'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa8" name="Pa8" value="Pa8" [(ngModel)]="familiar.RF8F.Pa8">
                           <label class="custom-control-label" for="Pa8">Padre </label>
@@ -911,7 +901,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi8" name="Hi8" value="Hi8" [(ngModel)]="familiar.RF8F.Hi8">
                           <label class="custom-control-label" for="Hi8">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab8" name="Ab8" value="Ab8" [(ngModel)]="familiar.RF8F.Ab8">
                           <label class="custom-control-label" for="Ab8">Abuelo(a)  </label>
@@ -924,7 +914,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni8" name="Ni8" value="Ni8" [(ngModel)]="familiar.RF8F.Ni8">
                           <label class="custom-control-label" for="Ni8">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti8" name="Ti8" value="Ti8" [(ngModel)]="familiar.RF8F.Ti8">
                           <label class="custom-control-label" for="Ti8">Tio(a)  </label>
@@ -937,8 +927,7 @@
                     </div>
                   </div>
                     <div class="form-group"> 
-                    <label class="control-label"> ¿Algun miembro de su familia presenta Dislipidemia (Colesterol y/o Trigliceridos altos)? </label>
-                    <input type="hidden" id="PF9" [(ngModel)]="familiar.PF9" name="PF9" value="¿Algun miembro de su familia presenta Dislipidemia (Colesterol y/o Trigliceridos altos)?" >
+                    <label><b>{{familiar.PF9}}</b></label>
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo9" name="RF9" [(ngModel)]="familiar.RF9" value="No" class="custom-control-input" >
@@ -948,9 +937,9 @@
                         <input type="radio" id="FSi9" name="RF9" [(ngModel)]="familiar.RF9" value="Si" class="custom-control-input" >
                         <label class="custom-control-label" for="FSi9">Si</label>
                       </div>
-                      <div id='FBloque9'  class="col-lg-3">
+                      <div *ngIf="familiar.RF9 == 'Si'" id='FBloque9'  class="col-lg-3">
                           <small>(Señale quienes)</small>
-                        <small id="fileHelp" class="form-text text-muted"><b>Primer grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoUno}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Pa9" name="Pa9" value="Pa9" [(ngModel)]="familiar.RF9F.Pa9">
                           <label class="custom-control-label" for="Pa9">Padre </label>
@@ -963,7 +952,7 @@
                           <input type="checkbox" class="custom-control-input" id="Hi9" name="Hi9" value="Hi9" [(ngModel)]="familiar.RF9F.Hi9">
                           <label class="custom-control-label" for="Hi9">Hijo(a) </label>
                         </div>  
-                        <small id="fileHelp" class="form-text text-muted"><b>Segundo Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoDos}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ab9" name="Ab9" value="Ab9" [(ngModel)]="familiar.RF9F.Ab9">
                           <label class="custom-control-label" for="Ab9">Abuelo(a)  </label>
@@ -976,7 +965,7 @@
                           <input type="checkbox" class="custom-control-input" id="Ni9" name="Ni9" value="Ni9" [(ngModel)]="familiar.RF9F.Ni9">
                           <label class="custom-control-label" for="Ni9">Nieto(a) </label>
                         </div>
-                        <small id="fileHelp" class="form-text text-muted"><b>Tercer Grado</b></small>
+                        <small id="fileHelp" class="form-text text-muted"><b>{{familiar.gradoTres}}</b></small>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="Ti9" name="Ti9" value="Ti9" [(ngModel)]="familiar.RF9F.Ti9">
                           <label class="custom-control-label" for="Ti9">Tio(a)  </label>

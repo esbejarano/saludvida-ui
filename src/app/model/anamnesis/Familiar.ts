@@ -1,4 +1,8 @@
 export class Familiar {
+    public gradoUno = 'Primer Grado';
+    public gradoDos = 'Segundo Grado';
+    public gradoTres = 'Tercer Grado';
+
     public RF1: any;
     public RF2: any;
     public RF3: any;
@@ -9,15 +13,15 @@ export class Familiar {
     public RF8: any;
     public RF9: any;
 
-    public PF1: any;
-    public PF2: any;
-    public PF3: any;
-    public PF4: any;
-    public PF5: any;
-    public PF6: any;
-    public PF7: any;
-    public PF8: any;
-    public PF9: any;
+    public PF1 = '¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...) ';
+    public PF2 = '¿Algun miembro de su familia padece de arritmias? ';
+    public PF3 = '¿Algun miembro de su familia padece de sindrome de QT largo? ';
+    public PF4 = '¿Algun miembro de su familia padece de hipertrofia cardiaca? ';
+    public PF5 = '¿Algun miembro de su familia padece de sindrome de Marfan? ';
+    public PF6 = '¿Algun miembro de su familia sufrio un accidente cerebrovascular (ACV)? ';
+    public PF7 = '¿Algun miembro de tu familia sufre de presion arterial alta (HTA)? ';
+    public PF8 = '¿Algun miembro de tu familia sufre de Diabetes? ';
+    public PF9 = '¿Algun miembro de su familia presenta Dislipidemia (Colesterol y/o Trigliceridos altos)? ';
 
     public RF1F: any = {Pa1: '', Ma1: '', Hi1: '', Ab1: '', He1: '', Ni1: '', Ti1: '', So1: ''};
     public RF2F: any = {Pa2: '', Ma2: '', Hi2: '', Ab2: '', He2: '', Ni2: '', Ti2: '', So2: ''};
@@ -39,15 +43,5 @@ export class Familiar {
         this.RF7 = '';
         this.RF8 = '';
         this.RF9 = '';
-
-        this.PF1 = '';
-        this.PF2 = '';
-        this.PF3 = '';
-        this.PF4 = '';
-        this.PF5 = '';
-        this.PF6 = '';
-        this.PF7 = '';
-        this.PF8 = '';
-        this.PF9 = '';
     }
 }

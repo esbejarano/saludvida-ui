@@ -1,24 +1,24 @@
 export class Personal {
-    public PP1: any;
-    public PP2: any;
-    public PP3: any;
-    public PP4: any;
-    public PP5: any;
-    public PP6: any;
-    public PP7: any;
-    public PP8: any;
-    public PP9: any;
-    public PP10: any;
-    public PP11: any;
-    public PP12: any;
-    public PP13: any;
-    public PP14: any;
-    public PP15: any;
-    public PP16: any;
-    public PP17: any;
-    public PP18: any;
-    public PP19: any;
-    public PP20: any;
+    public PP1 = '¿Tiene problemas cardiacos?';
+    public PP2 = '¿Tiene o ha tenido presion alta alguna vez?';
+    public PP3 = '¿Tiene diabetes?';
+    public PP4 = '¿Ha tenido dolor en el pecho u opresion?';
+    public PP5 = '¿Suele sentirse cansado o fatigado con facilidad?';
+    public PP6 = 'Ha tenido o tiene con el ejercicio';
+    public PP7 = '¿Tiene otro factor de riesgo cardiovascular?';
+    public PP8 = '¿Tiene asma?';
+    public PP9 = '¿Tiene alguna alergia?';
+    public PP10 = '¿Tiene algun problema de piel?';
+    public PP11 = '¿Tiene alguna enfermedad neurologica?';
+    public PP12 = '¿Ha tenido dolor de cabeza intenso?';
+    public PP13 = '¿Ha tenido convulsiones?';
+    public PP14 = '¿Tiene problemas articulares u oseos?';
+    public PP15 = '¿Tiene o ha tenido traumas o lesiones previas en huesos, articulaciones o musculos?';
+    public PP16 = '¿Sufre de ansiedad?';
+    public PP17 = '¿Existe algun otro problema o enfermedad no mencionada aqui que debiera confiarnos?';
+    public PP18 = 'Para perder o ganar peso, o mejorar el rendimiento deportivo ha tomado o toma:';
+    public PP19 = '¿Tiene alguna cirugia?';
+    public PP20 = '¿Sufre de depresion?';
 
     public RP1: any;
     public RP2: any;
@@ -37,7 +37,7 @@ export class Personal {
     public RP15: any;
     public RP16: any;
     public RP17: any;
-    public RP18: any;
+    public RP18: any = { Medicamentos: '', Esteroides: '', Anabolicos: '', Suplementos: ''};
     public RP19: any;
     public RP20: any;
 
@@ -67,26 +67,6 @@ export class Personal {
     public Anno20: any;
 
     constructor() {
-        this.PP1 = '';
-        this.PP2 = '';
-        this.PP3 = '';
-        this.PP4 = '';
-        this.PP5 = '';
-        this.PP6 = '';
-        this.PP7 = '';
-        this.PP8 = '';
-        this.PP9 = '';
-        this.PP10 = '';
-        this.PP11 = '';
-        this.PP12 = '';
-        this.PP13 = '';
-        this.PP14 = '';
-        this.PP15 = '';
-        this.PP16 = '';
-        this.PP17 = '';
-        this.PP18 = '';
-        this.PP19 = '';
-        this.PP20 = '';
         this.RP1 = '';
         this.RP2 = '';
         this.RP3 = '';
@@ -102,7 +82,7 @@ export class Personal {
         this.RP15 = '';
         this.RP16 = '';
         this.RP17 = '';
-        this.RP18 = '';
+        this.RP18 = { Medicamentos: '', Esteroides: '', Anabolicos: '', Suplementos: ''};
         this.RP19 = '';
         this.RP20 = '';
         this.RP6 = { Palpitaciones: '', Taquicardias: '', Nauseas: '', Desmayos: '' };
