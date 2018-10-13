@@ -41,6 +41,31 @@ export class Personal {
     public RP19: any;
     public RP20: any;
 
+    public Cuales1: any;
+    public Cuales9: any;
+    public Cuales10: any;
+    public Cuales11: any;
+    public Cuales17: any;
+    public Cuales19: any;
+    public Cuales20: any;
+    public Anno1: any;
+    public Anno2: any;
+    public Anno3: any;
+    public Anno4: any;
+    public Anno5: any;
+    public Anno8: any;
+    public Anno9: any;
+    public Anno10: any;
+    public Anno11: any;
+    public Anno12: any;
+    public Anno13: any;
+    public Anno14: any;
+    public Anno15: any;
+    public Anno16: any;
+    public Anno17: any;
+    public Anno19: any;
+    public Anno20: any;
+
     constructor() {
         this.PP1 = '';
         this.PP2 = '';
@@ -82,6 +107,30 @@ export class Personal {
         this.RP20 = '';
         this.RP6 = { Palpitaciones: '', Taquicardias: '', Nauseas: '', Desmayos: '' };
         this.RP7 = { Obesidad: '', Estres: '', Tabaquismo: '', Sedentarismo: '' };
+        this.Cuales1 = '';
+        this.Cuales9 = '';
+        this.Cuales10 = '';
+        this.Cuales11 = '';
+        this.Cuales17 = '';
+        this.Cuales19 = '';
+        this.Cuales20 = '';
+        this.Anno1 = '';
+        this.Anno2 = '';
+        this.Anno3 = '';
+        this.Anno4 = '';
+        this.Anno5 = '';
+        this.Anno8 = '';
+        this.Anno9 = '';
+        this.Anno10 = '';
+        this.Anno11 = '';
+        this.Anno12 = '';
+        this.Anno13 = '';
+        this.Anno14 = '';
+        this.Anno15 = '';
+        this.Anno16 = '';
+        this.Anno17 = '';
+        this.Anno19 = '';
+        this.Anno20 = '';
     }
 
 }

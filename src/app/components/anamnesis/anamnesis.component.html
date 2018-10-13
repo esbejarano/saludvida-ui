@@ -1,6 +1,6 @@
 <h2>Anamnesis</h2>
 <div class="row cuerpo">
-    <ngb-tabset type="pills" #t="ngbTabset" (tabChange)="beforeChange($event)">
+    <ngb-tabset type="pills" #t="ngbTabset">
         <ngb-tab id="infoPaciente">
             <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
             <ng-template ngbTabContent>
@@ -43,11 +43,11 @@
                         <div id='PBloque1' *ngIf="personal.RP1=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales1" id="Cuales1" [(ngModel)]="Cuales1" placeholder="digitelas por favor...">
+                            <input type="text" name="Cuales1" id="Cuales1" [(ngModel)]="personal.Cuales1" placeholder="digitelas por favor...">
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" name="Anno1" id="Anno1" [(ngModel)]="Anno1" >
+                            <input type="number" min='1900' max="2100" name="Anno1" id="Anno1" [(ngModel)]="personal.Anno1" >
                             </div>
                         </div>
                         </div>
@@ -67,7 +67,7 @@
                         <div id='PBloque2' *ngIf="personal.RP2=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno2" id="Anno2" [(ngModel)]="Anno2">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno2" id="Anno2" [(ngModel)]="personal.Anno2">
                         </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                         <div id='PBloque3' *ngIf="personal.RP3=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno3" id="Anno3" [(ngModel)]="Anno3">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno3" id="Anno3" [(ngModel)]="personal.Anno3">
                         </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         <div id='PBloque4' *ngIf="personal.RP4=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno4" id="Anno4" [(ngModel)]="Anno4">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno4" id="Anno4" [(ngModel)]="personal.Anno4">
                         </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                         <div id='PBloque5' *ngIf="personal.RP5=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno5" id="Anno5" [(ngModel)]="Anno5">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno5" id="Anno5" [(ngModel)]="personal.Anno5">
                         </div>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                         <div id='PBloque8' *ngIf="personal.RP8=='Si'">
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno8" id="Anno8" [(ngModel)]="Anno8">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno8" id="Anno8" [(ngModel)]="personal.Anno8">
                         </div>
                         </div>
                     </div>
@@ -219,11 +219,11 @@
                         <div id='PBloque9' *ngIf="personal.RP9=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales9" id="Cuales9" placeholder="digitelas por favor..." [(ngModel)]="Cuales9">
+                            <input type="text" name="Cuales9" id="Cuales9" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales9">
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno9" id="Anno9" [(ngModel)]="Anno9">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno9" id="Anno9" [(ngModel)]="personal.Anno9">
                         </div>
                         </div>
                     </div>
@@ -243,11 +243,11 @@
                         <div id='PBloque10' *ngIf="personal.RP10=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales10" id="Cuales10" placeholder="digitelas por favor..." [(ngModel)]="Cuales10">
+                            <input type="text" name="Cuales10" id="Cuales10" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales10">
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno10" id="Anno10" [(ngModel)]="Anno10">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno10" id="Anno10" [(ngModel)]="personal.Anno10">
                         </div>
                         </div>
                     </div>
@@ -267,11 +267,11 @@
                         <div id='PBloque11' *ngIf="personal.RP11=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales11" id="Cuales11" placeholder="digitelas por favor..." [(ngModel)]="Cuales11">
+                            <input type="text" name="Cuales11" id="Cuales11" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales11">
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno11" id="Anno11" [(ngModel)]="Anno11">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno11" id="Anno11" [(ngModel)]="personal.Anno11">
                         </div>
                         </div>
                     </div>
@@ -291,7 +291,7 @@
                         <div id='PBloque12' *ngIf="personal.RP12=='Si'">
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno12" id="Anno12" [(ngModel)]="Anno12">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno12" id="Anno12" [(ngModel)]="personal.Anno12">
                         </div>
                         </div>
                     </div>
@@ -311,7 +311,7 @@
                         <div id='PBloque13' *ngIf="personal.RP13=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno13" id="Anno13" [(ngModel)]="Anno13">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno13" id="Anno13" [(ngModel)]="personal.Anno13">
                         </div>
                         </div>
                     </div>
@@ -335,7 +335,7 @@
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno14" id="Anno14" [(ngModel)]="Anno14">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno14" id="Anno14" [(ngModel)]="personal.Anno14">
                         </div>
                         </div>
                     </div>
@@ -359,7 +359,7 @@
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno15" id="Anno15" [(ngModel)]="Anno15">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno15" id="Anno15" [(ngModel)]="personal.Anno15">
                         </div>
                         </div>
                     </div>
@@ -379,7 +379,7 @@
                         <div id='PBloque16'  *ngIf="personal.RP16=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno16" id="Anno16" [(ngModel)]="Anno16">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno16" id="Anno16" [(ngModel)]="personal.Anno16">
                         </div>
                         </div>
                     </div>
@@ -399,7 +399,7 @@
                         <div id='PBloque61'  *ngIf="personal.RP20=='Si'" >
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno20" id="Anno20" [(ngModel)]="Anno20">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno20" id="Anno20" [(ngModel)]="personal.Anno20">
                         </div>
                         </div>
                     </div>
@@ -419,11 +419,11 @@
                         <div id='PBloque17'  *ngIf="personal.RP17=='Si'" >
                         <div>
                             <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales17" id="Cuales17" placeholder="digitelas por favor..." [(ngModel)]="Cuales17">
+                            <input type="text" name="Cuales17" id="Cuales17" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales17">
                         </div>
                         <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno17" id="Anno17" [(ngModel)]="Anno17">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno17" id="Anno17" [(ngModel)]="personal.Anno17">
                         </div>
                         </div>
                     </div>
@@ -467,11 +467,11 @@
                         <div id='PBloque19' *ngIf="personal.RP19=='Si'">
                         <div>
                             <label>¿Cuales?: </label> 
-                            <input type="text" name="Cuales19" id="Cuales19" placeholder="digitelas por favor..." [(ngModel)]="Cuales19" value="RP19!='Si'?'':'Erick'">
+                            <input type="text" name="Cuales19" id="Cuales19" placeholder="digitelas por favor..." [(ngModel)]="personal.Cuales19" value="RP19!='Si'?'':'Erick'">
                             </div>
                             <div>
                             <label>¿Desde que año?: </label> 
-                            <input type="number" min='1900' max="2100" value="2015" name="Anno19" id="Anno19" [(ngModel)]="Anno19">
+                            <input type="number" min='1900' max="2100" value="2015" name="Anno19" id="Anno19" [(ngModel)]="personal.Anno19">
                             </div>
                         </div>
                         </div>
@@ -522,7 +522,7 @@
                     <legend>por favor diligencie sus antecedentes familiares</legend>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...) </label>
-                    <input type="hidden" id="PF1"  [(ngModel)]="PF1" name="PF1" value="¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...)" >
+                    <input type="hidden" id="PF1"  [(ngModel)]="familiar.PF1" name="PF1" value="¿Algun familiar ha muerto en forma prematura (menor a 50 años)? (muerte subita, infarto...)" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo1" name="RF1" [(ngModel)]="familiar.RF1" value="No" class="custom-control-input" >
@@ -574,7 +574,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de su familia padece de arritmias? </label>
-                    <input type="hidden" id="PF2"  [(ngModel)]="PF2" name="PF2" value="¿Algun miembro de su familia padece de arritmias?" >
+                    <input type="hidden" id="PF2"  [(ngModel)]="familiar.PF2" name="PF2" value="¿Algun miembro de su familia padece de arritmias?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo2" name="RF2" [(ngModel)]="familiar.RF2" value="No" class="custom-control-input">
@@ -626,7 +626,7 @@
                   </div>
                   <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de su familia padece de sindrome de QT largo? </label>
-                    <input type="hidden" id="PF3"  [(ngModel)]="PF3" name="PF3" value="¿Algun miembro de su familia padece de sindrome de QT largo?" >
+                    <input type="hidden" id="PF3"  [(ngModel)]="familiar.PF3" name="PF3" value="¿Algun miembro de su familia padece de sindrome de QT largo?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo3" name="RF3" [(ngModel)]="familiar.RF3" value="No" class="custom-control-input" >
@@ -678,7 +678,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de su familia padece de hipertrofia cardiaca? </label>
-                    <input type="hidden" id="PF4"  [(ngModel)]="PF4" name="PF4" value="¿Algun miembro de su familia padece de hipertrofia cardiaca?" >
+                    <input type="hidden" id="PF4"  [(ngModel)]="familiar.PF4" name="PF4" value="¿Algun miembro de su familia padece de hipertrofia cardiaca?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo4" name="RF4" [(ngModel)]="familiar.RF4" value="No" class="custom-control-input" >
@@ -730,7 +730,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de su familia padece de sindrome de Marfan? </label>
-                    <input type="hidden" id="PF5"  [(ngModel)]="PF5" name="PF5" value="¿Algun miembro de su familia padece de sindrome de Marfan?" >
+                    <input type="hidden" id="PF5"  [(ngModel)]="familiar.PF5" name="PF5" value="¿Algun miembro de su familia padece de sindrome de Marfan?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo5" name="RF5" [(ngModel)]="familiar.RF5" value="No" class="custom-control-input" >
@@ -782,7 +782,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de su familia sufrio un accidente cerebrovascular (ACV)? </label>
-                    <input type="hidden" id="PF6"  [(ngModel)]="PF6" name="PF6" value="¿Algun miembro de su familia sufrio un accidente cerebrovascular (ACV)?" >
+                    <input type="hidden" id="PF6"  [(ngModel)]="familiar.PF6" name="PF6" value="¿Algun miembro de su familia sufrio un accidente cerebrovascular (ACV)?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo6" name="RF6" [(ngModel)]="familiar.RF6" value="No" class="custom-control-input" >
@@ -834,7 +834,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de tu familia sufre de presion arterial alta (HTA)? </label>
-                    <input type="hidden" id="PF7"  [(ngModel)]="PF7" name="PF7" value="¿Algun miembro de tu familia sufre de presion arterial alta (HTA)?" >
+                    <input type="hidden" id="PF7"  [(ngModel)]="familiar.PF7" name="PF7" value="¿Algun miembro de tu familia sufre de presion arterial alta (HTA)?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo7" name="RF7" [(ngModel)]="familiar.RF7" value="No" class="custom-control-input" >
@@ -886,7 +886,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de tu familia sufre de Diabetes? </label>
-                    <input type="hidden" id="PF8"  [(ngModel)]="PF8" name="PF8" value="¿Algun miembro de tu familia sufre de Diabetes?" >
+                    <input type="hidden" id="PF8"  [(ngModel)]="familiar.PF8" name="PF8" value="¿Algun miembro de tu familia sufre de Diabetes?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo8" name="RF8" [(ngModel)]="familiar.RF8" value="No" class="custom-control-input" >
@@ -938,7 +938,7 @@
                   </div>
                     <div class="form-group"> 
                     <label class="control-label"> ¿Algun miembro de su familia presenta Dislipidemia (Colesterol y/o Trigliceridos altos)? </label>
-                    <input type="hidden" id="PF9" [(ngModel)]="PF9" name="PF9" value="¿Algun miembro de su familia presenta Dislipidemia (Colesterol y/o Trigliceridos altos)?" >
+                    <input type="hidden" id="PF9" [(ngModel)]="familiar.PF9" name="PF9" value="¿Algun miembro de su familia presenta Dislipidemia (Colesterol y/o Trigliceridos altos)?" >
                     <div class="col-lg-10">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="FNo9" name="RF9" [(ngModel)]="familiar.RF9" value="No" class="custom-control-input" >

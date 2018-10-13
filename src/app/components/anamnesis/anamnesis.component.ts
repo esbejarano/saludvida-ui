@@ -10,7 +10,6 @@ import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['./anamnesis.component.css']
 })
 export class AnamnesisComponent implements OnInit {
-    public preguntas: any;
     public habitos: Habitos;
     public personal: Personal;
     public familiar: Familiar;

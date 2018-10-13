@@ -8,8 +8,7 @@ import { UsuerAdminComponent } from './components/usuer-admin/usuer-admin.compon
 import { PosturometriaComponent } from './components/posturometria/posturometria.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
-
-const routes: Routes = [
+const appRoutes: Routes = [
     { path: '', component: LoginComponent },
     { path: '**', component: LoginComponent },
     { path: 'index', component: InicioComponent },
@@ -21,16 +20,9 @@ const routes: Routes = [
     { path: 'posturometria', component: PosturometriaComponent }
 ];
 
+
 @NgModule({
-    imports: [
-      RouterModule.forRoot(routes, {
-        scrollPositionRestoration: 'enabled',
-        anchorScrolling: 'enabled'
-      })
-    ],
-    exports: [
-      RouterModule
-    ]
-  })
-  export class AppRoutingModule {
-  }
+    imports: [ RouterModule.forRoot(appRoutes) ],
+    exports: [ RouterModule ]
+})
+export class AppRoutingModule { }

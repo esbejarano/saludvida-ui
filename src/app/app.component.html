@@ -1,4 +1,6 @@
 <app-navbar></app-navbar>
 <br>
 <app-anamnesis></app-anamnesis>
-<router-outlet></router-outlet>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
