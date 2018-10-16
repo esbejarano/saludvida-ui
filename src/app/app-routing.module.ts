@@ -10,14 +10,14 @@ import { InicioComponent } from './components/inicio/inicio.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
-    { path: '**', component: LoginComponent },
     { path: 'index', component: InicioComponent },
     { path: 'login', component: LoginComponent },
     { path: 'anamnesis', component: AnamnesisComponent },
     { path: 'antropometria', component: AntropometriaComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'useradmin', component: UsuerAdminComponent },
-    { path: 'posturometria', component: PosturometriaComponent }
+    { path: 'posturometria', component: PosturometriaComponent },
+    { path: '**', component: LoginComponent }
 ];
 
 
