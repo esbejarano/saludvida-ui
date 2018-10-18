@@ -53,4 +53,139 @@ export class Familiar {
         this.RF8 = '';
         this.RF9 = '';
     }
+
+
+    public validarRF1() {
+        return (
+            this.RF1 === '' ||
+            (
+                this.RF1 === 'Si' &&
+                (
+                    this.RF1F.Pa1  === '' || this.RF1F.Ma1  === '' || this.RF1F.Hi1  === '' ||
+                    this.RF1F.Ab1  === '' || this.RF1F.He1  === '' ||
+                    this.RF1F.Ni1  === '' || this.RF1F.Ti1  === '' || this.RF1F.So1  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF2() {
+        return (
+            this.RF2 === '' ||
+            (
+                this.RF2 === 'Si' &&
+                (
+                    this.RF2F.Pa2  === '' || this.RF2F.Ma2  === '' || this.RF2F.Hi2  === '' ||
+                    this.RF2F.Ab2  === '' || this.RF2F.He2  === '' ||
+                    this.RF2F.Ni2  === '' || this.RF2F.Ti2  === '' || this.RF2F.So2  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF3() {
+        return (
+            this.RF3 === '' ||
+            (
+                this.RF3 === 'Si' &&
+                (
+                    this.RF3F.Pa3  === '' || this.RF3F.Ma3  === '' || this.RF3F.Hi3  === '' ||
+                    this.RF3F.Ab3  === '' || this.RF3F.He3  === '' ||
+                    this.RF3F.Ni3  === '' || this.RF3F.Ti3  === '' || this.RF3F.So3  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF4() {
+        return (
+            this.RF4 === '' ||
+            (
+                this.RF4 === 'Si' &&
+                (
+                    this.RF4F.Pa4  === '' || this.RF4F.Ma4  === '' || this.RF4F.Hi4  === '' ||
+                    this.RF4F.Ab4  === '' || this.RF4F.He4  === '' ||
+                    this.RF4F.Ni4  === '' || this.RF4F.Ti4  === '' || this.RF4F.So4  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF5() {
+        return (
+            this.RF5 === '' ||
+            (
+                this.RF5 === 'Si' &&
+                (
+                    this.RF5F.Pa5  === '' || this.RF5F.Ma5  === '' || this.RF5F.Hi5  === '' ||
+                    this.RF5F.Ab5  === '' || this.RF5F.He5  === '' ||
+                    this.RF5F.Ni5  === '' || this.RF5F.Ti5  === '' || this.RF5F.So5  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF6() {
+        return (
+            this.RF6 === '' ||
+            (
+                this.RF6 === 'Si' &&
+                (
+                    this.RF6F.Pa6  === '' || this.RF6F.Ma6  === '' || this.RF6F.Hi6  === '' ||
+                    this.RF6F.Ab6  === '' || this.RF6F.He6  === '' ||
+                    this.RF6F.Ni6  === '' || this.RF6F.Ti6  === '' || this.RF6F.So6  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF7() {
+        return (
+            this.RF7 === '' ||
+            (
+                this.RF7 === 'Si' &&
+                (
+                    this.RF7F.Pa7  === '' || this.RF7F.Ma7  === '' || this.RF7F.Hi7  === '' ||
+                    this.RF7F.Ab7  === '' || this.RF7F.He7  === '' ||
+                    this.RF7F.Ni7  === '' || this.RF7F.Ti7  === '' || this.RF7F.So7  === ''
+                )
+            )
+        );
+
+    }
+
+    public validarRF8() {
+        return (
+            this.RF8 === '' ||
+            (
+                this.RF8 === 'Si' &&
+                (
+                    this.RF8F.Pa8  === '' || this.RF8F.Ma8  === '' || this.RF8F.Hi8  === '' ||
+                    this.RF8F.Ab8  === '' || this.RF8F.He8  === '' ||
+                    this.RF8F.Ni8  === '' || this.RF8F.Ti8  === '' || this.RF8F.So8  === ''
+                )
+            )
+        );
+
+    }
+    public validarRF9() {
+        return (
+            this.RF9 === '' ||
+            (
+                this.RF9 === 'Si' &&
+                (
+                    this.RF9F.Pa9  === '' || this.RF9F.Ma9  === '' || this.RF9F.Hi9  === '' ||
+                    this.RF9F.Ab9  === '' || this.RF9F.He9  === '' ||
+                    this.RF9F.Ni9  === '' || this.RF9F.Ti9  === '' || this.RF9F.So9  === ''
+                )
+            )
+        );
+
+    }
 }

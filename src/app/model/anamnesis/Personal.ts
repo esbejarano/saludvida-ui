@@ -1,24 +1,24 @@
 export class Personal {
-    public PP1 = '¿Tiene problemas cardiacos?';
-    public PP2 = '¿Tiene o ha tenido presion alta alguna vez?';
-    public PP3 = '¿Tiene diabetes?';
-    public PP4 = '¿Ha tenido dolor en el pecho u opresion?';
-    public PP5 = '¿Suele sentirse cansado o fatigado con facilidad?';
-    public PP6 = 'Ha tenido o tiene con el ejercicio';
-    public PP7 = '¿Tiene otro factor de riesgo cardiovascular?';
-    public PP8 = '¿Tiene asma?';
-    public PP9 = '¿Tiene alguna alergia?';
-    public PP10 = '¿Tiene algun problema de piel?';
-    public PP11 = '¿Tiene alguna enfermedad neurologica?';
-    public PP12 = '¿Ha tenido dolor de cabeza intenso?';
-    public PP13 = '¿Ha tenido convulsiones?';
-    public PP14 = '¿Tiene problemas articulares u oseos?';
-    public PP15 = '¿Tiene o ha tenido traumas o lesiones previas en huesos, articulaciones o musculos?';
-    public PP16 = '¿Sufre de ansiedad?';
-    public PP17 = '¿Existe algun otro problema o enfermedad no mencionada aqui que debiera confiarnos?';
-    public PP18 = 'Para perder o ganar peso, o mejorar el rendimiento deportivo ha tomado o toma:';
-    public PP19 = '¿Tiene alguna cirugia?';
-    public PP20 = '¿Sufre de depresion?';
+    public PP1 = '¿Tiene problemas cardiacos? \r';
+    public PP2 = '¿Tiene o ha tenido presion alta alguna vez? \r';
+    public PP3 = '¿Tiene diabetes? \r';
+    public PP4 = '¿Ha tenido dolor en el pecho u opresion? \r';
+    public PP5 = '¿Suele sentirse cansado o fatigado con facilidad? \r';
+    public PP6 = 'Ha tenido o tiene con el ejercicio \r';
+    public PP7 = '¿Tiene otro factor de riesgo cardiovascular? \r';
+    public PP8 = '¿Tiene asma? \r';
+    public PP9 = '¿Tiene alguna alergia? \r';
+    public PP10 = '¿Tiene algun problema de piel? \r';
+    public PP11 = '¿Tiene alguna enfermedad neurologica? \r';
+    public PP12 = '¿Ha tenido dolor de cabeza intenso? \r';
+    public PP13 = '¿Ha tenido convulsiones? \r';
+    public PP14 = '¿Tiene problemas articulares u oseos? \r';
+    public PP15 = '¿Tiene o ha tenido traumas o lesiones previas en huesos, articulaciones o musculos? \r';
+    public PP16 = '¿Sufre de ansiedad? \r';
+    public PP17 = '¿Existe algun otro problema o enfermedad no mencionada aqui que debiera confiarnos? \r';
+    public PP18 = 'Para perder o ganar peso, o mejorar el rendimiento deportivo ha tomado o toma: \r';
+    public PP19 = '¿Tiene alguna cirugia? \r';
+    public PP20 = '¿Sufre de depresion? \r';
 
     public RP1: any;
     public RP2: any;
@@ -37,7 +37,7 @@ export class Personal {
     public RP15: any;
     public RP16: any;
     public RP17: any;
-    public RP18: any = { Medicamentos: '', Esteroides: '', Anabolicos: '', Suplementos: ''};
+    public RP18: any;
     public RP19: any;
     public RP20: any;
 
@@ -72,6 +72,8 @@ export class Personal {
         this.RP3 = '';
         this.RP4 = '';
         this.RP5 = '';
+        this.RP6 = { Palpitaciones: '', Taquicardias: '', Nauseas: '', Desmayos: '' };
+        this.RP7 = { Obesidad: '', Estres: '', Tabaquismo: '', Sedentarismo: '' };
         this.RP8 = '';
         this.RP9 = '';
         this.RP10 = '';
@@ -85,8 +87,7 @@ export class Personal {
         this.RP18 = { Medicamentos: '', Esteroides: '', Anabolicos: '', Suplementos: ''};
         this.RP19 = '';
         this.RP20 = '';
-        this.RP6 = { Palpitaciones: '', Taquicardias: '', Nauseas: '', Desmayos: '' };
-        this.RP7 = { Obesidad: '', Estres: '', Tabaquismo: '', Sedentarismo: '' };
+
         this.Cuales1 = '';
         this.Cuales9 = '';
         this.Cuales10 = '';
@@ -113,11 +114,84 @@ export class Personal {
         this.Anno20 = '';
     }
 
-    public limpiar(variable1, variable2?, variable3?) {
-        console.log(variable1.value);
-        console.log(variable2.value);
-        console.log(variable3.value);
+    public validarRP1() {
+        return (this.RP1 !== '' || (this.RP1 === 'No' && this.Anno1 === '' && this.Cuales1 === '' ));
     }
 
+    public validarRP2() {
+        return (this.RP2 !== '' || (this.RP2 === 'No' && this.Anno2 === '' ));
+    }
+
+    public validarRP3() {
+        return (this.RP3 !== '' || (this.RP3 === 'No' && this.Anno3 === '' ));
+    }
+
+    public validarRP4() {
+        return (this.RP4 !== '' || (this.RP4 === 'No' && this.Anno4 === '' ));
+    }
+
+    public validarRP5() {
+        return (this.RP5 !== '' || (this.RP5 === 'No' && this.Anno5 === '' ));
+    }
+
+    public validarRP6() {
+        return  this.RP6.Palpitaciones !== '' || this.RP6.Taquicardias !== '' || this.RP6.Nauseas !== '' || this.RP6.Desmayos !== '';
+    }
+
+    public validarRP7() {
+        return  this.RP7.Obesidad !== '' || this.RP7.Estres !== '' || this.RP7.Tabaquismo !== '' || this.RP7.Sedentarismo !== '';
+    }
+
+    public validarRP8() {
+        return (this.RP8 !== '' || (this.RP8 === 'No' && this.Anno8 === '' ));
+    }
+
+    public validarRP9() {
+        return (this.RP9 !== '' || (this.RP9 === 'No' && this.Anno9 === '' && this.Cuales9 === '' ));
+    }
+
+    public validarRP10() {
+        return (this.RP10 !== '' || (this.RP10 === 'No' && this.Anno10 === '' && this.Cuales10 === '' ));
+    }
+
+    public validarRP11() {
+        return (this.RP11 !== '' || (this.RP11 === 'No' && this.Anno11 === '' && this.Cuales11 === '' ));
+    }
+
+    public validarRP12() {
+        return (this.RP12 !== '' || (this.RP12 === 'No' && this.Anno12 === ''));
+    }
+
+    public validarRP13() {
+        return (this.RP13 !== '' || (this.RP13 === 'No' && this.Anno13 === ''));
+    }
+
+    public validarRP14() {
+        return (this.RP14 !== '' || (this.RP14 === 'No' && this.Anno14 === ''));
+    }
+
+    public validarRP15() {
+        return (this.RP15 !== '' || (this.RP15 === 'No' && this.Anno15 === ''));
+    }
+
+    public validarRP16() {
+        return (this.RP16 !== '' || (this.RP16 === 'No' && this.Anno16 === ''));
+    }
+
+    public validarRP17() {
+        return (this.RP17 !== '' || (this.RP17 === 'No' && this.Anno17 === '' && this.Cuales17 === '' ));
+    }
+
+    public validarRP18() {
+        return  this.RP18.Medicamentos !== '' || this.RP18.Esteroides !== '' || this.RP18.Anabolicos !== '' || this.RP18.Suplementos !== '';
+    }
+
+    public validarRP19() {
+        return (this.RP19 !== '' || (this.RP19 === 'No' && this.Anno19 === '' && this.Cuales19 === '' ));
+    }
+
+    public validarRP20() {
+        return (this.RP20 !== '' || (this.RP20 === 'No' && this.Anno20 === '' && this.Cuales20 === '' ));
+    }
 }
 

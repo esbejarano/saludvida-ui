@@ -32,4 +32,47 @@ export class Habitos {
         this.RH9 = '';
         this.RH10 = '';
     }
+
+    public validarRH1() {
+        return this.RH1 === '';
+    }
+
+    public validarRH2() {
+        return this.RH2 === '';
+    }
+
+    public validarRH3() {
+        return this.RH3 === '';
+    }
+
+    public validarRH4() {
+        return this.RH4 === '';
+    }
+
+    public validarRH5() {
+        return this.RH5 === '';
+    }
+
+    public validarRH6() {
+        return this.RH6 === '';
+    }
+
+    public validarRH7() {
+        return this.RH7 === '';
+    }
+
+    public validarRH8() {
+        return this.RH8 === '';
+    }
+
+    public validarRH9() {
+        return this.RH9 === '';
+    }
+
+    public validarRH10() {
+        return this.RH10 === '';
+    }
+
+
+
 }
