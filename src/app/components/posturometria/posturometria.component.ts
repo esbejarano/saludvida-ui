@@ -1,3 +1,4 @@
+import { Anterior } from './../../model/posturometria/Anterior';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,10 +10,15 @@ export class PosturometriaComponent implements OnInit {
     public infoPreguntas: any;
     public formPreguntasVistaAnterior: any;
     public formpreguntasVistaLateral: any;
+    public anterior: Anterior;
 
-    constructor() { }
+
+    constructor() {
+        this.anterior = new Anterior();
+    }
 
     ngOnInit() {
+
         this.infoPreguntas = {
             'preguntasVistaAnterior': [
                 {

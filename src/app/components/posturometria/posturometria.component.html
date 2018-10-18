@@ -1,108 +1,694 @@
-<h2>Posturometria</h2>
-<div class="row cuerpo">
-    <ngb-tabset type="pills">
-        <ngb-tab>
-            <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
-            <ng-template ngbTabContent>
-                
-            </ng-template>
-        </ngb-tab>
-        <ngb-tab>
-            <ng-template ngbTabTitle><b>Vista anterior</b></ng-template>
-            <ng-template ngbTabContent>
-                <form id="formPreguntasVistaAnterior" name="formPreguntasVistaAnterior" #formPreguntasVistaAnterior="ngForm" (ngSubmit)="submitVistaAnterior(formPreguntasVistaAnterior)">    
-                    <div class="row preguntas" *ngFor="let qa of infoPreguntas.preguntasVistaAnterior">
-                        <div class="col-12" >
-                            <label><b>{{qa.label}}</b></label>
+<h1 class="text-center">POSTUROMETRÍA</h1>
+<ngb-tabset type="pills">
+    <ngb-tab>
+        <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
+        <ng-template ngbTabContent>
+            
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle><b>Vista anterior</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <!-- Tab de la Vista Anterior -->
+                <h1 class="text-center">Vista Anterior</h1>
+                <h4>Cabeza</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Ant11" name="Ant11" [(ngModel)]="anterior.Ant1.recta" value="Recta">
+                            <label class="custom-control-label" for="Ant11">Recta</label>
                         </div>
-                        <br>
-                        <div class="col-12" >
-                            <div class="col-6">
-                                <div class="btn-group btn-group-toggle" ngbRadioGroup id="{{qa.id}}" name="{{qa.name}}">
-                                    <label ngbButtonLabel class="btn-light" *ngFor="let q of qa.options" >
-                                        <input ngbButton type="radio" name="{{qa.name}}" [value]="q.id" [(ngModel)]="this[qa.name]"> {{q.name}}
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <label><b>Observaciones</b></label><br>
-                                <textarea cols="50" rows="2" id="{{qa.comment}}"  name="{{qa.comment}}" [value]="qa.comment" [(ngModel)]="this[qa.comment]"></textarea>
-                            </div>
-                            
-                        </div>
-                        <br>
-                        <hr class="col-12"/>
                     </div>
-                    <button class="btn btn-primary" id="enviar" name="enviar" type="submit">Enviar</button>    
-                </form>
-            </ng-template>
-        </ngb-tab>
-        <ngb-tab>
-            <ng-template ngbTabTitle><b>Vista lateral</b></ng-template>
-            <ng-template ngbTabContent>
-                <form id="formpreguntasVistaLateral" name="formpreguntasVistaLateral" #formpreguntasVistaLateral="ngForm" (ngSubmit)="submitVistaLateral(formpreguntasVistaLateral)">    
-                    <div class="row preguntas" *ngFor="let qa of infoPreguntas.preguntasVistaLateral">
-                        <div class="col-12" >
-                            <label><b>{{qa.label}}</b></label>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant12" name="Ant12" [(ngModel)]="anterior.Ant1.inclinacion" value="Inclinación Derecha">
+                            <label class="custom-control-label" for="Ant12">Inclinación Derecha</label>
                         </div>
-                        <br>
-                        <div class="col-12" >
-                            <div class="col-6">
-                                <div class="btn-group btn-group-toggle" ngbRadioGroup id="{{qa.id}}" name="{{qa.name}}">
-                                    <label ngbButtonLabel class="btn-light" *ngFor="let q of qa.options" >
-                                        <input ngbButton type="radio" name="{{qa.name}}" [value]="q.id" [(ngModel)]="this[qa.name]"> {{q.name}}
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <label><b>Observaciones</b></label><br>
-                                <textarea cols="50" rows="2" id="{{qa.comment}}"  name="{{qa.comment}}" [value]="qa.comment" [(ngModel)]="this[qa.comment]"></textarea>
-                            </div>
-                            
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant13" name="Ant12" [(ngModel)]="anterior.Ant1.inclinacion" value="Inclinación Izquierda">
+                            <label class="custom-control-label" for="Ant13">Inclinación Izquierda</label>
                         </div>
-                        <br>
-                        <hr class="col-12"/>
                     </div>
-                    <button class="btn btn-primary" id="enviar" name="enviar" type="submit">Enviar</button>    
-                </form>
-            </ng-template>
-        </ngb-tab>
-        <ngb-tab>
-            <ng-template ngbTabTitle><b>Vista posterior</b></ng-template>
-            <ng-template ngbTabContent>
-                    <form id="formpreguntasVistaPosterior" name="formpreguntasVistaPosterior" #formpreguntasVistaPosterior="ngForm" (ngSubmit)="submitVistaPosterior(formpreguntasVistaPosterior)">    
-                    <div class="row preguntas" *ngFor="let qa of infoPreguntas.preguntasVistaPosterior">
-                        <div class="col-12" >
-                            <label><b>{{qa.label}}</b></label>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant14" name="Ant13" [(ngModel)]="anterior.Ant1.rotacion" value="Rotación Derecha">
+                            <label class="custom-control-label" for="Ant14">Rotación Derecha</label>
                         </div>
-                        <br>
-                        <div class="col-12" >
-                            <div class="col-6">
-                                <div class="btn-group btn-group-toggle" ngbRadioGroup id="{{qa.id}}" name="{{qa.name}}">
-                                    <label ngbButtonLabel class="btn-light" *ngFor="let q of qa.options" >
-                                        <input ngbButton type="radio" name="{{qa.name}}" [value]="q.id" [(ngModel)]="this[qa.name]"> {{q.name}}
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <label><b>Observaciones</b></label><br>
-                                <textarea cols="50" rows="2" id="{{qa.comment}}"  name="{{qa.comment}}" [value]="qa.comment" [(ngModel)]="this[qa.comment]"></textarea>
-                            </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant15" name="Ant13" [(ngModel)]="anterior.Ant1.rotacion" value="Rotación Izquierda">
+                            <label class="custom-control-label" for="Ant15">Rotación Izquierda</label>
                         </div>
-                        <br>
-                        <hr class="col-12"/>
                     </div>
-                    <button class="btn btn-primary" id="enviar" name="enviar" type="submit">Enviar</button>
-                </form>
-            </ng-template>
-        </ngb-tab>
-        <ngb-tab>
-            <ng-template ngbTabTitle><b>Analisis postural</b></ng-template>
-            <ng-template ngbTabContent>
-                
-            </ng-template>
-        </ngb-tab>
-
-
-    </ngb-tabset>
-</div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs1">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs1" name="AntObs1" [(ngModel)]="anterior.AntObs1" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Cuello - Masa Muscular</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant21" name="Ant2" [(ngModel)]="anterior.Ant2" value="Baja">
+                            <label class="custom-control-label" for="Ant21">Baja</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant22" name="Ant2" [(ngModel)]="anterior.Ant2" value="Normal">
+                            <label class="custom-control-label" for="Ant22">Normal</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant23" name="Ant2" c value="Alta">
+                            <label class="custom-control-label" for="Ant23">Alta</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs2">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs2" name="AntObs2" [(ngModel)]="anterior.AntObs2" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Hombros</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Ant31" value="Alineados" [(ngModel)]="anterior.Ant3.alineado">
+                            <label class="custom-control-label" for="Ant31">Alineados</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant32" name="Ant32" value="Ascendido Derecho" [(ngModel)]="anterior.Ant3.ascendido">
+                            <label class="custom-control-label" for="Ant32">Ascendido Derecho</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant33" name="Ant32" value="Ascendido Izquierdo" [(ngModel)]="anterior.Ant3.ascendido">
+                            <label class="custom-control-label" for="Ant33">Ascendido Izquierdo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs3">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs3" name="AntObs3" [(ngModel)]="anterior.AntObs3" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Clavículas</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Ant41" name="Ant41" value="Alineadas" [(ngModel)]="anterior.Ant4.alineada">
+                            <label class="custom-control-label" for="Ant41">Alineadas</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant42" value="Ascendida Derecho" name="Ant42" [(ngModel)]="anterior.Ant4.ascendida">
+                            <label class="custom-control-label" for="Ant42">Ascendida Derecho</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant43" value="Ascendido Izquierdo" name="Ant42" [(ngModel)]="anterior.Ant4.ascendida">
+                            <label class="custom-control-label" for="Ant43">Ascendido Izquierdo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs4">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs4" name="AntObs4" [(ngModel)]="anterior.AntObs4" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Tetillas</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Ant51" name="Ant51" value="Alineadas" [(ngModel)]="anterior.Ant5.alineada">
+                            <label class="custom-control-label" for="Ant51">Alineadas</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant52" value="Ascendida Izquierda" name="Ant52" [(ngModel)]="anterior.Ant5.ascendida">
+                            <label class="custom-control-label" for="Ant52">Ascendida Izquierda</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant53" value="Ascendida Derecha" name="Ant52" [(ngModel)]="anterior.Ant5.ascendida">
+                            <label class="custom-control-label" for="Ant53">Ascendida Derecha</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs5">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs5" name="AntObs5" [(ngModel)]="anterior.AntObs5" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Espinas Iliacas Antero-Superiores</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Ant61" name="Ant61" value="Alineadas" [(ngModel)]="anterior.Ant6.alineada">
+                            <label class="custom-control-label" for="Ant61">Alineadas</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Ant62" name="Ant62" value="Ascendida Derecha" [(ngModel)]="anterior.Ant6.ascendida">
+                            <label class="custom-control-label" for="Ant62">Ascendida Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Ant63" name="Ant62" value="Ascendida Izquierda" [(ngModel)]="anterior.Ant6.ascendida">
+                            <label class="custom-control-label" for="Ant63">Ascendida Izquierda</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs6">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs6" name="AntObs6" [(ngModel)]="anterior.AntObs6" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Rodillas</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Ant71" name="Ant71" value="Normal" [(ngModel)]="anterior.Ant7.normal">
+                            <label class="custom-control-label" for="Ant71">Normal</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant72" name="Ant72" value="Genu Varu" [(ngModel)]="anterior.Ant7.genu">
+                            <label class="custom-control-label" for="Ant72">Genu Varu</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant73" name="Ant72" value="Genu Valgo" [(ngModel)]="anterior.Ant7.genu">
+                            <label class="custom-control-label" for="Ant73">Genu Valgo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs7">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs7" name="AntObs7" [(ngModel)]="anterior.AntObs7" rows="3"></textarea>
+                </div>
+                <hr>
+                <h4>Pies</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Ant81" value="Normal" [(ngModel)]="anterior.Ant8.normal">
+                            <label class="custom-control-label" for="Ant81">Normal</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant82" name="Ant82" value="Derecho en Eversión" [(ngModel)]="anterior.Ant8.eversion">
+                            <label class="custom-control-label" for="Ant82">Derecho en Eversión</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant83" name="Ant82" value="Izquierdo en Eversión" [(ngModel)]="anterior.Ant8.eversion">
+                            <label class="custom-control-label" for="Ant83">Izquierdo en Eversión</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant84" name="Ant83" value="Derecho en Inversión" [(ngModel)]="anterior.Ant8.inversion">
+                            <label class="custom-control-label" for="Ant84">Derecho en Inversión</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Ant85" name="Ant83" value="Izquierda en Inversión" [(ngModel)]="anterior.Ant8.inversion">
+                            <label class="custom-control-label" for="Ant85">Izquierda en Inversión</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs8">Observaciones:</label>
+                    <textarea class="form-control" id="AntObs8" name="AntObs8" [(ngModel)]="anterior.AntObs8" rows="3"></textarea>
+                </div>
+                <hr>
+                <div>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Cancelar</a>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Siguiente</a>
+                </div>
+            </fieldset>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle><b>Vista lateral</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <!-- Tab de la Vista Lateral -->
+                <h1 class="text-center">Vista Lateral</h1>
+                <h4>Cabeza</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Lat11" value="Recta">
+                        <label class="custom-control-label" for="Lat11">Recta</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat12" value="Protracción">
+                            <label class="custom-control-label" for="Lat12">Protracción</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat13" value="Retracción">
+                            <label class="custom-control-label" for="Lat13">Retracción</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat14" value="Flexión Normal">
+                            <label class="custom-control-label" for="Lat14">Flexión Normal</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat15" value="Extensión Normal">
+                            <label class="custom-control-label" for="Lat15">Extensión Normal</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs1">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs1" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Escápulas</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Lat21" value="Normal">
+                        <label class="custom-control-label" for="Lat21">Normal</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat22" value="Protruida Derecha">
+                            <label class="custom-control-label" for="Lat22">Protruida Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat23" value="Protruida Izquierda">
+                            <label class="custom-control-label" for="Lat23">Protruida Izquierda</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat24" value="Retraida Derecha">
+                            <label class="custom-control-label" for="Lat24">Retraida Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat25" value="Retraida Izquierda">
+                            <label class="custom-control-label" for="Lat25">Retraida Izquierda</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs2">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs2" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Columna Vertebral</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat31" value="Cervical Normal">
+                            <label class="custom-control-label" for="Lat31">Cervical Normal</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat32" value="Cifosis">
+                            <label class="custom-control-label" for="Lat32">Cifosis</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat33" value="Dorsal Normal">
+                            <label class="custom-control-label" for="Lat33">Dorsal Normal</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat34" value="Hipercifosis">
+                            <label class="custom-control-label" for="Lat34">Hipercifosis</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat35" value="Lumbar Normal">
+                            <label class="custom-control-label" for="Lat35">Lumbar Normal</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat36" value="Hiperlordosis">
+                            <label class="custom-control-label" for="Lat36">Hiperlordosis</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs3">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs3" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Abdomen</h4>
+                <div class="form-group row">
+                    <div class="custom-control custom-checkbox col-sm-3 col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Lat41" value="Tamaño Normal">
+                        <label class="custom-control-label" for="Lat41">Tamaño Normal</label>
+                    </div>
+                    <div class="custom-control custom-checkbox col-sm-3 col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Lat42" value="Prominente">
+                        <label class="custom-control-label" for="Lat42">Prominente</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs4">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs4" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Pelvis</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Lat51" value="Normal">
+                        <label class="custom-control-label" for="Lat51">Normal</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat52" value="Anteversión">
+                            <label class="custom-control-label" for="Lat52">Anteversión</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat53" value="Retroversión">
+                            <label class="custom-control-label" for="Lat53">Retroversión</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs5">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs5" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Rodillas</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Lat61" value="Normal">
+                        <label class="custom-control-label" for="Lat61">Normal</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat62" value="Genu Flexum">
+                            <label class="custom-control-label" for="Lat62">Genu Flexum</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Lat63" value="Genu Recurvatum">
+                            <label class="custom-control-label" for="Lat63">Genu Recurvatum</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs6">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs6" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Pies</h4>
+                <div class="form-group row">
+                    <div class="custom-control custom-checkbox col-sm-3 col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Lat71" value="Normal">
+                        <label class="custom-control-label" for="Lat71">Normal</label>
+                    </div>
+                    <div class="custom-control custom-checkbox col-sm-3 col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Lat72" value="Plano">
+                        <label class="custom-control-label" for="Lat72">Plano</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs7">Observaciones:</label>
+                    <textarea class="form-control" id="Lat-Obs7" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <div>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Anterior</a>
+                    <a class="btn btn-primary btn-lg align-content-sm-end" href="#" role="button">Siguiente</a>
+                </div>
+            </fieldset>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle><b>Vista posterior</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <!-- Tab de la Vista Posterior -->
+                <h1 class="text-center">Vista Posterior</h1>
+                <h4>Cabeza</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post11" value="Recta">
+                        <label class="custom-control-label" for="Post11">Recta</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post12" value="Inclinación Derecha">
+                            <label class="custom-control-label" for="Post12">Inclinación Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post13" value="Inclinación Izquierda">
+                            <label class="custom-control-label" for="Post13">Inclinación Izquierda</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post14" value="Rotación Derecha">
+                            <label class="custom-control-label" for="Post14">Rotación Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post15" value="Rotación Izquierda">
+                            <label class="custom-control-label" for="Post15">Rotación Izquierda</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs1">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs1" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Hombros</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post21" value="Alineados">
+                        <label class="custom-control-label" for="Post21">Alineados</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post22" value="Ascendido Derecho">
+                            <label class="custom-control-label" for="Post22">Ascendido Derecho</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post23" value="Ascendido Izquierdo">
+                            <label class="custom-control-label" for="Post23">Ascendido Izquierdo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs2">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs2" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Escápulas</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post31" value="Alineadas">
+                        <label class="custom-control-label" for="Post31">Alineadas</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post32" value="Ascendida Derecha">
+                            <label class="custom-control-label" for="Post32">Ascendida Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post33" value="Ascendida Izquierda">
+                            <label class="custom-control-label" for="Post33">Ascendida Izquierda</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs3">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs3" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Codos Flexión 90°</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post41" value="Alineados">
+                        <label class="custom-control-label" for="Post41">Alineados</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post42" value="Ascendido Derecho">
+                            <label class="custom-control-label" for="Post42">Ascendido Derecho</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post43" value="Ascendido Izquierdo">
+                            <label class="custom-control-label" for="Post43">Ascendido Izquierdo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs4">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs4" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Columna Vertebral</h4>
+                <div class="form-group row">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post51" value="Apofisis Alineadas">
+                        <label class="custom-control-label" for="Post51">Apofisis Alineadas</label>
+                    </div>
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post52" value="Escoliosis">
+                        <label class="custom-control-label" for="Post52">Escoliosis</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs5">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs5" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Crestas Iliacas</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post61" value="Alineadas">
+                        <label class="custom-control-label" for="Post61">Alineadas</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post62" value="Ascendida Derecha">
+                            <label class="custom-control-label" for="Post62">Ascendida Derecha</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post63" value="Ascendida Izquierda">
+                            <label class="custom-control-label" for="Post63">Ascendida Izquierda</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs6">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs6" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Glúteos</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post71" value="Tamaño Normal">
+                        <label class="custom-control-label" for="Post71">Tamaño Normal</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post72" value="Prominentes">
+                            <label class="custom-control-label" for="Post72">Prominentes</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post73" value="Pequeños">
+                            <label class="custom-control-label" for="Post73">Pequeños</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post74" value="Pliegues Alineados">
+                            <label class="custom-control-label" for="Post74">Pliegues Alineados</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post75" value="Pliegues Desalineados">
+                            <label class="custom-control-label" for="Post75">Pliegues Desalineados</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs7">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs7" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Pliegues Popliteos</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post81" value="Visibles">
+                            <label class="custom-control-label" for="Post81">Visibles</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post81" value="Visibles">
+                            <label class="custom-control-label" for="Post81">No Visibles</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post82" value="Alineados">
+                            <label class="custom-control-label" for="Post82">Alineados</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post83" value="Oblíquos">
+                            <label class="custom-control-label" for="Post83">Oblíquos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs8">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs8" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Rodillas</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post91" value="Normal">
+                        <label class="custom-control-label" for="Post91">Normal</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post92" value="Genu Varo">
+                            <label class="custom-control-label" for="Post92">Genu Varo</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post93" value="Genu Valgo">
+                            <label class="custom-control-label" for="Post93">Genu Valgo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs9">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs9" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <h4>Pies</h4>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox col-sm-3">
+                        <input type="checkbox" class="custom-control-input" id="Post101" value="Normal">
+                        <label class="custom-control-label" for="Post101">Normal</label>
+                    </div>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post102" value="Varo (Supinador)">
+                            <label class="custom-control-label" for="Post102">Varo (Supinador)</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post103" value="Valgo (Pronador)">
+                            <label class="custom-control-label" for="Post103">Valgo (Pronador)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Obs10">Observaciones:</label>
+                    <textarea class="form-control" id="Post-Obs10" rows="3"></textarea>
+                </div>
+                <hr><br>
+                <div>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Anterior</a>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Siguiente</a>
+                </div>
+            </fieldset>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle><b>Analisis postural</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <h1 class="text-center">Diagnóstico</h1>
+                <br>
+                <p>Digite por favor el diagnóstico para el cliente</p>
+                <div class="form-group">
+                    <label for="exampleTextarea">Análisis Postural</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="..."></textarea>
+                </div>
+            </fieldset>
+            <div>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Anterior</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

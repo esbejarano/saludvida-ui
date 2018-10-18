@@ -30,26 +30,26 @@ export class AnamnesisComponent implements OnInit {
 
     public validarPersonales() {
         const mensajes = [];
-        if (this.personal.validarRP1()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP1); }
-        if (this.personal.validarRP2()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP2); }
-        if (this.personal.validarRP3()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP3); }
-        if (this.personal.validarRP4()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP4); }
-        if (this.personal.validarRP5()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP5); }
-        if (this.personal.validarRP6()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP6); }
-        if (this.personal.validarRP7()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP7); }
-        if (this.personal.validarRP8()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP8); }
-        if (this.personal.validarRP9()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP9); }
-        if (this.personal.validarRP10()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP10); }
-        if (this.personal.validarRP11()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP11); }
-        if (this.personal.validarRP12()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP12); }
-        if (this.personal.validarRP13()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP13); }
-        if (this.personal.validarRP14()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP14); }
-        if (this.personal.validarRP15()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP15); }
-        if (this.personal.validarRP16()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP16); }
-        if (this.personal.validarRP17()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP17); }
-        if (this.personal.validarRP18()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP18); }
-        if (this.personal.validarRP19()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP19); }
-        if (this.personal.validarRP20()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP20); }
+        if (!this.personal.validarRP1()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP1); }
+        if (!this.personal.validarRP2()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP2); }
+        if (!this.personal.validarRP3()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP3); }
+        if (!this.personal.validarRP4()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP4); }
+        if (!this.personal.validarRP5()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP5); }
+        if (!this.personal.validarRP6()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP6); }
+        if (!this.personal.validarRP7()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP7); }
+        if (!this.personal.validarRP8()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP8); }
+        if (!this.personal.validarRP9()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP9); }
+        if (!this.personal.validarRP10()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP10); }
+        if (!this.personal.validarRP11()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP11); }
+        if (!this.personal.validarRP12()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP12); }
+        if (!this.personal.validarRP13()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP13); }
+        if (!this.personal.validarRP14()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP14); }
+        if (!this.personal.validarRP15()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP15); }
+        if (!this.personal.validarRP16()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP16); }
+        if (!this.personal.validarRP17()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP17); }
+        if (!this.personal.validarRP18()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP18); }
+        if (!this.personal.validarRP19()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP19); }
+        if (!this.personal.validarRP20()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP20); }
         this.mensajePersonales = mensajes;
         return this.mensajePersonales.length === 0;
     }
@@ -82,7 +82,6 @@ export class AnamnesisComponent implements OnInit {
         if (this.habitos.validarRH9()) { mensajes.push('Pregunta obligatoria: ' + this.habitos.PH9); }
         if (this.habitos.validarRH10()) { mensajes.push('Pregunta obligatoria: ' + this.habitos.PH10); }
         this.mensajeHabitos = mensajes;
-        console.log(this.mensajeHabitos);
         return this.mensajeHabitos.length === 0;
     }
 
