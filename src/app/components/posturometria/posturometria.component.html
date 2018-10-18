@@ -1,11 +1,23 @@
 <h1 class="text-center">POSTUROMETRÍA</h1>
 <ngb-tabset type="pills" #t="ngbTabset">
+
+
+
+
+
     <ngb-tab id="infoPaciente">
         <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
         <ng-template ngbTabContent>
             
         </ng-template>
     </ngb-tab>
+
+
+
+
+
+
+
     <ngb-tab id="vistaAnterior">
         <ng-template ngbTabTitle><b>Vista anterior</b></ng-template>
         <ng-template ngbTabContent>
@@ -22,21 +34,21 @@
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Ant12" name="Ant12" [(ngModel)]="anterior.Ant1.inclinacion" value="Inclinación Derecha">
+                            <input type="radio" class="custom-control-input" id="Ant12" name="Ant12" [(ngModel)]="anterior.Ant1.inclinacion" value="Inclinación Derecha" >
                             <label class="custom-control-label" for="Ant12">Inclinación Derecha</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Ant13" name="Ant12" [(ngModel)]="anterior.Ant1.inclinacion" value="Inclinación Izquierda">
+                            <input type="radio" class="custom-control-input" id="Ant13" name="Ant12" [(ngModel)]="anterior.Ant1.inclinacion" value="Inclinación Izquierda" >
                             <label class="custom-control-label" for="Ant13">Inclinación Izquierda</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Ant14" name="Ant13" [(ngModel)]="anterior.Ant1.rotacion" value="Rotación Derecha">
+                            <input type="radio" class="custom-control-input" id="Ant14" name="Ant13" [(ngModel)]="anterior.Ant1.rotacion" value="Rotación Derecha" >
                             <label class="custom-control-label" for="Ant14">Rotación Derecha</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Ant15" name="Ant13" [(ngModel)]="anterior.Ant1.rotacion" value="Rotación Izquierda">
+                            <input type="radio" class="custom-control-input" id="Ant15" name="Ant13" [(ngModel)]="anterior.Ant1.rotacion" value="Rotación Izquierda" >
                             <label class="custom-control-label" for="Ant15">Rotación Izquierda</label>
                         </div>
                     </div>
@@ -460,248 +472,262 @@
                 <h1 class="text-center">Vista Posterior</h1>
                 <h4>Cabeza</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post11" value="Recta">
-                        <label class="custom-control-label" for="Post11">Recta</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post11" name="Post11" value="Recta" [(ngModel)]="posterior.post1.recta">
+                            <label class="custom-control-label" for="Post11">Recta</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post12" value="Inclinación Derecha">
+                            <input type="radio" class="custom-control-input" id="Post12" name="Post12" value="Inclinación Derecha" [(ngModel)]="posterior.post1.inclinacion">
                             <label class="custom-control-label" for="Post12">Inclinación Derecha</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post13" value="Inclinación Izquierda">
+                            <input type="radio" class="custom-control-input" id="Post13" name="Post12" value="Inclinación Izquierda" [(ngModel)]="posterior.post1.inclinacion">
                             <label class="custom-control-label" for="Post13">Inclinación Izquierda</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post14" value="Rotación Derecha">
+                            <input type="radio" class="custom-control-input" id="Post14" name="Post13" value="Rotación Derecha" [(ngModel)]="posterior.post1.rotacion">
                             <label class="custom-control-label" for="Post14">Rotación Derecha</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post15" value="Rotación Izquierda">
+                            <input type="radio" class="custom-control-input" id="Post15" name="Post13" value="Rotación Izquierda" [(ngModel)]="posterior.post1.rotacion">
                             <label class="custom-control-label" for="Post15">Rotación Izquierda</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs1">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs1" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs1" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Hombros</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post21" value="Alineados">
-                        <label class="custom-control-label" for="Post21">Alineados</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post21" name="Post21" value="Alineados" [(ngModel)]="posterior.post2.alineado">
+                            <label class="custom-control-label" for="Post21">Alineados</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post22" value="Ascendido Derecho">
+                            <input type="radio" class="custom-control-input" id="Post22" name="Post22" value="Ascendido Derecho" [(ngModel)]="posterior.post2.ascendido">
                             <label class="custom-control-label" for="Post22">Ascendido Derecho</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post23" value="Ascendido Izquierdo">
+                            <input type="radio" class="custom-control-input" id="Post23" name="Post22" value="Ascendido Izquierdo" [(ngModel)]="posterior.post2.ascendido">
                             <label class="custom-control-label" for="Post23">Ascendido Izquierdo</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs2">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs2" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs2" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Escápulas</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post31" value="Alineadas">
-                        <label class="custom-control-label" for="Post31">Alineadas</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post31" value="Alineadas" [(ngModel)]="posterior.post3.alineada">
+                            <label class="custom-control-label" for="Post31">Alineadas</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post32" value="Ascendida Derecha">
+                            <input type="radio" class="custom-control-input" id="Post32" value="Ascendida Derecha" [(ngModel)]="posterior.post3.ascendida">
                             <label class="custom-control-label" for="Post32">Ascendida Derecha</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post33" value="Ascendida Izquierda">
+                            <input type="radio" class="custom-control-input" id="Post33" value="Ascendida Izquierda" [(ngModel)]="posterior.post3.ascendida">
                             <label class="custom-control-label" for="Post33">Ascendida Izquierda</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs3">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs3" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs3" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Codos Flexión 90°</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post41" value="Alineados">
-                        <label class="custom-control-label" for="Post41">Alineados</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post41" name="Post41" value="Alineados" [(ngModel)]="posterior.post4.alineado">
+                            <label class="custom-control-label" for="Post41">Alineados</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post42" value="Ascendido Derecho">
+                            <input type="radio" class="custom-control-input" id="Post42" name="Post42" value="Ascendido Derecho" [(ngModel)]="posterior.post4.ascendido">
                             <label class="custom-control-label" for="Post42">Ascendido Derecho</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post43" value="Ascendido Izquierdo">
+                            <input type="radio" class="custom-control-input" id="Post43" name="Post42" value="Ascendido Izquierdo" [(ngModel)]="posterior.post4.ascendido">
                             <label class="custom-control-label" for="Post43">Ascendido Izquierdo</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs4">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs4" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs4" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Columna Vertebral</h4>
                 <div class="form-group row">
                     <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post51" value="Apofisis Alineadas">
+                        <input type="radio" class="custom-control-input" id="Post51" name="Post51" value="Apofisis Alineadas" [(ngModel)]="posterior.post5">
                         <label class="custom-control-label" for="Post51">Apofisis Alineadas</label>
                     </div>
                     <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post52" value="Escoliosis">
+                        <input type="radio" class="custom-control-input" id="Post52" name="Post51" value="Escoliosis" [(ngModel)]="posterior.post5">
                         <label class="custom-control-label" for="Post52">Escoliosis</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs5">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs5" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs5" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Crestas Iliacas</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post61" value="Alineadas">
-                        <label class="custom-control-label" for="Post61">Alineadas</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post61" name="Post61" value="Alineadas" [(ngModel)]="posterior.post6.alineada">
+                            <label class="custom-control-label" for="Post61">Alineadas</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post62" value="Ascendida Derecha">
+                            <input type="radio" class="custom-control-input" id="Post62" name="Post62" value="Ascendida Derecha" [(ngModel)]="posterior.post6.ascendida">
                             <label class="custom-control-label" for="Post62">Ascendida Derecha</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post63" value="Ascendida Izquierda">
+                            <input type="radio" class="custom-control-input" id="Post63" name="Post62" value="Ascendida Izquierda" [(ngModel)]="posterior.post6.ascendida">
                             <label class="custom-control-label" for="Post63">Ascendida Izquierda</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs6">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs6" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs6" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Glúteos</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post71" value="Tamaño Normal">
-                        <label class="custom-control-label" for="Post71">Tamaño Normal</label>
-                    </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post72" value="Prominentes">
+                            <input type="radio" class="custom-control-input" id="Post71" name="Post71" value="Tamaño Normal" [(ngModel)]="posterior.post7.tamano">
+                            <label class="custom-control-label" for="Post71">Tamaño Normal</label>
+                        </div>
+                        <div class="custom-control custom-radio col-sm-3">
+                            <input type="radio" class="custom-control-input" id="Post72" name="Post71" value="Prominentes" [(ngModel)]="posterior.post7.tamano">
                             <label class="custom-control-label" for="Post72">Prominentes</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post73" value="Pequeños">
+                            <input type="radio" class="custom-control-input" id="Post73" name="Post71" value="Pequeños" [(ngModel)]="posterior.post7.tamano">
                             <label class="custom-control-label" for="Post73">Pequeños</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post74" value="Pliegues Alineados">
+                            <input type="radio" class="custom-control-input" id="Post74" name="Post72" value="Pliegues Alineados" [(ngModel)]="posterior.post7.pliegue">
                             <label class="custom-control-label" for="Post74">Pliegues Alineados</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post75" value="Pliegues Desalineados">
+                            <input type="radio" class="custom-control-input" id="Post75" name="Post72" value="Pliegues Desalineados" [(ngModel)]="posterior.post7.pliegue">
                             <label class="custom-control-label" for="Post75">Pliegues Desalineados</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs7">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs7" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs7" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Pliegues Popliteos</h4>
                 <div class="form-group">
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post81" value="Visibles">
+                            <input type="radio" class="custom-control-input" id="Post81" name="Post81" value="Visibles" [(ngModel)]="posterior.post8.visible">
                             <label class="custom-control-label" for="Post81">Visibles</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post81" value="Visibles">
-                            <label class="custom-control-label" for="Post81">No Visibles</label>
+                            <input type="radio" class="custom-control-input" id="Post82" name="Post81" value="Visibles" [(ngModel)]="posterior.post8.visible">
+                            <label class="custom-control-label" for="Post82">No Visibles</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post82" value="Alineados">
-                            <label class="custom-control-label" for="Post82">Alineados</label>
+                            <input type="radio" class="custom-control-input" id="Post83" name="Post82" value="Alineados" [(ngModel)]="posterior.post8.forma">
+                            <label class="custom-control-label" for="Post83">Alineados</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post83" value="Oblíquos">
-                            <label class="custom-control-label" for="Post83">Oblíquos</label>
+                            <input type="radio" class="custom-control-input" id="Post84" name="Post82" value="Oblíquos" [(ngModel)]="posterior.post8.forma">
+                            <label class="custom-control-label" for="Post84">Oblíquos</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs8">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs8" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs8" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Rodillas</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post91" value="Normal">
-                        <label class="custom-control-label" for="Post91">Normal</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post91" name="Post91" value="Normal" [(ngModel)]="posterior.post9.normal">
+                            <label class="custom-control-label" for="Post91">Normal</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post92" value="Genu Varo">
+                            <input type="radio" class="custom-control-input" id="Post92" name="Post92" value="Genu Varo" [(ngModel)]="posterior.post9.genu">
                             <label class="custom-control-label" for="Post92">Genu Varo</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post93" value="Genu Valgo">
+                            <input type="radio" class="custom-control-input" id="Post93" name="Post92" value="Genu Valgo" [(ngModel)]="posterior.post9.genu">
                             <label class="custom-control-label" for="Post93">Genu Valgo</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs9">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs9" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs9" rows="3"></textarea>
                 </div>
                 <hr><br>
                 <h4>Pies</h4>
                 <div class="form-group">
-                    <div class="custom-control custom-radio col-sm-3">
-                        <input type="radio" class="custom-control-input" id="Post101" value="Normal">
-                        <label class="custom-control-label" for="Post101">Normal</label>
+                    <div class="row">
+                        <div class="custom-control custom-checkbox col-sm-3">
+                            <input type="checkbox" class="custom-control-input" id="Post101" name="Post101" value="Normal" [(ngModel)]="posterior.post10.normal">
+                            <label class="custom-control-label" for="Post101">Normal</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post102" value="Varo (Supinador)">
+                            <input type="radio" class="custom-control-input" id="Post102" name="Post102" value="Varo (Supinador)" [(ngModel)]="posterior.post10.varo">
                             <label class="custom-control-label" for="Post102">Varo (Supinador)</label>
                         </div>
                         <div class="custom-control custom-radio col-sm-3">
-                            <input type="radio" class="custom-control-input" id="Post103" value="Valgo (Pronador)">
+                            <input type="radio" class="custom-control-input" id="Post103" name="Post102" value="Valgo (Pronador)" [(ngModel)]="posterior.post10.varo">
                             <label class="custom-control-label" for="Post103">Valgo (Pronador)</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Obs10">Observaciones:</label>
-                    <textarea class="form-control" id="Post-Obs10" rows="3"></textarea>
+                    <textarea class="form-control" id="postObs10" rows="3"></textarea>
                 </div>
                 <hr><br>
-                <div>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Anterior</a>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Siguiente</a>
-                </div>
+                <p>
+                    <button class="btn btn-outline-default" (click)="t.select('vistaLateral')">Atras</button>
+                    <button class="btn btn-outline-primary" (click)="t.select('analisisPostural')">Siguiente</button>
+                </p>
             </fieldset>
         </ng-template>
     </ngb-tab>
@@ -737,10 +763,10 @@
                     <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="..."></textarea>
                 </div>
             </fieldset>
-            <div>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Anterior</a>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
+            <p>
+                <button class="btn btn-outline-default" (click)="t.select('vistaPosterior')">Atras</button>
+                <button class="btn btn-outline-primary">Guardar</button>
+            </p>
         </ng-template>
     </ngb-tab>
 </ngb-tabset>

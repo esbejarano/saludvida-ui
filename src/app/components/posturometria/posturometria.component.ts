@@ -1,3 +1,4 @@
+import { Posterior } from './../../model/posturometria/Posterior';
 import { Lateral } from './../../model/posturometria/Lateral';
 import { Anterior } from './../../model/posturometria/Anterior';
 import { Component, OnInit } from '@angular/core';
@@ -13,11 +14,12 @@ export class PosturometriaComponent implements OnInit {
     public formpreguntasVistaLateral: any;
     public anterior: Anterior;
     public lateral: Lateral;
-
+    public posterior: Posterior;
 
     constructor() {
         this.anterior = new Anterior();
         this.lateral = new Lateral();
+        this.posterior = new Posterior();
     }
 
     ngOnInit() {
@@ -554,22 +556,6 @@ export class PosturometriaComponent implements OnInit {
                 }
             ]
         };
-    }
-
-    submitVistaAnterior(form: any) {
-        console.log(form.form.value);
-    }
-
-    submitVistaLateral(form: any) {
-        console.log(form.form.value);
-    }
-
-    submitVistaPosterior(form: any) {
-        console.log(form.form.value);
-    }
-
-    public enviar() {
-        console.log(this.formPreguntasVistaAnterior);
     }
 
 }
