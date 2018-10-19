@@ -22,6 +22,8 @@ export class Sistemas {
     public neurologico: string;
     public piel: string;
 
+    public diagnostico: string;
+
     public observacion1: string;
     public observacion2: string;
     public observacion3: string;
@@ -65,6 +67,7 @@ export class Sistemas {
     public lPerifericos: string;
     public lNeurologico: string;
     public lPiel: string;
+    public lDiagnostico: string;
 
 
     constructor() {
@@ -110,6 +113,7 @@ export class Sistemas {
         this.observacion19 = '';
         this.observacion20 = '';
         this.observacion21 = '';
+        this.diagnostico = '';
         this.lOtorrino = 'Otorrino';
         this.lCuello = 'Cuello';
         this.lTiroides = 'Tiroides';
@@ -131,6 +135,7 @@ export class Sistemas {
         this.lPerifericos = 'Perifericos';
         this.lNeurologico = 'Neurologico';
         this.lPiel = 'Piel';
+        this.lDiagnostico = 'Diagnostico';
     }
 
     public validarOtorrino() { return (this.otorrino === '1' && this.observacion1 === ''); }
@@ -154,4 +159,5 @@ export class Sistemas {
     public validarPerifericos() { return (this.perifericos === '1' && this.observacion19 === ''); }
     public validarNeurologico() { return (this.neurologico === '1' && this.observacion20 === ''); }
     public validarPiel() { return (this.piel === '1' && this.observacion21 === ''); }
+    public validarDiagnostico() { console.log(this.diagnostico); return this.diagnostico === ''; }
 }

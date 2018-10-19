@@ -115,83 +115,93 @@ export class Personal {
     }
 
     public validarRP1() {
-        return (this.RP1 !== '' || (this.RP1 === 'No' && this.Anno1 === '' && this.Cuales1 === '' ));
+        return (this.RP1 === '' || (this.RP1 === 'Si' && (this.Anno1 === '' ||  this.Cuales1 === '' )));
     }
 
     public validarRP2() {
-        return (this.RP2 !== '' || (this.RP2 === 'No' && this.Anno2 === '' ));
+        return (this.RP2 === '' || (this.RP2 === 'Si' && (this.Anno2 === '' )));
     }
 
     public validarRP3() {
-        return (this.RP3 !== '' || (this.RP3 === 'No' && this.Anno3 === '' ));
+        return (this.RP3 === '' || (this.RP3 === 'Si' && (this.Anno3 === '' )));
     }
 
     public validarRP4() {
-        return (this.RP4 !== '' || (this.RP4 === 'No' && this.Anno4 === '' ));
+        return (this.RP4 === '' || (this.RP4 === 'Si' && (this.Anno4 === '' )));
     }
 
     public validarRP5() {
-        return (this.RP5 !== '' || (this.RP5 === 'No' && this.Anno5 === '' ));
+        return (this.RP5 === '' || (this.RP5 === 'Si' && (this.Anno5 === '' )));
     }
 
     public validarRP6() {
-        return  this.RP6.Palpitaciones !== '' || this.RP6.Taquicardias !== '' || this.RP6.Nauseas !== '' || this.RP6.Desmayos !== '';
+        return ((this.RP6.Palpitaciones === '' || !this.RP6.Palpitaciones) &&
+            (this.RP6.Taquicardias === '' || !this.RP6.Taquicardias) &&
+            (this.RP6.Nauseas === '' || !this.RP6.Nauseas) &&
+            (this.RP6.Desmayos === '' || !this.RP6.Desmayos));
     }
 
     public validarRP7() {
-        return  this.RP7.Obesidad !== '' || this.RP7.Estres !== '' || this.RP7.Tabaquismo !== '' || this.RP7.Sedentarismo !== '';
+        return ((this.RP7.Obesidad === '' || !this.RP7.Obesidad ) &&
+            (this.RP7.Estres === '' || !this.RP7.Estres ) &&
+            (this.RP7.Tabaquismo === '' || !this.RP7.Tabaquismo ) &&
+            (this.RP7.Sedentarismo === '' || !this.RP7.Sedentarismo));
     }
 
     public validarRP8() {
-        return (this.RP8 !== '' || (this.RP8 === 'No' && this.Anno8 === '' ));
+        return (this.RP8 === '' || (this.RP8 === 'Si' && (this.Anno8 === '' )));
     }
 
     public validarRP9() {
-        return (this.RP9 !== '' || (this.RP9 === 'No' && this.Anno9 === '' && this.Cuales9 === '' ));
+        return (this.RP9 === '' || (this.RP9 === 'Si' && (this.Anno9 === '' || this.Cuales9 === '' )));
     }
 
     public validarRP10() {
-        return (this.RP10 !== '' || (this.RP10 === 'No' && this.Anno10 === '' && this.Cuales10 === '' ));
+        return (this.RP10 === '' || (this.RP10 === 'Si' && (this.Anno10 === '' ||  this.Cuales10 === '' )));
     }
 
     public validarRP11() {
-        return (this.RP11 !== '' || (this.RP11 === 'No' && this.Anno11 === '' && this.Cuales11 === '' ));
+        return (this.RP11 === '' || (this.RP11 === 'Si' && (this.Anno11 === '' ||  this.Cuales11 === '' )));
     }
 
     public validarRP12() {
-        return (this.RP12 !== '' || (this.RP12 === 'No' && this.Anno12 === ''));
+        return (this.RP12 === '' || (this.RP12 === 'Si' &&  (this.Anno12 === '')));
     }
 
     public validarRP13() {
-        return (this.RP13 !== '' || (this.RP13 === 'No' && this.Anno13 === ''));
+        return (this.RP13 === '' || (this.RP13 === 'Si' &&  (this.Anno13 === '')));
     }
 
     public validarRP14() {
-        return (this.RP14 !== '' || (this.RP14 === 'No' && this.Anno14 === ''));
+        return (this.RP14 === '' || (this.RP14 === 'Si' &&  (this.Anno14 === '')));
     }
 
     public validarRP15() {
-        return (this.RP15 !== '' || (this.RP15 === 'No' && this.Anno15 === ''));
+        return (this.RP15 === '' || (this.RP15 === 'Si' &&  (this.Anno15 === '')));
     }
 
     public validarRP16() {
-        return (this.RP16 !== '' || (this.RP16 === 'No' && this.Anno16 === ''));
+        return (this.RP16 === '' || (this.RP16 === 'Si' &&  (this.Anno16 === '')));
     }
 
     public validarRP17() {
-        return (this.RP17 !== '' || (this.RP17 === 'No' && this.Anno17 === '' && this.Cuales17 === '' ));
+        return (this.RP17 === '' || (this.RP17 === 'Si' && (this.Anno17 === '' ||  this.Cuales17 === '' )));
     }
 
     public validarRP18() {
-        return  this.RP18.Medicamentos !== '' || this.RP18.Esteroides !== '' || this.RP18.Anabolicos !== '' || this.RP18.Suplementos !== '';
+        console.log('this.RP18 ', this.RP18);
+        return ((this.RP18.Medicamentos === '' || !this.RP18.Medicamentos ) &&
+            (this.RP18.Esteroides === '' || !this.RP18.Esteroides) &&
+            (this.RP18.Anabolicos === '' || !this.RP18.Anabolicos) &&
+            (this.RP18.Suplementos === '' || !this.RP18.Suplementos));
     }
 
     public validarRP19() {
-        return (this.RP19 !== '' || (this.RP19 === 'No' && this.Anno19 === '' && this.Cuales19 === '' ));
+        return (this.RP19 === '' || (this.RP19 === 'Si' && (this.Anno19 === '' ||  this.Cuales19 === '' )));
     }
 
     public validarRP20() {
-        return (this.RP20 !== '' || (this.RP20 === 'No' && this.Anno20 === '' && this.Cuales20 === '' ));
+        return (this.RP20 === '' || (this.RP20 === 'Si' && (this.Anno20 === '' ||  this.Cuales20 === '' )));
     }
 }
 

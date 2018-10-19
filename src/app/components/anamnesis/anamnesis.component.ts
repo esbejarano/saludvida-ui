@@ -40,26 +40,26 @@ export class AnamnesisComponent implements OnInit {
 
     public validarPersonales() {
         const mensajes = [];
-        if (!this.personal.validarRP1()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP1); }
-        if (!this.personal.validarRP2()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP2); }
-        if (!this.personal.validarRP3()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP3); }
-        if (!this.personal.validarRP4()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP4); }
-        if (!this.personal.validarRP5()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP5); }
-        if (!this.personal.validarRP6()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP6); }
-        if (!this.personal.validarRP7()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP7); }
-        if (!this.personal.validarRP8()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP8); }
-        if (!this.personal.validarRP9()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP9); }
-        if (!this.personal.validarRP10()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP10); }
-        if (!this.personal.validarRP11()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP11); }
-        if (!this.personal.validarRP12()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP12); }
-        if (!this.personal.validarRP13()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP13); }
-        if (!this.personal.validarRP14()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP14); }
-        if (!this.personal.validarRP15()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP15); }
-        if (!this.personal.validarRP16()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP16); }
-        if (!this.personal.validarRP17()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP17); }
-        if (!this.personal.validarRP18()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP18); }
-        if (!this.personal.validarRP19()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP19); }
-        if (!this.personal.validarRP20()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP20); }
+        if (this.personal.validarRP1()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP1); }
+        if (this.personal.validarRP2()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP2); }
+        if (this.personal.validarRP3()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP3); }
+        if (this.personal.validarRP4()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP4); }
+        if (this.personal.validarRP5()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP5); }
+        if (this.personal.validarRP6()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP6); }
+        if (this.personal.validarRP7()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP7); }
+        if (this.personal.validarRP8()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP8); }
+        if (this.personal.validarRP9()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP9); }
+        if (this.personal.validarRP10()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP10); }
+        if (this.personal.validarRP11()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP11); }
+        if (this.personal.validarRP12()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP12); }
+        if (this.personal.validarRP13()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP13); }
+        if (this.personal.validarRP14()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP14); }
+        if (this.personal.validarRP15()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP15); }
+        if (this.personal.validarRP16()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP16); }
+        if (this.personal.validarRP17()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP17); }
+        if (this.personal.validarRP18()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP18); }
+        if (this.personal.validarRP19()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP19); }
+        if (this.personal.validarRP20()) { mensajes.push('Pregunta obligatoria: ' + this.personal.PP20); }
         this.mensajePersonales = mensajes;
         return this.mensajePersonales.length === 0;
     }
@@ -97,27 +97,28 @@ export class AnamnesisComponent implements OnInit {
 
     public validarSistema() {
         const mensajes = [];
-        if ( !this.sistema.validarOtorrino()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lOtorrino); }
-        if ( !this.sistema.validarCuello()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lCuello); }
-        if ( !this.sistema.validarTiroides()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lTiroides); }
-        if ( !this.sistema.validarCorazon()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lCorazon); }
-        if ( !this.sistema.validarPulmones()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPulmones); }
-        if ( !this.sistema.validarTorax()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lTorax); }
-        if ( !this.sistema.validarAbdomen()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAbdomen); }
-        if ( !this.sistema.validarMarcha()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lMarcha); }
-        if ( !this.sistema.validarExtremidades()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lExtremidades); }
-        if ( !this.sistema.validarEdemas()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lEdemas); }
-        if ( !this.sistema.validarAlienacion()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAlienacion); }
-        if ( !this.sistema.validarAtrofias()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAtrofias); }
-        if ( !this.sistema.validarDeformidades()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDeformidades); }
-        if ( !this.sistema.validarPalpacion()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPalpacion); }
-        if ( !this.sistema.validarDolorosos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDolorosos); }
-        if ( !this.sistema.validarDerrames()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDerrames); }
-        if ( !this.sistema.validarMovimientos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lMovimientos); }
-        if ( !this.sistema.validarFuerza()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lFuerza); }
-        if ( !this.sistema.validarPerifericos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPerifericos); }
-        if ( !this.sistema.validarNeurologico()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lNeurologico); }
-        if ( !this.sistema.validarPiel()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPiel); }
+        if ( this.sistema.validarOtorrino()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lOtorrino); }
+        if ( this.sistema.validarCuello()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lCuello); }
+        if ( this.sistema.validarTiroides()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lTiroides); }
+        if ( this.sistema.validarCorazon()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lCorazon); }
+        if ( this.sistema.validarPulmones()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPulmones); }
+        if ( this.sistema.validarTorax()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lTorax); }
+        if ( this.sistema.validarAbdomen()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAbdomen); }
+        if ( this.sistema.validarMarcha()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lMarcha); }
+        if ( this.sistema.validarExtremidades()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lExtremidades); }
+        if ( this.sistema.validarEdemas()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lEdemas); }
+        if ( this.sistema.validarAlienacion()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAlienacion); }
+        if ( this.sistema.validarAtrofias()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAtrofias); }
+        if ( this.sistema.validarDeformidades()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDeformidades); }
+        if ( this.sistema.validarPalpacion()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPalpacion); }
+        if ( this.sistema.validarDolorosos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDolorosos); }
+        if ( this.sistema.validarDerrames()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDerrames); }
+        if ( this.sistema.validarMovimientos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lMovimientos); }
+        if ( this.sistema.validarFuerza()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lFuerza); }
+        if ( this.sistema.validarPerifericos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPerifericos); }
+        if ( this.sistema.validarNeurologico()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lNeurologico); }
+        if ( this.sistema.validarPiel()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPiel); }
+        if ( this.sistema.validarDiagnostico()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDiagnostico); }
 
         this.mensajeSistema = mensajes;
         return this.mensajeSistema.length === 0;

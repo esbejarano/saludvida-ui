@@ -20,9 +20,9 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'useradmin', component: UsuerAdminComponent },
     { path: 'posturometria', component: PosturometriaComponent },
-    { path: 'test-fisico', TestFisicoComponent },
-    { path: 'nutricion', NutricionComponent },
-    { path: 'fsm', FsmComponent },
+    { path: 'test-fisico', component: TestFisicoComponent },
+    { path: 'nutricion', component: NutricionComponent },
+    { path: 'fsm', component: FsmComponent },
     { path: '**', component: LoginComponent }
 ];
 

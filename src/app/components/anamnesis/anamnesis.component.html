@@ -17,9 +17,6 @@
                 <h1 class="text-center">EVALUACIÓN MÉDICA</h1>
                 <fieldset class="card card-body bg-light">
                     <h4>SIGNOS VITALES</h4>
-                    <p *ngFor="let alert of mensajeEvaluacion">
-                        <ngb-alert type="danger" (close)="closeEvaluacion(alert)">{{ alert }}</ngb-alert>
-                    </p>
                     <div class="custom-control">
                         <label class="custom-control-label" class="col-3">Presión arterial Sistólica: </label>
                         <input type="number" id="sistolica" name="sistolica" [(ngModel)]="evaluacion.sistolica"  size="3"
@@ -47,6 +44,9 @@
                         [ngClass]="{'form-control obligatorio': (!evaluacion.freRespiratoria > 0), 'form-control': true}"> rpm
                     </div>
                 </fieldset>
+                <p *ngFor="let alert of mensajeEvaluacion">
+                    <ngb-alert type="danger" (close)="closeEvaluacion(alert)">{{ alert }}</ngb-alert>
+                </p>
                 <p>
                     <button class="btn btn-outline-default" (click)="t.select('infoPaciente')">Atras</button>
                     <button class="btn btn-outline-primary" (click)="(validarEvaluacionMedica()) ? t.select('sistemas'): '';">Siguiente</button>
@@ -74,9 +74,6 @@
                 <h1 class="text-center">SISTEMAS</h1>
                 <fieldset class="card card-body bg-light"> <!-- CABEZA Y CUELLO -->
                     <h4>CABEZA Y CUELLO</h4>
-                    <p *ngFor="let alert of mensajeSistema">
-                        <ngb-alert type="danger" (close)="closeSistema(alert)">{{ alert }}</ngb-alert>
-                    </p>
                     <div class="form-group"> <!-- Otorrino -->
                         <label for="P1"><b>Otorrino</b></label>
                         <div class="col-lg-10">
@@ -575,12 +572,15 @@
                 <fieldset class="card card-body bg-light">
                     <h4>Diagnóstico concluyente</h4>
                     <div class="col-lg-10">
-                        <textarea class="form-control" name="Evaluacion[diagnostico]" rows="3" placeholder="Escriba el diagnostico general de la evaluación"></textarea>
+                        <textarea class="form-control" name="Evaluacion[diagnostico]" rows="3" placeholder="Escriba el diagnostico general de la evaluación" [(ngModel)]="sistema.diagnostico"></textarea>
                     </div>
                 </fieldset>
+                <p *ngFor="let alert of mensajeSistema">
+                    <ngb-alert type="danger" (close)="closeSistema(alert)">{{ alert }}</ngb-alert>
+                </p>
                 <p>
-                    <button class="btn btn-outline-default" (click)="t.select('evaluacionMedica')">Atras</button>
-                    <button class="btn btn-outline-primary" (click)="t.select('antecedentesPersonales')">Siguiente</button>
+                    <button class="btn btn-outline-default" (click)="(validarSistema()) ? t.select('evaluacionMedica') : '';">Atras</button>
+                    <button class="btn btn-outline-primary" (click)="(validarSistema()) ? t.select('antecedentesPersonales') : '';">Siguiente</button>
                 </p>
             </ng-template>
         </ngb-tab>
@@ -603,9 +603,6 @@
         <ngb-tab id="antecedentesPersonales">
             <ng-template ngbTabTitle><b>Antecedentes personales</b></ng-template>
             <ng-template ngbTabContent>
-                <p *ngFor="let alert of mensajePersonales">
-                    <ngb-alert type="danger" (close)="closePersonales(alert)">{{ alert }}</ngb-alert>
-                </p>
                 <form id="formPreguntasAntecedentes" name="formPreguntasAntecedentes">
                     <legend>Por favor diligencie sus antecedentes personales</legend>
                     <div class="form-group">
@@ -1016,7 +1013,7 @@
                         <label><b>{{personal.PP20}}</b></label>
                         <div class="col-lg-10">
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="PNo16" name="RP20" [(ngModel)]="personal.RP20" value="No" class="custom-control-input">
+                                <input type="radio" id="PNo61" name="RP20" [(ngModel)]="personal.RP20" value="No" class="custom-control-input">
                                 <label class="custom-control-label" for="PNo61">No</label>
                             </div>
                             <div class="custom-control custom-radio">
@@ -1117,8 +1114,11 @@
                             </div>
                         </div>
                     </div>
+                    <p *ngFor="let alert of mensajePersonales">
+                        <ngb-alert type="danger" (close)="closePersonales(alert)">{{ alert }}</ngb-alert>
+                    </p>
                     <p>
-                        <button class="btn btn-outline-default" (click)="(validarPersonales())?t.select('infoPaciente'): '';">Atras</button>
+                        <button class="btn btn-outline-default" (click)="(validarPersonales())?t.select('sistemas'): '';">Atras</button>
                         <button class="btn btn-outline-primary" (click)="(validarPersonales())?t.select('antecedentesFamiliares'): '';">Siguiente</button>
                     </p>
                 </form>
@@ -1140,9 +1140,6 @@
         <ngb-tab id="antecedentesFamiliares">
             <ng-template ngbTabTitle><b>Antecedentes familiares</b></ng-template>
             <ng-template ngbTabContent>
-                <p *ngFor="let alertF of mensajeFamiliares">
-                    <ngb-alert type="danger" (close)="closeFamiliares(alertF)">{{ alertF }}</ngb-alert>
-                </p>
                 <legend>Por favor diligencie sus antecedentes familiares</legend>
                 <div class="form-group">
                     <label><b>{{familiar.PF1}}</b></label>
@@ -1675,6 +1672,9 @@
                         </div>
                     </div>
                 </div>
+                <p *ngFor="let alertF of mensajeFamiliares">
+                    <ngb-alert type="danger" (close)="closeFamiliares(alertF)">{{ alertF }}</ngb-alert>
+                </p>
                 <p>
                     <button class="btn btn-outline-default" (click)="(validarFamiliares())?t.select('antecedentesPersonales'): '';">Atras</button>
                     <button class="btn btn-outline-primary" (click)="(validarFamiliares())?t.select('habitos'): '';">Siguiente</button>
@@ -1698,9 +1698,6 @@
         <ngb-tab id="habitos">
             <ng-template ngbTabTitle><b>Habitos</b></ng-template>
             <ng-template ngbTabContent>
-                <p *ngFor="let alertH of mensajeHabitos">
-                    <ngb-alert type="danger" (close)="closeHabitos(alertH)">{{ alertH }}</ngb-alert>
-                </p>
                 <form id="Habitos">
                     
                     <legend>Por favor diligencie sus habitos</legend>
@@ -1981,13 +1978,14 @@
                         </div>
                     </div>
                 </form>
+                <p *ngFor="let alertH of mensajeHabitos">
+                    <ngb-alert type="danger" (close)="closeHabitos(alertH)">{{ alertH }}</ngb-alert>
+                </p>
                 <p>
                     <button class="btn btn-outline-default" (click)="(validarHabitos())?t.select('antecedentesFamiliares'): '';">Atras</button>
                     <button class="btn btn-outline-primary" (click)="(validarHabitos())?t.select('se'): '';">Continuar y terminar</button>
                 </p>
-                {{ habitos | json}}
             </ng-template>
-            {{ habitos | json}}
         </ngb-tab>
 
     </ngb-tabset>
