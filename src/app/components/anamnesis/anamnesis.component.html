@@ -4,9 +4,600 @@
         <ngb-tab id="infoPaciente">
             <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
             <ng-template ngbTabContent>
-
+                <p>
+                    <button class="btn btn-outline-primary" (click)="t.select('evaluacionMedica')">Siguiente</button>
+                </p>
             </ng-template>
         </ngb-tab>
+
+
+        <ngb-tab id="evaluacionMedica">
+            <ng-template ngbTabTitle><b>Evaluación Medica</b></ng-template>
+            <ng-template ngbTabContent>
+                <h1 class="text-center">EVALUACIÓN MÉDICA</h1>
+                <fieldset class="card card-body bg-light">
+                    <h4>SIGNOS VITALES</h4>
+                    <p *ngFor="let alert of mensajeEvaluacion">
+                        <ngb-alert type="danger" (close)="closeEvaluacion(alert)">{{ alert }}</ngb-alert>
+                    </p>
+                    <div class="custom-control">
+                        <label class="custom-control-label" class="col-3">Presión arterial Sistólica: </label>
+                        <input type="number" id="sistolica" name="sistolica" [(ngModel)]="evaluacion.sistolica"  size="3"
+                        [ngClass]="{'form-control obligatorio': (!evaluacion.sistolica > 0), 'form-control': true}">
+                        
+                    </div>
+                    <div class="custom-control">
+                        <label class="custom-control-label" class="col-3">Presión arterial Diastólica: </label>
+                        <input type="number" id="diastolica" name="diastolica" [(ngModel)]="evaluacion.diastolica"  size="3"
+                        [ngClass]="{'form-control obligatorio': (!evaluacion.diastolica > 0), 'form-control': true}">
+                    </div>
+                    <div class="custom-control">
+                        <label class="custom-control-label" class="col-3">Pulso:  </label>
+                        <input type="number" id="pulso" name="pulso" [(ngModel)]="evaluacion.pulso"  size="3"
+                        [ngClass]="{'form-control obligatorio': (!evaluacion.pulso > 0), 'form-control': true}"> ppm
+                    </div>
+                    <div class="custom-control">
+                        <label class="custom-control-label" class="col-3">Frecuenca Cardiáca: </label>
+                        <input type="number" id="fcardiaca" name="fcardiaca" [(ngModel)]="evaluacion.freCardica"  size="3"
+                        [ngClass]="{'form-control obligatorio': (!evaluacion.freCardica > 0), 'form-control': true}"> lpm
+                    </div>
+                    <div class="custom-control">
+                        <label class="custom-control-label" class="col-3">Frecuencia Respiratoria: </label>
+                        <input type="number" id="frespiratoria" name="frespiratoria" [(ngModel)]="evaluacion.freRespiratoria"  size="3"
+                        [ngClass]="{'form-control obligatorio': (!evaluacion.freRespiratoria > 0), 'form-control': true}"> rpm
+                    </div>
+                </fieldset>
+                <p>
+                    <button class="btn btn-outline-default" (click)="t.select('infoPaciente')">Atras</button>
+                    <button class="btn btn-outline-primary" (click)="(validarEvaluacionMedica()) ? t.select('sistemas'): '';">Siguiente</button>
+                </p>
+            </ng-template>
+        </ngb-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ngb-tab id="sistemas">
+            <ng-template ngbTabTitle><b>Sistemas</b></ng-template>
+            <ng-template ngbTabContent>
+                <h1 class="text-center">SISTEMAS</h1>
+                <fieldset class="card card-body bg-light"> <!-- CABEZA Y CUELLO -->
+                    <h4>CABEZA Y CUELLO</h4>
+                    <p *ngFor="let alert of mensajeSistema">
+                        <ngb-alert type="danger" (close)="closeSistema(alert)">{{ alert }}</ngb-alert>
+                    </p>
+                    <div class="form-group"> <!-- Otorrino -->
+                        <label for="P1"><b>Otorrino</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal1" name="Evaluacion[otorrino][respuesta]" [(ngModel)]='sistema.otorrino' class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal1">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal1" name="Evaluacion[otorrino][respuesta]" [(ngModel)]='sistema.otorrino' class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal1">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque1' *ngIf="sistema.otorrino === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion1" name="Evaluacion[otorrino][observacion]" [(ngModel)]="sistema.observacion1" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                    [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.otorrino==='1' && sistema.observacion1 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Cuello -->
+                        <label for="P2"><b>Cuello</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal2" name="Evaluacion[cuello][respuesta]" [(ngModel)]='sistema.cuello' class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal2">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal2" name="Evaluacion[cuello][respuesta]" [(ngModel)]='sistema.cuello' class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal2">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque2' *ngIf="sistema.cuello === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion2" name="Evaluacion[cuello][observacion]" [(ngModel)]="sistema.observacion2" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.cuello==='1' && sistema.observacion2 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Tiroides -->
+                        <label for="P3"><b>Tiroides</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal3" name="Evaluacion[tiroides][respuesta]" [(ngModel)]='sistema.tiroides' class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal3">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal3" name="Evaluacion[tiroides][respuesta]" [(ngModel)]='sistema.tiroides' class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal3">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque3' *ngIf="sistema.tiroides === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion3" name="Evaluacion[tiroides][observacion]" [(ngModel)]="sistema.observacion3" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.tiroides==='1' && sistema.observacion3 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+                <fieldset class="card card-body bg-light"><!-- CARDIO-RESPIRATORIO -->
+                    <h4>CARDIO-RESPIRATORIO</h4>
+                    <div class="form-group"> <!-- Corazón -->
+                        <label for="P4"><b>Corazón</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal4" name="Evaluacion[corazon][respuesta]" [(ngModel)]="sistema.corazon" class="custom-control-input" value="0" checked="" >
+                                <label class="custom-control-label" for="Normal4">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal4" name="Evaluacion[corazon][respuesta]" [(ngModel)]="sistema.corazon" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal4">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque4' *ngIf="sistema.corazon === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion4" name="Evaluacion[corazon][observacion]" [(ngModel)]="sistema.observacion4" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.corazon==='1' && sistema.observacion4 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Pulmones -->
+                        <label for="P5"><b>Pulmones</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal5" name="Evaluacion[pulmones][respuesta]" [(ngModel)]="sistema.pulmones" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal5">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal5" name="Evaluacion[pulmones][respuesta]" [(ngModel)]="sistema.pulmones" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal5">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque5' *ngIf="sistema.pulmones === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion5" name="Evaluacion[pulmones][observacion]" [(ngModel)]="sistema.observacion5" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.pulmones==='1' && sistema.observacion5 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- TÓRAX -->
+                        <label for="P6"><b>Tórax</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal6" name="Evaluacion[torax][respuesta]" [(ngModel)]="sistema.torax" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal6">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal6" name="Evaluacion[torax][respuesta]" [(ngModel)]="sistema.torax" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal6">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque6' *ngIf="sistema.torax === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion6" name="Evaluacion[torax][observacion]" [(ngModel)]="sistema.observacion6" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.torax==='1' && sistema.observacion6 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+                <fieldset class="card card-body bg-light">
+                    <h4>ABDOMEN</h4>
+                    <div class="form-group"> <!-- ABDOMEN -->
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal7" name="Evaluacion[abdomen][respuesta]" [(ngModel)]="sistema.abdomen" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal7">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal7" name="Evaluacion[abdomen][respuesta]" [(ngModel)]="sistema.abdomen" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal7">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque7' *ngIf="sistema.abdomen === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion7" name="Evaluacion[abdomen][observacion]" [(ngModel)]="sistema.observacion7" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.abdomen==='1' && sistema.observacion7 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+                <fieldset class="card card-body bg-light"> <!-- OSTEO-MUSCULAR -->
+                    <h4>ÓSTEO-MUSCULAR</h4>
+                    <div class="form-group"> <!-- Marcha -->
+                        <label for="P8"><b>Marcha</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal8" name="Evaluacion[marcha][respuesta]" [(ngModel)]="sistema.marcha" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal8">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal8" name="Evaluacion[marcha][respuesta]" [(ngModel)]="sistema.marcha" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal8">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque8' *ngIf="sistema.marcha === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion8" name="Evaluacion[marcha][observacion]" [(ngModel)]="sistema.observacion8" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.marcha==='1' && sistema.observacion8 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Extremidades -->
+                        <label for="P9"><b>Extremidades</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal9" name="Evaluacion[extremidades][respuesta]" [(ngModel)]="sistema.extremidades" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal9">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal9" name="Evaluacion[extremidades][respuesta]" [(ngModel)]="sistema.extremidades" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal9">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque9' *ngIf="sistema.extremidades === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion9" name="Evaluacion[extremidades][observacion]" [(ngModel)]="sistema.observacion9" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.extremidades==='1' && sistema.observacion9 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Edemas -->
+                        <label for="P10"><b>Edemas</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal10" name="Evaluacion[edemas][respuesta]" [(ngModel)]="sistema.edemas" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal10">No</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal10" name="Evaluacion[edemas][respuesta]" [(ngModel)]="sistema.edemas" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal10">Si</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque10' *ngIf="sistema.edemas === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion10" name="Evaluacion[edemas][observacion]" [(ngModel)]="sistema.observacion10" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.edemas==='1' && sistema.observacion10 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <hr><br><b>Articular</b><br>
+                    <div class="form-group"> <!-- Trastornos de la alienación -->
+                        <label for="P11">- Trastornos de la alienación</label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal11" name="Evaluacion[alienacion][respuesta]" [(ngModel)]="sistema.alienacion" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal11">No</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal11" name="Evaluacion[alienacion][respuesta]" [(ngModel)]="sistema.alienacion" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal11">Si</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque11' *ngIf="sistema.alienacion === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion11" name="Evaluacion[alienacion][observacion]" [(ngModel)]="sistema.observacion11" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.alienacion==='1' && sistema.observacion11 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Atrofias -->
+                        <label for="P12">- Atrofias</label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal12" name="Evaluacion[atrofias][respuesta]" [(ngModel)]="sistema.atrofias" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal12">No</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal12" name="Evaluacion[atrofias][respuesta]" [(ngModel)]="sistema.atrofias" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal12">Si</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque12' *ngIf="sistema.atrofias === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion12" name="Evaluacion[atrofias][observacion]" [(ngModel)]="sistema.observacion12" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.atrofias==='1' && sistema.observacion12 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Deformidades -->
+                        <label for="P13">- Deformidades</label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal13" name="Evaluacion[deformidades][respuesta]" [(ngModel)]="sistema.deformidades" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal13">No</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal13" name="Evaluacion[deformidades][respuesta]" [(ngModel)]="sistema.deformidades" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal13">Si</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque13' *ngIf="sistema.deformidades === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion13" name="Evaluacion[deformidades][observacion]" [(ngModel)]="sistema.observacion13" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.deformidades==='1' && sistema.observacion13 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group"> <!-- Palpación -->
+                        <label for="P14">- Palpación</label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal14" name="Evaluacion[palpacion][respuesta]" [(ngModel)]="sistema.palpacion" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal14">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal14" name="Evaluacion[palpacion][respuesta]" [(ngModel)]="sistema.palpacion" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal14">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque14' *ngIf="sistema.palpacion === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion14" name="Evaluacion[palpacion][observacion]" [(ngModel)]="sistema.observacion14" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.palpacion==='1' && sistema.observacion14 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group"> <!-- Puntos dolorosos -->
+                        <label for="P15">- Puntos dolorosos</label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal15" name="Evaluacion[dolorosos][respuesta]" [(ngModel)]="sistema.dolorosos" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal15">No</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal15" name="Evaluacion[dolorosos][respuesta]" [(ngModel)]="sistema.dolorosos" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal15">Si</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque15' *ngIf="sistema.dolorosos === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion15" name="Evaluacion[dolorosos][observacion]" [(ngModel)]="sistema.observacion15" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.dolorosos==='1' && sistema.observacion15 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group"> <!-- Derrames -->
+                        <label for="P16">- Derrames</label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal16" name="Evaluacion[derrames][respuesta]" [(ngModel)]="sistema.derrames" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal16">No</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal16" name="Evaluacion[derrames][respuesta]" [(ngModel)]="sistema.derrames" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal16">Si</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque16' *ngIf="sistema.derrames === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion16" name="Evaluacion[derrames][observacion]" [(ngModel)]="sistema.observacion16" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.derrames==='1' && sistema.observacion16 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group"> <!-- Movimientos activos y pasivos (contraresistencia) -->
+                        <label for="P17"><b>Movimientos activos y pasivos (contraresistencia)</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal17" name="Evaluacion[movimientos][respuesta]" [(ngModel)]="sistema.movimientos" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal17">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal17" name="Evaluacion[movimientos][respuesta]" [(ngModel)]="sistema.movimientos" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal17">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque17' *ngIf="sistema.movimientos === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion17" name="Evaluacion[movimientos][observacion]" [(ngModel)]="sistema.observacion17" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.movimientos==='1' && sistema.observacion17 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Fuerza Muscular -->
+                        <label for="P18"><b>Fuerza Muscular</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal18" name="Evaluacion[fuerza][respuesta]" [(ngModel)]="sistema.fuerza" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal18">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal18" name="Evaluacion[fuerza][respuesta]" [(ngModel)]="sistema.fuerza" class="custom-control-input" value="1" >
+                                <label class="custom-control-label" for="Anormal18">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque18' *ngIf="sistema.fuerza === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion18" name="Evaluacion[fuerza][observacion]" [(ngModel)]="sistema.observacion18" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.fuerza==='1' && sistema.observacion18 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group"> <!-- Pulsos Periférficos -->
+                        <label for="P19"><b>Pulsos Periférficos</b></label>
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal19" name="Evaluacion[perifericos][respuesta]" [(ngModel)]="sistema.perifericos" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal19">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal19" name="Evaluacion[perifericos][respuesta]" [(ngModel)]="sistema.perifericos" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal19">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque19' *ngIf="sistema.perifericos === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion19" name="Evaluacion[perifericos][observacion]" [(ngModel)]="sistema.observacion19" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.perifericos==='1' && sistema.observacion19 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </fieldset>
+                <br>
+                <fieldset class="card card-body bg-light"><!-- OTROS -->
+                    <h4>NEUROLÓGICO</h4>
+                    <div class="form-group"> <!-- NEUROLÓGICO -->
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal20" name="Evaluacion[neurologico][respuesta]" [(ngModel)]="sistema.neurologico" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal20">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal20" name="Evaluacion[neurologico][respuesta]" [(ngModel)]="sistema.neurologico" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal20">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque20' *ngIf="sistema.neurologico === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion20" name="Evaluacion[neurologico][observacion]" [(ngModel)]="sistema.observacion20" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.neurologico==='1' && sistema.observacion20 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+                <fieldset class="card card-body bg-light">
+                    <h4>PIEL</h4>        
+                    <div class="form-group"> <!-- PIEL -->
+                        <div class="col-lg-10">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Normal21" name="Evaluacion[piel][respuesta]" [(ngModel)]="sistema.piel" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="Normal21">Normal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="Anormal21" name="Evaluacion[piel][respuesta]" [(ngModel)]="sistema.piel" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Anormal21">Anormal</label>
+                            </div>
+                            <div class="col-lg-10" id='Bloque21' *ngIf="sistema.piel === '1'">
+                                <div>
+                                    <br>  <label><b>Observación: </b></label> 
+                                    <textarea class="form-control" id="observacion21" name="Evaluacion[piel][observacion]" [(ngModel)]="sistema.observacion21" 
+                                    rows="3" placeholder="Escriba los detalles observados por favor..." 
+                                        [ngClass]="{'form-control': true, 'form-control obligatorio': (sistema.piel==='1' && sistema.observacion21 === '')}"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+                <fieldset class="card card-body bg-light">
+                    <h4>Diagnóstico concluyente</h4>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" name="Evaluacion[diagnostico]" rows="3" placeholder="Escriba el diagnostico general de la evaluación"></textarea>
+                    </div>
+                </fieldset>
+                <p>
+                    <button class="btn btn-outline-default" (click)="t.select('evaluacionMedica')">Atras</button>
+                    <button class="btn btn-outline-primary" (click)="t.select('antecedentesPersonales')">Siguiente</button>
+                </p>
+            </ng-template>
+        </ngb-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <ngb-tab id="antecedentesPersonales">
@@ -533,24 +1124,6 @@
                 </form>
             </ng-template>
         </ngb-tab>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1109,15 +1682,6 @@
             </ng-template>
 
         </ngb-tab>
-
-
-
-
-
-
-
-
-
 
 
 

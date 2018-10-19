@@ -1,3 +1,5 @@
+import { Sistemas } from './../../model/anamnesis/Sistemas';
+import { EvaluacionMedica } from './../../model/anamnesis/EvaluacionMedica';
 import { Component, OnInit, Input } from '@angular/core';
 import { Habitos } from '../../model/anamnesis/Habitos';
 import { Personal } from '../../model/anamnesis/Personal';
@@ -13,17 +15,25 @@ export class AnamnesisComponent implements OnInit {
     public habitos: Habitos;
     public personal: Personal;
     public familiar: Familiar;
+    public evaluacion: EvaluacionMedica;
+    public sistema: Sistemas;
     public mensajePersonales: Array<string>;
     public mensajeFamiliares: Array<string>;
     public mensajeHabitos: Array<string>;
+    public mensajeEvaluacion: Array<string>;
+    public mensajeSistema: Array<string>;
 
     constructor() {
         this.habitos = new Habitos();
         this.personal = new Personal();
         this.familiar = new Familiar();
+        this.sistema = new Sistemas();
+        this.evaluacion = new EvaluacionMedica();
         this.mensajePersonales = [];
         this.mensajeFamiliares = [];
         this.mensajeHabitos = [];
+        this.mensajeEvaluacion = [];
+        this.mensajeSistema = [];
     }
 
     ngOnInit() { }
@@ -85,17 +95,77 @@ export class AnamnesisComponent implements OnInit {
         return this.mensajeHabitos.length === 0;
     }
 
+    public validarSistema() {
+        const mensajes = [];
+        if ( !this.sistema.validarOtorrino()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lOtorrino); }
+        if ( !this.sistema.validarCuello()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lCuello); }
+        if ( !this.sistema.validarTiroides()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lTiroides); }
+        if ( !this.sistema.validarCorazon()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lCorazon); }
+        if ( !this.sistema.validarPulmones()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPulmones); }
+        if ( !this.sistema.validarTorax()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lTorax); }
+        if ( !this.sistema.validarAbdomen()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAbdomen); }
+        if ( !this.sistema.validarMarcha()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lMarcha); }
+        if ( !this.sistema.validarExtremidades()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lExtremidades); }
+        if ( !this.sistema.validarEdemas()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lEdemas); }
+        if ( !this.sistema.validarAlienacion()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAlienacion); }
+        if ( !this.sistema.validarAtrofias()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lAtrofias); }
+        if ( !this.sistema.validarDeformidades()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDeformidades); }
+        if ( !this.sistema.validarPalpacion()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPalpacion); }
+        if ( !this.sistema.validarDolorosos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDolorosos); }
+        if ( !this.sistema.validarDerrames()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lDerrames); }
+        if ( !this.sistema.validarMovimientos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lMovimientos); }
+        if ( !this.sistema.validarFuerza()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lFuerza); }
+        if ( !this.sistema.validarPerifericos()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPerifericos); }
+        if ( !this.sistema.validarNeurologico()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lNeurologico); }
+        if ( !this.sistema.validarPiel()) { mensajes.push('Informacion obligatoria: ' + this.sistema.lPiel); }
+
+        this.mensajeSistema = mensajes;
+        return this.mensajeSistema.length === 0;
+    }
+
+    public validarEvaluacionMedica() {
+        const mensajes = [];
+        if ( !this.evaluacion.validarsistolica() ) {
+            mensajes.push( 'El campo: ' + this.evaluacion.lsistolica + ' debe ser mayor de 0');
+        }
+
+        if ( !this.evaluacion.validardiastolica() ) {
+            mensajes.push( 'El campo: ' + this.evaluacion.ldiastolica + ' debe ser mayor de 0');
+        }
+
+        if ( !this.evaluacion.validarpulso() ) {
+            mensajes.push( 'El campo: ' + this.evaluacion.lpulso + ' debe ser mayor de 0');
+        }
+
+        if ( !this.evaluacion.validarfreCardica() ) {
+            mensajes.push( 'El campo: ' + this.evaluacion.lfreCardica + ' debe ser mayor de 0');
+        }
+
+        if ( !this.evaluacion.validarfreRespiratoria() ) {
+            mensajes.push( 'El campo: ' + this.evaluacion.lfreRespiratoria + ' debe ser mayor de 0');
+        }
+
+        this.mensajeEvaluacion = mensajes;
+        return this.mensajeEvaluacion.length === 0;
+    }
+
     public closePersonales(alert: string) {
         this.mensajePersonales.splice(this.mensajePersonales.indexOf(alert), 1);
     }
 
     public closeFamiliares(alert: string) {
-        this.mensajeFamiliares.splice(this.mensajePersonales.indexOf(alert), 1);
+        this.mensajeFamiliares.splice(this.mensajeFamiliares.indexOf(alert), 1);
     }
 
     public closeHabitos(alert: string) {
-        this.mensajeHabitos.splice(this.mensajePersonales.indexOf(alert), 1);
+        this.mensajeHabitos.splice(this.mensajeHabitos.indexOf(alert), 1);
     }
 
+    public closeEvaluacion(alert: string) {
+        this.mensajeEvaluacion.splice(this.mensajeEvaluacion.indexOf(alert), 1);
+    }
 
+    public closeSistema(alert: string) {
+        this.mensajeSistema.splice(this.mensajeSistema.indexOf(alert), 1);
+    }
 }

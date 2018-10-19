@@ -14,6 +14,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PosturometriaComponent } from './components/posturometria/posturometria.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestFisicoComponent } from './components/test-fisico/test-fisico.component';
+import { NutricionComponent } from './components/nutricion/nutricion.component';
+import { FsmComponent } from './components/fsm/fsm.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         UsuerAdminComponent,
         NavbarComponent,
         PosturometriaComponent,
-        InicioComponent
+        InicioComponent,
+        TestFisicoComponent,
+        NutricionComponent,
+        FsmComponent
     ],
     imports: [
         BrowserModule,

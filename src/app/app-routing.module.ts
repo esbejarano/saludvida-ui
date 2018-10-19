@@ -7,6 +7,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { UsuerAdminComponent } from './components/usuer-admin/usuer-admin.component';
 import { PosturometriaComponent } from './components/posturometria/posturometria.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { FsmComponent } from './components/fsm/fsm.component';
+import { NutricionComponent } from './components/nutricion/nutricion.component';
+import { TestFisicoComponent } from './components/test-fisico/test-fisico.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -17,6 +20,9 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'useradmin', component: UsuerAdminComponent },
     { path: 'posturometria', component: PosturometriaComponent },
+    { path: 'test-fisico', TestFisicoComponent },
+    { path: 'nutricion', NutricionComponent },
+    { path: 'fsm', FsmComponent },
     { path: '**', component: LoginComponent }
 ];
 
