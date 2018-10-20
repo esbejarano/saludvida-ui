@@ -1,3 +1,4 @@
+import { Antropometria } from './../../model/antropometria/Antropometria';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AntropometriaComponent implements OnInit {
 
-  constructor() { }
+    public antropometria: Antropometria;
 
-  ngOnInit() {
-  }
+    constructor() {
+        this.antropometria = new Antropometria();
+    }
 
+    ngOnInit() {
+    }
 }

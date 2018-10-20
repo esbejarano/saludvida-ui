@@ -201,7 +201,7 @@ export class Personal {
     }
 
     public validarRP20() {
-        return (this.RP20 === '' || (this.RP20 === 'Si' && (this.Anno20 === '' ||  this.Cuales20 === '' )));
+        return (this.RP20 === '' || (this.RP20 === 'Si' && this.Anno20 === ''));
     }
 }
 
