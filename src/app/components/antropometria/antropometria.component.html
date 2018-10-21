@@ -1,148 +1,336 @@
-    <fieldset class="card card-body bg-light">
-        <div class="form-group row">
-            <div class="col-sm-6">
-                <br>  <label for="nombre"><b>Nombre: </b></label> 
-                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="antropometria.nombre"/>
-            </div>
-            <div class="col-sm-6">
-                <br>  <label for="edad"><b>Edad: </b></label> 
-                <input type="number" class="form-control" id="edad" name="edad" [(ngModel)]="antropometria.edad"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-6">
-                <label for="genero"><b>Genero: </b></label><br>
-                <div class="btn-group btn-group-toggle" ngbRadioGroup name="genero" [(ngModel)]="antropometria.genero"
-                    (change)="antropometria.calcularPesos(); antropometria.calcularPorcentajeGrasa();">
-                    <label ngbButtonLabel class="btn-light">
-                        <input ngbButton type="radio" value="1"> Masculino
-                    </label>
-                    <label ngbButtonLabel class="btn-light">
-                        <input ngbButton type="radio" value="2"> Femenino
-                    </label>
+<h1 class="text-center">ANTROPOMETRIA</h1>
+<ngb-tabset type="pills" #t="ngbTabset">
+    <ngb-tab id="infoPaciente">
+        <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <br>  <label for="nombre"><b>Nombre: </b></label> 
+                        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="antropometria.nombre"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <br>  <label for="edad"><b>Edad: </b></label> 
+                        <input type="number" class="form-control" id="edad" name="edad" [(ngModel)]="antropometria.edad"/>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-                <label for="tipo"><b>Tipo: </b></label><br>
-                <div class="btn-group btn-group-toggle" ngbRadioGroup name="tipo" [(ngModel)]="antropometria.tipo" 
-                    (change)="antropometria.calcularPesoIdeal(); antropometria.calcularPesoPonderado();">
-                    <label ngbButtonLabel class="btn-light">
-                        <input ngbButton type="radio" value="1"> Atlético
-                    </label>
-                    <label ngbButtonLabel class="btn-light">
-                        <input ngbButton type="radio" value="2"> Delgado
-                    </label>
-                    <label ngbButtonLabel class="btn-light">
-                        <input ngbButton type="radio" value="3"> Normal
-                    </label>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="genero"><b>Genero: </b></label><br>
+                        <div class="btn-group btn-group-toggle" ngbRadioGroup name="genero" [(ngModel)]="antropometria.genero"
+                            (change)="calcularTodo()">
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="1"> Masculino
+                            </label>
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="2"> Femenino
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="tipo"><b>Tipo: </b></label><br>
+                        <div class="btn-group btn-group-toggle" ngbRadioGroup name="tipo" [(ngModel)]="antropometria.tipo" 
+                            (change)="calcularTodo()">
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="1"> Atlético
+                            </label>
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="2"> Delgado
+                            </label>
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="3"> Normal
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <div class="form-group row">
-            <div class="col-sm-4">
-                <br>  <label for="estatura"><b>Estatura (cm): </b></label> 
-                <input type="number" class="form-control" id="estatura" name="estatura" [(ngModel)]="antropometria.estatura" 
-                    (change)="antropometria.calcularIMC(); antropometria.calcularPesoPonderado(); antropometria.calcularPlieguesCorregidos(); antropometria.calcularPesos(); antropometria.calcularPorcentajeGrasa();"/>
-            </div>
-            <div class="col-sm-4">
-                <br>  <label for="peso"><b>Peso (KG): </b></label> 
-                <input type="number" class="form-control" id="peso" name="peso" [(ngModel)]="antropometria.peso" 
-                    (change)="antropometria.calcularIMC(); antropometria.calcularPesoPonderado(); antropometria.calcularPesos(); antropometria.calcularPorcentajeGrasa();"/>
-            </div>
-            <div class="col-sm-4">
-                <br>  <label for="pesoIdeal"><b>Peso ideal (KG): </b></label> 
-                <input type="number" class="form-control" id="pesoIdeal" name="pesoIdeal" [(ngModel)]="antropometria.pesoIdeal" readonly/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-6">
-                <br>  <label for="indicePonderal"><b>Índice Ponderal</b></label>
-                <input type="number" class="form-control" id="indicePonderal" name="indicePonderal" [(ngModel)]="antropometria.indicePonderal" readonly/>
-            </div>
-            <div class="col-sm-6">
-                <br>  <label for="pesoPonderado"><b>Peso Ponderado</b></label>
-                <input type="number" class="form-control" id="pesoPonderado" name="pesoPonderado" [(ngModel)]="antropometria.pesoPonderado" readonly/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-4">
-                <br>  <label for="imc"><b>IMC: </b></label> 
-                <input type="number" class="form-control" id="imc" name="imc" [(ngModel)]="antropometria.imc" readonly />
-            </div>
-            <div class="col-sm-4">
-                <br>  <label for="resultadoImc"><b>Resultado IMC: </b></label>
-                <select class="form-control" id="interpretaImc" name="interpretaImc" [(ngModel)]="antropometria.resultadoImc" disabled>
-                    <option value='1'>InfraPeso</option>
-                    <option value='2'>Normal</option>
-                    <option value='3'>SobrePeso</option>
-                    <option value='4'>Obeso</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <br>  <label for="interpretaImc"><b>Interpretación IMC </b></label> 
-                <select class="form-control" id="interpretaImc" name="interpretaImc" [(ngModel)]="antropometria.interpretaImc" disabled>
-                    <option value="1">Delgadez Severa</option>
-                    <option value="2">Delgadez Moderada</option>
-                    <option value="3">Delgadez Aceptable</option>
-                    <option value="4">Normal Base</option>
-                    <option value="5">Normal Límite</option>
-                    <option value="6">Preobeso Base</option>
-                    <option value="7">Preobeso Límite</option>
-                    <option value="8">Obeso Tipo 1 - Base</option>
-                    <option value="9">Obeso Tipo 1 - Límite</option>
-                    <option value="10">Obeso Tipo 2 - Base</option>
-                    <option value="11">Obeso Tipo 2 - Límite</option>
-                    <option value="12">Obeso Tipo 3</option>
-                </select>
-            </div>
-        </div>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <h1 class="text-center">PLICOMETRÍA</h1>
-        <div class="form-group row">
-            <div class="col-sm-6">
-                <label for="tricipital"><b>Tricipital</b></label><br>
-                <input type="number" class="form-control" id="tricipital" name="tricipital" [(ngModel)]="antropometria.tricipital" (change)="antropometria.calcularPlieguesCorregidos()"/><br>
-                <label for="subEscapular"><b>Sub Escapular</b></label><br>
-                <input type="number" class="form-control" id="subEscapular" name="subEscapular" [(ngModel)]="antropometria.subEscapular" (change)="antropometria.calcularPlieguesCorregidos()"/><br>
-                <label for="supIleaco"><b>Supra Ileaco</b></label><br>
-                <input type="number" class="form-control" id="supIleaco" name="supIleaco" [(ngModel)]="antropometria.supIleaco" (change)="antropometria.calcularPlieguesCorregidos()"/><br>
-                <label for="pantorrilla"><b>Pantorrilla</b></label><br>
-                <input type="number" class="form-control" id="pantorrilla" name="pantorrilla" [(ngModel)]="antropometria.pantorrilla" (change)="antropometria.calcularPlieguesCorregidos()"/><br>
-                <label for="plieguesCorregidos"><b>Pliegues corregidos</b></label><br>
-                <input type="text" class="form-control" id="plieguesCorregidos" name="plieguesCorregidos" [(ngModel)]="antropometria.plieguesCorregidos" readonly/><br>
-            </div>
-            <div class="col-sm-6">
-                <label for="porcenGrasa"><b>% de Grasa</b></label><br>
-                <input type="number" class="form-control" id="porcenGrasa" name="porcenGrasa" [(ngModel)]="antropometria.porcenGrasa" readonly /><br>
-                <label for="pesoGraso"><b>Peso Graso</b></label><br>
-                <input type="number" class="form-control" id="pesoGraso" name="pesoGraso" [(ngModel)]="antropometria.pesoGraso" readonly /><br>
-                <label for="pesoResidual"><b>Peso Residual</b></label><br>
-                <input type="number" class="form-control" id="pesoResidual" name="pesoResidual" [(ngModel)]="antropometria.pesoResidual" readonly /><br>
-                <label for="pesoMagro"><b>Peso Magro</b></label><br>
-                <input type="number" class="form-control" id="pesoMagro" name="pesoMagro" [(ngModel)]="antropometria.pesoMagro" readonly /><br>
-                <label for="pesoOseo"><b>Peso Oseo</b></label><br>
-                <input type="number" class="form-control" id="pesoOseo" name="pesoOseo" [(ngModel)]="antropometria.pesoOseo" readonly /><br>
-                <label for="pesoMuscular"><b>Peso Muscular</b></label><br>
-                <input type="number" class="form-control" id="pesoMuscular" name="pesoMuscular" [(ngModel)]="antropometria.pesoMuscular" readonly /><br>
-            </div>
-        </div>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <h1 class="text-center">PERÍMETROS</h1>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <h1 class="text-center">Indice Cintura Cadera (ICC) - Adultos</h1>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <h1 class="text-center">Estructura</h1>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <h1 class="text-center">DIAMETROS(cm)</h1>
-    </fieldset>
-    <fieldset class="card card-body bg-light">
-        <h1 class="text-center">SOMATOTIPOS</h1>
-    </fieldset>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <br>  <label for="estatura"><b>Estatura (cm): </b></label> 
+                        <input type="number" class="form-control" id="estatura" name="estatura" [(ngModel)]="antropometria.estatura" 
+                            (change)="calcularTodo()"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <br>  <label for="peso"><b>Peso (KG): </b></label> 
+                        <input type="number" class="form-control" id="peso" name="peso" [(ngModel)]="antropometria.peso" 
+                            (change)="calcularTodo()"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <br>  <label for="pesoIdeal"><b>Peso ideal (KG): </b></label> 
+                        <input type="number" class="form-control" id="pesoIdeal" name="pesoIdeal" [(ngModel)]="antropometria.pesoIdeal" (change)="calcularTodo()" readonly/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <br>  <label for="indicePonderal"><b>Índice Ponderal</b></label>
+                        <input type="number" class="form-control" id="indicePonderal" name="indicePonderal" [(ngModel)]="antropometria.indicePonderal" (change)="calcularTodo()" readonly/>
+                    </div>
+                    <div class="col-sm-6">
+                        <br>  <label for="pesoPonderado"><b>Peso Ponderado</b></label>
+                        <input type="number" class="form-control" id="pesoPonderado" name="pesoPonderado" [(ngModel)]="antropometria.pesoPonderado" (change)="calcularTodo()" readonly/>
+                    </div>
+                </div>
+            </fieldset>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab id="infoFisica">
+        <ng-template ngbTabTitle><b>Info Fisica</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>PLICOMETRÍA</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="tricipital"><b>Tricipital</b></label><br>
+                        <input type="number" class="form-control" id="tricipital" name="tricipital" [(ngModel)]="antropometria.tricipital" (change)="calcularTodo()"/><br>
+                        
+                        
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="subEscapular"><b>Sub Escapular</b></label><br>
+                        <input type="number" class="form-control" id="subEscapular" name="subEscapular" [(ngModel)]="antropometria.subEscapular" (change)="calcularTodo()"/><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="supIleaco"><b>Supra Ileaco</b></label><br>
+                        <input type="number" class="form-control" id="supIleaco" name="supIleaco" [(ngModel)]="antropometria.supIleaco" (change)="calcularTodo()"/><br>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="pantorrilla"><b>Pantorrilla</b></label><br>
+                        <input type="number" class="form-control" id="pantorrilla" name="pantorrilla" [(ngModel)]="antropometria.pantorrilla" (change)="calcularTodo()"/><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="plieguesCorregidos"><b>Pliegues corregidos</b></label><br>
+                        <input type="text" class="form-control" id="plieguesCorregidos" name="plieguesCorregidos" [(ngModel)]="antropometria.plieguesCorregidos" (change)="calcularTodo()" readonly/><br>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>PERÍMETROS</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for=""><b>Tricipital</b></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label ><b>Izquierdo</b></label><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label ><b>Derecho</b></label><br>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for=""><b>Bicep</b></label><br><br>
+                        <label for=""><b>Pantorrilla</b></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="bicepRelajadoIzq" name="bicepRelajadoIzq" [(ngModel)]="antropometria.bicepRelajadoIzq"  (change)="calcularTodo()"/><br>
+                        <input type="number" class="form-control" id="pantorrillaRelajadaIzq" name="pantorrillaRelajadaIzq" [(ngModel)]="antropometria.pantorrillaRelajadaIzq" (change)="calcularTodo()" /><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="bicepRelajadoDer" name="bicepRelajadoDer" [(ngModel)]="antropometria.bicepRelajadoDer" (change)="calcularTodo()" /><br>
+                        <input type="number" class="form-control" id="pantorrillaRelajadaDer" name="pantorrillaRelajadaDer" [(ngModel)]="antropometria.pantorrillaRelajadaDer" (change)="calcularTodo()" /><br>
+                    </div>
+                </div>
             
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="cuello"><b>Cuello</b></label><br>
+                        <input type="number" class="form-control" id="cuello" name="cuello" [(ngModel)]="antropometria.cuello" 
+                            (change)="calcularTodo();" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="cintura"><b>Cintura</b></label><br>
+                        <input type="number" class="form-control" id="cintura" name="cintura" [(ngModel)]="antropometria.cintura"
+                            (change)="calcularTodo() " />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="cadera"><b>Cadera</b></label><br>
+                        <input type="number" class="form-control" id="cadera" name="cadera" [(ngModel)]="antropometria.cadera" 
+                            (change)="calcularTodo() "/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="brazoCorregido"><b>Brazo Corregido</b></label><br>
+                        <input type="number" class="form-control" id="brazoCorregido" name="brazoCorregido" [(ngModel)]="antropometria.brazoCorregido" 
+                            (change)="calcularTodo()" readonly />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="piernaCorregida"><b>Pierna Corregida</b></label><br>
+                        <input type="number" class="form-control" id="piernaCorregida" name="piernaCorregida" [(ngModel)]="antropometria.piernaCorregida" (change)="calcularTodo()" readonly />
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </fieldset>
+            
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>DIAMETROS(cm)</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="muneca"><b>Muñeca</b></label><br>
+                        <input type="number" class="form-control" id="muneca" name="muneca" [(ngModel)]="antropometria.muneca" (change)="calcularTodo() " />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="codo"><b>Codo</b></label><br>
+                        <input type="number" class="form-control" id="codo" name="codo" [(ngModel)]="antropometria.codo" (change)="calcularTodo() " />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="rodilla"><b>Rodilla</b></label><br>
+                        <input type="number" class="form-control" id="rodilla" name="rodilla" [(ngModel)]="antropometria.rodilla" (change)="calcularTodo() "/>
+                    </div>
+                </div>
+            </fieldset>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab id="resultados">
+        <ng-template ngbTabTitle><b>Resultados</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>IMC</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <br>  <label for="imc"><b>IMC: </b></label> 
+                        <input type="number" class="form-control" id="imc" name="imc" [(ngModel)]="antropometria.imc" readonly />
+                    </div>
+                    <div class="col-sm-4">
+                        <br>  <label for="resultadoImc"><b>Resultado IMC: </b></label>
+                        <select class="form-control" id="interpretaImc" name="interpretaImc" [(ngModel)]="antropometria.resultadoImc" disabled>
+                            <option value='1'>InfraPeso</option>
+                            <option value='2'>Normal</option>
+                            <option value='3'>SobrePeso</option>
+                            <option value='4'>Obeso</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <br>  <label for="interpretaImc"><b>Interpretación IMC </b></label> 
+                        <select class="form-control" id="interpretaImc" name="interpretaImc" [(ngModel)]="antropometria.interpretaImc" disabled>
+                            <option value="1">Delgadez Severa</option>
+                            <option value="2">Delgadez Moderada</option>
+                            <option value="3">Delgadez Aceptable</option>
+                            <option value="4">Normal Base</option>
+                            <option value="5">Normal Límite</option>
+                            <option value="6">Preobeso Base</option>
+                            <option value="7">Preobeso Límite</option>
+                            <option value="8">Obeso Tipo 1 - Base</option>
+                            <option value="9">Obeso Tipo 1 - Límite</option>
+                            <option value="10">Obeso Tipo 2 - Base</option>
+                            <option value="11">Obeso Tipo 2 - Límite</option>
+                            <option value="12">Obeso Tipo 3</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset >
+                <h2 class="text-center"><b>Pesos</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="porcenGrasa"><b>% de Grasa</b></label><br>
+                        <input type="number" class="form-control" id="porcenGrasa" name="porcenGrasa" [(ngModel)]="antropometria.porcenGrasa" readonly /><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pesoGraso"><b>Peso Graso</b></label><br>
+                        <input type="number" class="form-control" id="pesoGraso" name="pesoGraso" [(ngModel)]="antropometria.pesoGraso" readonly /><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pesoResidual"><b>Peso Residual</b></label><br>
+                        <input type="number" class="form-control" id="pesoResidual" name="pesoResidual" [(ngModel)]="antropometria.pesoResidual" readonly /><br>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="pesoMagro"><b>Peso Magro</b></label><br>
+                        <input type="number" class="form-control" id="pesoMagro" name="pesoMagro" [(ngModel)]="antropometria.pesoMagro" readonly /><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pesoOseo"><b>Peso Oseo</b></label><br>
+                        <input type="number" class="form-control" id="pesoOseo" name="pesoOseo" [(ngModel)]="antropometria.pesoOseo" readonly /><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pesoMuscular"><b>Peso Muscular</b></label><br>
+                        <input type="number" class="form-control" id="pesoMuscular" name="pesoMuscular" [(ngModel)]="antropometria.pesoMuscular" readonly /><br>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>Indice Cintura Cadera (ICC) - Adultos</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="valorICC"><b>Valor</b></label><br>
+                        <input type="number" class="form-control" id="valorICC" name="valorICC" [(ngModel)]="antropometria.valorICC" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="interpretaICC"><b>Interpretación</b></label><br>
+                        <select class="form-control" id="interpretaICC" name="interpretaICC" [(ngModel)]="antropometria.interpretaICC" disabled>
+                            <option value='1'>Sin Riesgo</option>
+                            <option value='2'>Riesgo Cardiovascular y Artereoesclerosis</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>Estructura</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="valorEstructura"><b>Valor</b></label><br>
+                        <input type="number" class="form-control" id="valorEstructura" name="valorEstructura" [(ngModel)]="antropometria.valorEstructura" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="interpretaEstructura"><b>Interpretación</b></label><br>
+                        <select class="form-control" id="interpretaEstructura" name="interpretaEstructura" [(ngModel)]="antropometria.interpretaEstructura" disabled>
+                            <option value='1'>Pequeña</option>
+                            <option value='2'>Mediana</option>
+                            <option value='3'>Grande</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>SOMATOTIPOS</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="endomorfia"><b>ENDOMORFIA</b></label><br>
+                        <input type="number" class="form-control" id="endomorfia" name="endomorfia" [(ngModel)]="antropometria.endomorfia" readonly />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="mesomorfia"><b>MESOMORFIA</b></label><br>
+                        <input type="number" class="form-control" id="mesomorfia" name="mesomorfia" [(ngModel)]="antropometria.mesomorfia" readonly />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="ectomorfia"><b>ECTOMORFIA</b></label><br>
+                        <input type="number" class="form-control" id="ectomorfia" name="ectomorfia" [(ngModel)]="antropometria.ectomorfia" readonly />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="x"><b>X</b></label><br>
+                        <input type="number" class="form-control" id="x" name="x" [(ngModel)]="antropometria.x" readonly />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="y"><b>Y</b></label><br>
+                        <input type="number" class="form-control" id="y" name="y" [(ngModel)]="antropometria.y" readonly />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="catalogacion"><b>CATALOGACIÓN</b></label><br>
+                        <select class="form-control" id="catalogacion" name="catalogacion" [(ngModel)]="antropometria.catalogacion" disabled>
+                            <option value='1'>ENDOMÓRFICO BALANCEADO</option>
+                            <option value='2'>MESO-ENDOMÓRFICO</option>
+                            <option value='3'>MESOMORFO ENDOMORFO</option>
+                            <option value='4'>ENDO-MESOMORFO</option>
+                            <option value='5'>MESOMORFO BALANCEADO</option>
+                            <option value='6'>ECTO-MESOMORFO</option>
+                            <option value='7'>MESOMORFO ENDOMORFO</option>
+                            <option value='8'>MESO-ECTOMORFO</option>
+                            <option value='9'>ECTOMORFO BALANCEADO</option>
+                            <option value='10'>ENDO-ECTOMORFO</option>
+                            <option value='11'>ENDOMORFO ECTOMORFO</option>
+                            <option value='12'>ECTO-ENDOMORFO</option>
+                            <option value='13'>CENTRAL</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

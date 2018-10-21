@@ -14,6 +14,18 @@ export class AntropometriaComponent implements OnInit {
         this.antropometria = new Antropometria();
     }
 
-    ngOnInit() {
+    ngOnInit() { }
+
+    public calcularTodo() {
+        this.antropometria.calcularPesoIdeal();
+        this.antropometria.calcularPesoPonderado();
+        this.antropometria.calcularIMC();
+        this.antropometria.calcularPlieguesCorregidos();
+        this.antropometria.calcularPesos();
+        this.antropometria.calcularPorcentajeGrasa();
+        this.antropometria.calcularICC();
+        this.antropometria.calcularPerimetrosCorregidos();
+        this.antropometria.calcularEstructura();
+        this.antropometria.calcularSomatotipos();
     }
 }
