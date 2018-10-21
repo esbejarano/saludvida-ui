@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { TestFisico } from 'src/app/model/testfisico/TestFisico';
 
 @Component({
-  selector: 'app-test-fisico',
-  templateUrl: './test-fisico.component.html',
-  styleUrls: ['./test-fisico.component.css']
+    selector: 'app-test-fisico',
+    templateUrl: './test-fisico.component.html',
+    styleUrls: ['./test-fisico.component.css']
 })
 export class TestFisicoComponent implements OnInit {
 
-  constructor() { }
+    public testFisico: TestFisico;
 
-  ngOnInit() {
-  }
+    constructor() {
+        this.testFisico = new TestFisico();
+    }
+
+    ngOnInit() { }
 
 }

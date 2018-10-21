@@ -72,6 +72,9 @@
                     </div>
                 </div>
             </fieldset>
+            <p>
+                <button class="btn btn-outline-primary" (click)="t.select('infoFisica')">Siguiente</button>
+            </p>
         </ng-template>
     </ngb-tab>
     <ngb-tab id="infoFisica">
@@ -182,6 +185,10 @@
                     </div>
                 </div>
             </fieldset>
+            <p>
+                <button class="btn btn-outline-secondary" (click)="t.select('infoPaciente')">Atras</button>
+                <button class="btn btn-outline-primary" (click)="t.select('resultados')">Siguiente</button>
+            </p>
         </ng-template>
     </ngb-tab>
     <ngb-tab id="resultados">
@@ -331,6 +338,10 @@
                     </div>
                 </div>
             </fieldset>
+            <p>
+                <button class="btn btn-outline-secondary" (click)="t.select('infoFisica')">Atras</button>
+                <button class="btn btn-outline-primary" >Guardar</button>
+            </p>
         </ng-template>
     </ngb-tab>
 </ngb-tabset>

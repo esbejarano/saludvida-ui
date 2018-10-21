@@ -1,3 +1,264 @@
-<p>
-  test-fisico works!
-</p>
+<h1 class="text-center">Test Físico</h1>
+<ngb-tabset type="pills" #t="ngbTabset">
+    <ngb-tab id="infoPaciente">
+        <ng-template ngbTabTitle><b>Info paciente</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <br>  <label for="nombre">Nombre: </label> 
+                        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="testFisico.nombre"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <br>  <label for="edad">Edad: </label> 
+                        <input type="number" class="form-control" id="edad" name="edad" [(ngModel)]="testFisico.edad"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="genero">Genero: </label><br>
+                        <div class="btn-group btn-group-toggle" ngbRadioGroup name="genero" [(ngModel)]="testFisico.genero">
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="1"> Masculino
+                            </label>
+                            <label ngbButtonLabel class="btn-light">
+                                <input ngbButton type="radio" value="2"> Femenino
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <p>
+                <button class="btn btn-outline-primary" (click)="t.select('tests')">Siguiente</button>
+            </p>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tests">
+        <ng-template ngbTabTitle><b>Test Fisico</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>TEST DE RESISTENCIA AEROBICA</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label><b>Ejercicio x tiempo (min)</b></label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>FC 1</b></label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>FC 2</b></label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>FC 3</b></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Knee up x 2 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1kneeup" name="fc1kneeup" [(ngModel)]="testFisico.fc1kneeup"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2kneeup" name="fc2kneeup" [(ngModel)]="testFisico.fc2kneeup"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3kneeup" name="fc3kneeup" [(ngModel)]="testFisico.fc3kneeup"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Skipping x 2 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1skipping" name="fc1skipping" [(ngModel)]="testFisico.fc1skipping"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2skipping" name="fc2skipping" [(ngModel)]="testFisico.fc2skipping"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3skipping" name="fc3skipping" [(ngModel)]="testFisico.fc3skipping"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Desplazamientos adelante-atrás x 2 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1despAdAt" name="fc1despAdAt" [(ngModel)]="testFisico.fc1despAdAt"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2despAdAt" name="fc2despAdAt" [(ngModel)]="testFisico.fc2despAdAt"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3despAdAt" name="fc3despAdAt" [(ngModel)]="testFisico.fc3despAdAt"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Desplazamientos laterales	x 2 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1despLat" name="fc1despLat" [(ngModel)]="testFisico.fc1despLat"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2despLat" name="fc2despLat" [(ngModel)]="testFisico.fc2despLat"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3despLat" name="fc3despLat" [(ngModel)]="testFisico.fc3despLat"/>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>TEST DE RESISTENCIA MIXTA</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label><b>Ejercicio x tiempo (min)</b></label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>FC 1</b></label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>FC 2</b></label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>FC 3</b></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Sky x 1 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1sky" name="fc1sky" [(ngModel)]="testFisico.fc1sky"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2sky" name="fc2sky" [(ngModel)]="testFisico.fc2sky"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3sky" name="fc3sky" [(ngModel)]="testFisico.fc3sky"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Rodillas arriba x 1 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1rodilla" name="fc1rodilla" [(ngModel)]="testFisico.fc1rodilla"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2rodilla" name="fc2rodilla" [(ngModel)]="testFisico.fc2rodilla"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3rodilla" name="fc3rodilla" [(ngModel)]="testFisico.fc3rodilla"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Squat Jump x 1 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1squat" name="fc1squat" [(ngModel)]="testFisico.fc1squat"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2squat" name="fc2squat" [(ngModel)]="testFisico.fc2squat"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3squat" name="fc3squat" [(ngModel)]="testFisico.fc3squat"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label>Militares	x 1 min</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc1militar" name="fc1militar" [(ngModel)]="testFisico.fc1militar"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc2militar" name="fc2militar" [(ngModel)]="testFisico.fc2militar"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="fc3militar" name="fc3militar" [(ngModel)]="testFisico.fc3militar"/>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>TEST DE FUERZA</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label><b>Ejercicio x tiempo (min)</b></label> 
+                    </div>
+                    <div class="col-sm-4">
+                        <label><b>Cantidad</b></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label><b>Tecnica</b></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label>Sentadilla x 1 min</label> 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="sentadillaCantidad" name="sentadillaCantidad" [(ngModel)]="testFisico.sentadillaCantidad"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="sentadillaTecnica" name="sentadillaTecnica" [(ngModel)]="testFisico.sentadillaTecnica"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label>Flexiones de Brazos x 1 min</label> 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="flexionesCantidad" name="flexionesCantidad" [(ngModel)]="testFisico.flexionesCantidad"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="flexionesTecnica" name="flexionesTecnica" [(ngModel)]="testFisico.flexionesTecnica"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label>Abdominales x 1 min</label> 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="abdominalesCantidad" name="abdominalesCantidad" [(ngModel)]="testFisico.abdominalesCantidad"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="abdominalesTecnica" name="abdominalesTecnica" [(ngModel)]="testFisico.abdominalesTecnica"/>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="card card-body bg-light">
+                <h2 class="text-center"><b>TEST DE FLEXIBILIDAD</b></h2>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label>Inclinación tronco de pie sobre banco	</label> 
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="inclinacionTronco" name="inclinacionTronco" [(ngModel)]="testFisico.inclinacionTronco" /> cm
+                    </div>
+                </div>
+            </fieldset>
+            <p>
+                <button class="btn btn-outline-secondary" (click)="t.select('infoPaciente')">Atras</button>
+                <button class="btn btn-outline-primary" (click)="t.select('observaciones')">Siguiente</button>
+            </p>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab id="observaciones">
+        <ng-template ngbTabTitle><b>Observaciones</b></ng-template>
+        <ng-template ngbTabContent>
+            <fieldset class="card card-body bg-light">
+                <div class="form-group row">
+                    <textarea type="text" placeholder="Por favor diligencia las observaciones" rows="10" class="form-control" id="observaciones" name="observaciones" [(ngModel)]="testFisico.observaciones">
+                    </textarea>
+                </div>
+            </fieldset>
+            <p>
+                <button class="btn btn-outline-secondary" (click)="t.select('tests')">Atras</button>
+                <button class="btn btn-outline-primary" >Guardar</button>
+            </p>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>
