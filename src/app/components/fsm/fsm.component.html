@@ -1,3 +1,158 @@
-<p>
-  fsm works!
-</p>
+<h1 class="text-center">FSM</h1>
+<fieldset class="card card-body bg-light">
+        <div class="form-group row">
+            <div class="col-sm-2">
+                <label><b>Test</b></label>
+            </div>
+            <div class="col-sm-4">
+                <label class="text-center"><b>Resultado parcial</b></label>
+            </div>
+            <div class="col-sm-3">
+                <label><b>Resultado final</b></label>
+            </div>
+        </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label><b>Sentadilla con brazos estirados</b></label>
+        </div>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" id="sentadilla" name="sentadilla" [(ngModel)]="fsm.sentadilla"  (change)="calcularResultadosFinales()"/>
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="sentadillaObs" name="sentadillaObs" placeholder="Observaciones" [(ngModel)]="fsm.sentadillaObs" rows="2"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label><b>Estabilidad de tronco en flexión</b></label>
+        </div>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" id="estabilidadT" name="estabilidadT" [(ngModel)]="fsm.estabilidadT" (change)="calcularResultadosFinales()" />
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="estabilidadTObs" name="estabilidadTObs" placeholder="Observaciones" [(ngModel)]="fsm.estabilidadTObs" rows="2"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <br>
+            <label><b>Paso de obstáculo</b></label>
+        </div>
+        <div class="col-sm-2">
+            <label><b>D</b></label><br>
+            <input type="number" class="form-control" id="pasoObsD" name="pasoObsD" [(ngModel)]="fsm.pasoObsD" 
+            (change)="calcularResultadosFinales();"/>
+        </div>
+        <div class="col-sm-2">
+            <label><b>I</b></label><br>
+            <input type="number" class="form-control" id="pasoObsI" name="pasoObsI" [(ngModel)]="fsm.pasoObsI"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>F</b></label><br>
+            <input type="number" class="form-control" id="pasoObsF" name="pasoObsF" [(ngModel)]="fsm.pasoObsF" readonly />
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="pasoObs" name="pasoObs" placeholder="Observaciones" [(ngModel)]="fsm.pasoObs" rows="2"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <br>
+            <label><b>Desplante en línea</b></label>
+        </div>
+        <div class="col-sm-2">
+            <label><b>D</b></label><br>
+            <input type="number" class="form-control" id="desplanteD" name="desplanteD" [(ngModel)]="fsm.desplanteD"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>I</b></label><br>
+            <input type="number" class="form-control" id="desplanteI" name="desplanteI" [(ngModel)]="fsm.desplanteI"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>F</b></label><br>
+            <input type="number" class="form-control" id="desplanteF" name="desplanteF" [(ngModel)]="fsm.desplanteF" readonly />
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="desplante" name="desplante" placeholder="Observaciones" [(ngModel)]="fsm.desplanteObs" rows="2"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <br>
+            <label><b>Movilidad de hombros</b></label>
+        </div>
+        <div class="col-sm-2">
+            <label><b>D</b></label><br>
+            <input type="number" class="form-control" id="movilidadD" name="movilidadD" [(ngModel)]="fsm.movilidadD"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>I</b></label><br>
+            <input type="number" class="form-control" id="movilidadI" name="movilidadI" [(ngModel)]="fsm.movilidadI"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>F</b></label><br>
+            <input type="number" class="form-control" id="movilidadF" name="movilidadF" [(ngModel)]="fsm.movilidadF" readonly />
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="movilidad" name="movilidad" placeholder="Observaciones" [(ngModel)]="fsm.movilidadObs" rows="2"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <br>
+            <label><b>Levantamiento de pierna</b></label>
+        </div>
+        <div class="col-sm-2">
+            <label><b>D</b></label><br>
+            <input type="number" class="form-control" id="levantamientoD" name="levantamientoD" [(ngModel)]="fsm.levantamientoD"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>I</b></label><br>
+            <input type="number" class="form-control" id="levantamientoI" name="levantamientoI" [(ngModel)]="fsm.levantamientoI"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>F</b></label><br>
+            <input type="number" class="form-control" id="levantamientoF" name="levantamientoF" [(ngModel)]="fsm.levantamientoF" readonly />
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="levantamiento" name="levantamiento" placeholder="Observaciones" [(ngModel)]="fsm.levantamientoObs" rows="2"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <br>
+            <label><b>Estabilidad con rotación</b></label>
+        </div>
+        <div class="col-sm-2">
+            <label><b>D</b></label><br>
+            <input type="number" class="form-control" id="estabilidadD" name="estabilidadD" [(ngModel)]="fsm.estabilidadD"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>I</b></label><br>
+            <input type="number" class="form-control" id="estabilidadI" name="estabilidadI" [(ngModel)]="fsm.estabilidadI"
+            (change)="calcularResultadosFinales();" />
+        </div>
+        <div class="col-sm-2">
+            <label><b>F</b></label><br>
+            <input type="number" class="form-control" id="estabilidadF" name="estabilidadF" [(ngModel)]="fsm.estabilidadF" readonly />
+        </div>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="AntObs1" id="estabilidad" name="estabilidad" placeholder="Observaciones" [(ngModel)]="fsm.estabilidadObs" rows="2"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-6"><label><b>Totales</b></label></div>
+        <div class="col-sm-6"><input type="number" class="form-control" id="totales" name="totales" [(ngModel)]="fsm.totales" readonly /></div>
+    </div>
+    
+</fieldset>
