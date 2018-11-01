@@ -113,26 +113,17 @@
                 <h2 class="text-center"><b>PERÍMETROS</b></h2>
                 <div class="form-group row">
                     <div class="col-sm-4">
-                        <label for=""><b>Tricipital</b></label>
+                        <label for=""><b>Bicep</b></label>
                     </div>
                     <div class="col-sm-4">
-                        <label ><b>Izquierdo</b></label><br>
-                    </div>
-                    <div class="col-sm-4">
-                        <label ><b>Derecho</b></label><br>
+                        <input type="number" class="form-control" id="bicepRelajadoDer" name="bicepRelajadoDer" [(ngModel)]="antropometria.bicepRelajadoDer" (change)="calcularTodo()" /><br>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-4">
-                        <label for=""><b>Bicep</b></label><br><br>
                         <label for=""><b>Pantorrilla</b></label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="number" class="form-control" id="bicepRelajadoIzq" name="bicepRelajadoIzq" [(ngModel)]="antropometria.bicepRelajadoIzq"  (change)="calcularTodo()"/><br>
-                        <input type="number" class="form-control" id="pantorrillaRelajadaIzq" name="pantorrillaRelajadaIzq" [(ngModel)]="antropometria.pantorrillaRelajadaIzq" (change)="calcularTodo()" /><br>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="number" class="form-control" id="bicepRelajadoDer" name="bicepRelajadoDer" [(ngModel)]="antropometria.bicepRelajadoDer" (change)="calcularTodo()" /><br>
                         <input type="number" class="form-control" id="pantorrillaRelajadaDer" name="pantorrillaRelajadaDer" [(ngModel)]="antropometria.pantorrillaRelajadaDer" (change)="calcularTodo()" /><br>
                     </div>
                 </div>
@@ -155,6 +146,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="cadera"><b>Muñeca</b></label><br>
+                        <input type="number" class="form-control" id="perMuneca" name="perMuneca" [(ngModel)]="antropometria.perMuneca" 
+                            (change)="calcularTodo() "/>
+                    </div>
                     <div class="col-sm-4">
                         <label for="brazoCorregido"><b>Brazo Corregido</b></label><br>
                         <input type="number" class="form-control" id="brazoCorregido" name="brazoCorregido" [(ngModel)]="antropometria.brazoCorregido" 

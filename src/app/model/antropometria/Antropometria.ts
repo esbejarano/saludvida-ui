@@ -43,10 +43,12 @@ export class Antropometria {
     public ectomorfia: number;
     public x: number;
     public y: number;
+    public perMuneca: number;
     public catalogacion: string;
 
     constructor() {
         this.nombre = '';
+        this.perMuneca = 0;
         this.edad = 0;
         this.genero = '1';
         this.tipo = '1';
@@ -165,7 +167,8 @@ export class Antropometria {
         this.pesoResidual = (this.genero === '1') ? (this.peso * (24.1 / 100)) : (this.peso * ( 20.9 / 100));
         this.pesoMagro = (this.peso - this.pesoGraso);
         const a = (( this.codo + this.brazoCorregido + this.rodilla + this.muneca ) / 4 );
-        this.pesoOseo = ((Math.pow(a, 2 )) * (this.estatura) * (0.92) * (0.001));
+        const valorOseo = (Math.pow( (this.estatura / 100), 2) * (this.muneca / 100) * (this.rodilla / 100) * 400);
+        this.pesoOseo = (3.02 * Math.pow( valorOseo, 0.712));
         this.pesoMuscular =  (this.peso - (this.pesoGraso + this.pesoOseo + this.pesoResidual));
     }
 
@@ -191,7 +194,7 @@ export class Antropometria {
     }
 
     public calcularEstructura() {
-        this.valorEstructura = (this.estatura / 5.2);
+        this.valorEstructura = (this.estatura / this.perMuneca);
         let valor;
 
         if (this.genero === '1') {
