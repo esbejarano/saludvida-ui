@@ -27,6 +27,8 @@ export class FSM {
     public estabilidadTObs: string;
     public totales: number;
 
+    public observacionesGenerales: string;
+
 
     constructor() {
         this.pasoObsD = 0;
@@ -53,5 +55,6 @@ export class FSM {
         this.sentadillaObs = '';
         this.estabilidadT = 0;
         this.estabilidadTObs = '';
+        this.observacionesGenerales = '';
     }
 }
